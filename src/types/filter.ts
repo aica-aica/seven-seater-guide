@@ -7,5 +7,6 @@ export interface FilterOptions {
   doorTypes: DoorType[];
   engineTypes: EngineType[];
   categories: VehicleCategory[];
+  coreCategory?: 'all' | 'true-7-mpv' | '5-plus-2-suv';
   sortBy: 'price-asc' | 'price-desc' | 'length-desc' | 'luggage-desc' | 'fuel-desc';
 }

@@ -1,7 +1,8 @@
 import React, { Suspense } from 'react';
 import { Metadata } from 'next';
 import CompareSelector from '@/components/compare/CompareSelector';
-import { Scale } from 'lucide-react';
+import SplitScreenDuel from '@/components/compare/SplitScreenDuel';
+import { Scale, Layers } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: '七人座多車規格橫向比較器 | 空間、滑門、第三排、行李箱對比',
@@ -11,24 +12,33 @@ export const metadata: Metadata = {
 
 export default function ComparePage() {
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-6">
-      {/* Header */}
-      <div className="pb-4 border-b border-slate-800">
-        <div className="flex items-center gap-2 text-xs font-bold text-amber-400 mb-1">
-          <Scale className="w-4 h-4" />
-          <span>互動式多車比對工具</span>
-        </div>
-        <h1 className="text-2xl sm:text-4xl font-black text-white tracking-tight">
-          七人座車型 深度規格橫向對決
-        </h1>
-        <p className="text-xs sm:text-sm text-slate-400 mt-1">
-          直接切換與標註關鍵差異，找出真正契合您家乘載需求的座駕。
-        </p>
-      </div>
-
-      <Suspense fallback={<div className="p-8 text-center text-slate-400">載入規格對比器中...</div>}>
-        <CompareSelector />
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12">
+      {/* Top Section: Split-Screen Duel (左右雙欄上下滑動對決) */}
+      <Suspense fallback={<div className="p-8 text-center text-slate-400">載入規格對決器中...</div>}>
+        <SplitScreenDuel showTitle={true} />
       </Suspense>
+
+      {/* Second Section: Multi-car comparison table (多車橫向評比表) */}
+      <div className="pt-8 border-t border-slate-800 space-y-6">
+        <div className="flex items-center gap-2 text-xs font-bold text-slate-400">
+          <Layers className="w-4 h-4 text-amber-400" />
+          <span>多車綜合對比模式</span>
+        </div>
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+          <div>
+            <h2 className="text-xl sm:text-2xl font-black text-white">
+              多車橫向規格矩陣檢視表
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-400 mt-1">
+              可同時加入最多 4 款車型進行逐列各項規配比較。
+            </p>
+          </div>
+        </div>
+
+        <Suspense fallback={<div className="p-8 text-center text-slate-400">載入規格表格中...</div>}>
+          <CompareSelector />
+        </Suspense>
+      </div>
     </div>
   );
 }

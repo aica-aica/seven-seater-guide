@@ -41,6 +41,23 @@ export default function HeroSection({ onSelectScenario, selectedScenario }: Hero
           不看廠商包裝型錄，只看<strong>真實腿部空間</strong>、<strong>雙側滑門動線</strong>、<strong>ISOFIX 數量</strong>與<strong>七人滿載行李箱容積</strong>。為台灣家庭打造的獨立客觀選購指南。
         </p>
 
+        {/* Hero Quick CTA */}
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+          <a
+            href="#split-compare"
+            className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-black text-sm shadow-lg shadow-amber-500/20 transition-all hover:scale-105"
+          >
+            <Sparkles className="w-4 h-4" />
+            <span>立即體驗：左右分欄上下滑動對決器</span>
+          </a>
+          <Link
+            href="/compare"
+            className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-slate-800 hover:bg-slate-750 text-slate-200 hover:text-white font-bold text-sm border border-slate-700 transition-all"
+          >
+            <span>多車規格對比庫</span>
+          </Link>
+        </div>
+
         {/* Quick Scenario Buttons */}
         <div className="mt-10 max-w-3xl mx-auto">
           <p className="text-xs uppercase tracking-wider text-slate-400 font-semibold mb-3">

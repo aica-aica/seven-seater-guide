@@ -83,6 +83,15 @@ export default async function CarDetailPage({ params }: CarDetailPageProps) {
             {/* Left: Info & Badges */}
             <div className="lg:col-span-7 space-y-4">
               <div className="flex flex-wrap items-center gap-2">
+                <span
+                  className={`px-3 py-1 rounded-md text-xs font-black shadow-sm ${
+                    car.coreCategory === 'true-7-mpv'
+                      ? 'bg-emerald-500 text-slate-950 font-bold'
+                      : 'bg-sky-400 text-slate-950 font-bold'
+                  }`}
+                >
+                  {car.coreCategory === 'true-7-mpv' ? '🛡️ 正7人座 MPV' : '⚡ 5+2 SUV'}
+                </span>
                 <span className="px-3 py-1 rounded-md text-xs font-bold bg-amber-500/10 text-amber-400 border border-amber-500/30">
                   {car.categoryName}
                 </span>

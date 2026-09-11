@@ -1,6 +1,7 @@
 export type SeatingLayout = '2+2+3' | '2+3+2' | '2+2+2';
 export type DoorType = 'dual-power-sliding' | 'manual-sliding' | 'hinged';
 export type VehicleCategory = 'full-mpv' | 'mid-mpv' | 'compact-mpv' | '5-plus-2-suv' | 'luxury-mpv';
+export type CoreCategory = 'true-7-mpv' | '5-plus-2-suv';
 export type EngineType = 'gasoline' | 'diesel' | 'hybrid' | 'phev' | 'ev';
 export type ThirdRowUsability = 'adult-long-haul' | 'adult-short-haul' | 'emergency-child';
 
@@ -78,6 +79,8 @@ export interface Car {
   seatingCapacity: 7;                  // 規範定義 7 人座數值
   category: VehicleCategory;
   categoryName: string;
+  coreCategory: CoreCategory;          // 核心分類：'true-7-mpv' (正7人座 MPV) 或 '5-plus-2-suv' (5+2 SUV)
+  coreCategoryLabel: '正7人座' | '5+2 SUV';
   priceRangeTwd: [number, number];     // 價格區間 (新台幣元)
   heroImage: string;
   tagline: string;

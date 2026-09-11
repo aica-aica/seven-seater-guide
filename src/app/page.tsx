@@ -11,6 +11,7 @@ import TopPicks from '@/components/home/TopPicks';
 import VehicleFilter from '@/components/home/VehicleFilter';
 import CarCard from '@/components/home/CarCard';
 import ComparisonMatrixPreview from '@/components/home/ComparisonMatrixPreview';
+import SplitScreenDuel from '@/components/compare/SplitScreenDuel';
 import GuideCard from '@/components/guides/GuideCard';
 import JsonLdFaq from '@/components/seo/JsonLdFaq';
 import { ArrowRight, HelpCircle, ChevronDown } from 'lucide-react';
@@ -107,6 +108,11 @@ export default function HomePage() {
         if (!filters.categories.includes(car.category)) return false;
       }
 
+      // Core Category (正7人座 MPV vs 5+2 SUV)
+      if (filters.coreCategory && filters.coreCategory !== 'all') {
+        if (car.coreCategory !== filters.coreCategory) return false;
+      }
+
       return true;
     }).sort((a, b) => {
       if (filters.sortBy === 'price-asc') return a.priceRangeTwd[0] - b.priceRangeTwd[0];
@@ -126,7 +132,14 @@ export default function HomePage() {
         selectedScenario={selectedScenario}
       />
 
-      {/* 2. Curated Top Picks */}
+      {/* 2. Core Interactive Split-Screen Duel Section (左右分欄上下滑動對決) */}
+      <section className="py-12 bg-slate-950/90 border-y border-slate-800 relative overflow-hidden" id="split-compare">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <SplitScreenDuel />
+        </div>
+      </section>
+
+      {/* 3. Curated Top Picks */}
       <TopPicks />
 
       {/* 3. Interactive Vehicle Finder & Grid */}

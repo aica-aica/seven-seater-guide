@@ -27,7 +27,16 @@ export default function CarCard({ car, isCompared, onToggleCompare }: CarCardPro
 
         {/* Top Badges */}
         <div className="absolute top-3 left-3 flex flex-wrap gap-1.5">
-          <span className="px-2.5 py-1 rounded-md text-[11px] font-bold bg-slate-900/90 text-amber-400 border border-amber-500/30 backdrop-blur-sm shadow-sm">
+          <span
+            className={`px-2.5 py-1 rounded-md text-[11px] font-black backdrop-blur-sm shadow-sm ${
+              car.coreCategory === 'true-7-mpv'
+                ? 'bg-emerald-500 text-slate-950 font-bold'
+                : 'bg-sky-400 text-slate-950 font-bold'
+            }`}
+          >
+            {car.coreCategory === 'true-7-mpv' ? '🛡️ 正7人座' : '⚡ 5+2 SUV'}
+          </span>
+          <span className="px-2 py-1 rounded-md text-[11px] font-bold bg-slate-900/90 text-amber-400 border border-amber-500/30 backdrop-blur-sm shadow-sm">
             {car.categoryName}
           </span>
           {car.doorType === 'dual-power-sliding' && (
