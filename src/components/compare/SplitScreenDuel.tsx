@@ -4,6 +4,7 @@ import React, { useState, useMemo, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { CARS_DATA } from '@/data/cars';
 import { CoreCategory } from '@/types/car';
+import { getCarImageUrl } from '@/utils/image';
 import {
   ArrowLeftRight,
   ChevronUp,
@@ -28,6 +29,12 @@ interface SplitScreenDuelProps {
 
 // Predefined popular comparison duels
 const PRESET_DUELS = [
+  {
+    name: '德系純電 vs 日系油電旗艦對決',
+    desc: '福斯復古純電 91kWh 大空間 vs 豐田油電省油全尺寸 MPV',
+    leftId: 'volkswagen-id-buzz',
+    rightId: 'toyota-sienna',
+  },
   {
     name: '正7座 MPV vs 5+2 SUV 經典對決',
     desc: '北美全尺寸滑門霸主 vs 歐洲進口熱銷七座休旅',
@@ -333,7 +340,7 @@ export default function SplitScreenDuel({
                     >
                       <div className="w-14 h-10 rounded-lg overflow-hidden bg-slate-950 flex-shrink-0 relative">
                         <img
-                          src={car.heroImage}
+                          src={getCarImageUrl(car.heroImage)}
                           alt={car.model}
                           className="w-full h-full object-cover"
                           loading="lazy"
@@ -376,7 +383,7 @@ export default function SplitScreenDuel({
             {/* Image & Identity */}
             <div className="relative h-48 sm:h-56 rounded-xl overflow-hidden bg-slate-950 group">
               <img
-                src={leftCar.heroImage}
+                src={getCarImageUrl(leftCar.heroImage)}
                 alt={leftCar.model}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
@@ -625,7 +632,7 @@ export default function SplitScreenDuel({
                     >
                       <div className="w-14 h-10 rounded-lg overflow-hidden bg-slate-950 flex-shrink-0 relative">
                         <img
-                          src={car.heroImage}
+                          src={getCarImageUrl(car.heroImage)}
                           alt={car.model}
                           className="w-full h-full object-cover"
                           loading="lazy"
@@ -668,7 +675,7 @@ export default function SplitScreenDuel({
             {/* Image & Identity */}
             <div className="relative h-48 sm:h-56 rounded-xl overflow-hidden bg-slate-950 group">
               <img
-                src={rightCar.heroImage}
+                src={getCarImageUrl(rightCar.heroImage)}
                 alt={rightCar.model}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />

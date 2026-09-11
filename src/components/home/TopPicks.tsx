@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { CARS_DATA } from '@/data/cars';
+import { getCarImageUrl } from '@/utils/image';
 import { Trophy, CheckCircle2, ArrowRight } from 'lucide-react';
 
 export default function TopPicks() {
@@ -68,7 +69,7 @@ export default function TopPicks() {
 
                   <div className="h-36 rounded-xl overflow-hidden mb-4 bg-slate-900">
                     <img
-                      src={car.heroImage}
+                      src={getCarImageUrl(car.heroImage)}
                       alt={car.model}
                       className="w-full h-full object-cover"
                       loading="lazy"

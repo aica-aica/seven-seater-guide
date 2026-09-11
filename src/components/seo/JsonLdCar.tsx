@@ -6,6 +6,10 @@ interface JsonLdCarProps {
 }
 
 export default function JsonLdCar({ car, canonicalUrl }: JsonLdCarProps) {
+  const fullImageUrl = car.heroImage.startsWith('http')
+    ? car.heroImage
+    : `https://aica-aica.github.io/seven-seater-guide${car.heroImage.startsWith('/') ? car.heroImage : `/${car.heroImage}`}`;
+
   const graphEntities: any[] = [
     {
       '@type': ['Car', 'Product'],
@@ -16,7 +20,7 @@ export default function JsonLdCar({ car, canonicalUrl }: JsonLdCarProps) {
         '@type': 'Brand',
         name: car.brand,
       },
-      image: car.heroImage,
+      image: fullImageUrl,
       description: `${car.tagline}。七人滿載行李箱容積 ${car.luggage.litres7SeatMode}L，${car.seating.layout} 座椅配置，${car.safety.isofixPoints} 組 ISOFIX。`,
       vehicleConfiguration: `${car.categoryName} (${car.seating.layoutDescription})`,
       bodyType: car.category === '5-plus-2-suv' ? 'SUV' : 'MPV',

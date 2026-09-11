@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { Metadata } from 'next';
 import { CARS_DATA } from '@/data/cars';
+import { getCarImageUrl } from '@/utils/image';
 import CarSpecTable from '@/components/cars/CarSpecTable';
 import SeatingDiagram from '@/components/cars/SeatingDiagram';
 import LuggageCapacity from '@/components/cars/LuggageCapacity';
@@ -35,7 +36,7 @@ export async function generateMetadata({ params }: CarDetailPageProps): Promise<
     openGraph: {
       title: `${car.brand} ${car.model} (${car.year}) 七人座完整評測規格`,
       description: `${car.tagline}，真實行李容積 ${car.luggage.litres7SeatMode}L，第三排空間評測。`,
-      images: [{ url: car.heroImage, width: 1200, height: 630, alt: car.model }],
+      images: [{ url: getCarImageUrl(car.heroImage), width: 1200, height: 630, alt: car.model }],
     },
   };
 }
@@ -148,7 +149,7 @@ export default async function CarDetailPage({ params }: CarDetailPageProps) {
             <div className="lg:col-span-5">
               <div className="relative rounded-2xl overflow-hidden border border-slate-800 shadow-2xl bg-slate-950 group">
                 <img
-                  src={car.heroImage}
+                  src={getCarImageUrl(car.heroImage)}
                   alt={`${car.brand} ${car.model}`}
                   className="w-full h-72 sm:h-80 object-cover object-center group-hover:scale-105 transition-transform duration-500"
                 />

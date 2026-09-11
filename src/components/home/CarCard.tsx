@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { Car } from '@/types/car';
+import { getCarImageUrl } from '@/utils/image';
 import { Users, DoorClosed, Briefcase, Gauge, Shield, ArrowRight } from 'lucide-react';
 
 interface CarCardProps {
@@ -18,7 +19,7 @@ export default function CarCard({ car, isCompared, onToggleCompare }: CarCardPro
       {/* Card Header & Image */}
       <div className="relative h-48 sm:h-52 w-full overflow-hidden bg-slate-950">
         <img
-          src={car.heroImage}
+          src={getCarImageUrl(car.heroImage)}
           alt={`${car.brand} ${car.model} 七人座規格`}
           className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
           loading="lazy"

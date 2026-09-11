@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { CARS_DATA } from '@/data/cars';
 import { Car } from '@/types/car';
+import { getCarImageUrl } from '@/utils/image';
 import { Plus, X, ArrowLeft, Check, Sparkles } from 'lucide-react';
 
 interface CompareSelectorProps {
@@ -102,7 +103,7 @@ export default function CompareSelector({ initialCarIds = ['toyota-sienna', 'kia
                     <X className="w-3.5 h-3.5" />
                   </button>
                   <div className="h-28 rounded-lg overflow-hidden mb-3 bg-slate-950">
-                    <img src={car.heroImage} alt={car.model} className="w-full h-full object-cover" />
+                    <img src={getCarImageUrl(car.heroImage)} alt={car.model} className="w-full h-full object-cover" />
                   </div>
                   <span className="text-base font-black text-white block">{car.brand} {car.model}</span>
                   <span className="text-[11px] text-amber-400 font-semibold">{car.categoryName}</span>
@@ -274,7 +275,7 @@ export default function CompareSelector({ initialCarIds = ['toyota-sienna', 'kia
                     className="w-full flex items-center justify-between p-3 rounded-xl bg-slate-950 hover:bg-slate-800 border border-slate-800 text-left transition-colors"
                   >
                     <div className="flex items-center gap-3">
-                      <img src={car.heroImage} alt={car.model} className="w-12 h-10 rounded-lg object-cover" />
+                      <img src={getCarImageUrl(car.heroImage)} alt={car.model} className="w-12 h-10 rounded-lg object-cover" />
                       <div>
                         <span className="text-sm font-bold text-white block">{car.brand} {car.model}</span>
                         <span className="text-[11px] text-amber-400 font-semibold">{car.categoryName}</span>
