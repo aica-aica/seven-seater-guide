@@ -7,8 +7,8 @@ interface CarSpecTableProps {
 
 export default function CarSpecTable({ car }: CarSpecTableProps) {
   return (
-    <div className="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-xl text-slate-200">
-      <div className="p-4 sm:p-6 border-b border-slate-800 bg-slate-850">
+    <div className="bg-[#0e1424]/80 backdrop-blur-xl border border-white/[0.08] rounded-2xl overflow-hidden shadow-xl text-slate-200">
+      <div className="p-4 sm:p-6 border-b border-white/[0.06] bg-slate-900/40">
         <h3 className="text-lg font-bold text-white flex items-center gap-2">
           <span>📐</span> 車身尺碼與動力機械規格全覽
         </h3>
@@ -21,7 +21,7 @@ export default function CarSpecTable({ car }: CarSpecTableProps) {
         <table className="w-full text-left text-xs border-collapse">
           <caption className="sr-only">{car.brand} {car.model} 完整規格參數</caption>
           <thead>
-            <tr className="bg-slate-950 text-slate-400 border-b border-slate-800">
+            <tr className="bg-slate-900/60 text-slate-400 border-b border-white/[0.06]">
               <th scope="col" className="p-3.5 font-bold w-1/3">規格項目</th>
               <th scope="col" className="p-3.5 font-bold w-2/3">官方數據與備註說明</th>
             </tr>
@@ -37,7 +37,7 @@ export default function CarSpecTable({ car }: CarSpecTableProps) {
               <td className="p-3.5 font-mono font-bold text-white">
                 {car.dimensions.widthMm.toLocaleString()} mm
                 {car.dimensions.widthMm >= 1950 && (
-                  <span className="ml-2 text-[11px] font-sans font-medium text-amber-400 bg-amber-950/60 px-2 py-0.5 rounded border border-amber-800/60">
+                  <span className="ml-2 text-[11px] font-sans font-medium text-cyan-400 bg-amber-950/60 px-2 py-0.5 rounded border border-amber-800/60">
                     窄巷會車需留意
                   </span>
                 )}
@@ -67,7 +67,7 @@ export default function CarSpecTable({ car }: CarSpecTableProps) {
                 登車踏步離地高度 (Step-in Height)
               </th>
               <td className="p-3.5 font-medium text-slate-200">
-                <span className="font-mono font-bold text-amber-400">{car.dimensions.stepInHeightMm} mm</span>
+                <span className="font-mono font-bold text-cyan-400">{car.dimensions.stepInHeightMm} mm</span>
                 <span className="text-[11px] text-slate-400 ml-2">
                   {car.dimensions.stepInHeightMm <= 350
                     ? '（極低底盤，長輩與學步幼兒上下車最友善）'
@@ -109,7 +109,7 @@ export default function CarSpecTable({ car }: CarSpecTableProps) {
             </tr>
             <tr className="bg-slate-900/30">
               <th scope="row" className="p-3.5 font-semibold text-slate-300">台灣每年固定稅金 (牌照稅+燃料費)</th>
-              <td className="p-3.5 font-bold font-mono text-amber-400">
+              <td className="p-3.5 font-bold font-mono text-cyan-400">
                 {car.powertrain.annualTaiwanTaxTwd.toLocaleString()} 元/年
               </td>
             </tr>

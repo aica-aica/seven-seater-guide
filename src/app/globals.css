@@ -1,31 +1,46 @@
 @import "tailwindcss";
 
 :root {
-  --background: #020617;
-  --foreground: #f8fafc;
+  --background: #0d121f;
+  --foreground: #f1f5f9;
 }
 
 body {
-  background-color: var(--background);
+  background-color: #0b101d;
+  background-image: 
+    radial-gradient(ellipse 70% 45% at 50% -10%, rgba(56, 189, 248, 0.12), transparent 70%),
+    radial-gradient(circle at 90% 20%, rgba(99, 102, 241, 0.07), transparent 45%),
+    radial-gradient(circle at 10% 80%, rgba(6, 182, 212, 0.05), transparent 40%);
+  background-attachment: fixed;
   color: var(--foreground);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   overflow-x: hidden;
 }
 
-/* Custom Scrollbar */
+/* Custom Sleek Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
 }
 ::-webkit-scrollbar-track {
-  background: #090d16;
+  background: #0c1220;
 }
 ::-webkit-scrollbar-thumb {
   background: #1e293b;
-  border-radius: 4px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #334155;
+}
+
+/* Glassmorphism & Modern Tech Helpers */
+.tech-glow-cyan {
+  box-shadow: 0 0 25px -5px rgba(56, 189, 248, 0.25);
+}
+
+.tech-glow-violet {
+  box-shadow: 0 0 25px -5px rgba(139, 92, 246, 0.25);
 }
 
 /* Prose Styling for Guides */
@@ -35,14 +50,14 @@ body {
   color: #f8fafc;
   margin-top: 2rem;
   margin-bottom: 0.75rem;
-  border-bottom: 1px solid #1e293b;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   padding-bottom: 0.5rem;
 }
 
 .prose h3 {
   font-size: 1.25rem;
   font-weight: 700;
-  color: #fbbf24;
+  color: #38bdf8;
   margin-top: 1.5rem;
   margin-bottom: 0.5rem;
 }
@@ -67,6 +82,6 @@ body {
 }
 
 .prose strong {
-  color: #fbbf24;
+  color: #e0f2fe;
   font-weight: 700;
 }

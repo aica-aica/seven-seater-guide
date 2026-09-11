@@ -133,7 +133,7 @@ export default function HomePage() {
       />
 
       {/* 2. Core Interactive Split-Screen Duel Section (左右分欄上下滑動對決) */}
-      <section className="py-12 bg-slate-950/90 border-y border-slate-800 relative overflow-hidden" id="split-compare">
+      <section className="py-12 border-y border-white/[0.08] relative overflow-hidden" id="split-compare">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <SplitScreenDuel />
         </div>
@@ -146,7 +146,7 @@ export default function HomePage() {
       <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" id="car-finder">
         <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between mb-8 gap-4">
           <div>
-            <span className="text-xs font-bold text-amber-400 uppercase tracking-widest block mb-2">
+            <span className="text-xs font-bold text-cyan-400 uppercase tracking-widest block mb-2">
               智慧規格選車器
             </span>
             <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
@@ -158,7 +158,7 @@ export default function HomePage() {
           </div>
           <Link
             href="/compare"
-            className="text-xs font-bold text-amber-400 hover:text-amber-300 flex items-center gap-1"
+            className="text-xs font-bold text-cyan-400 hover:text-cyan-300 flex items-center gap-1"
           >
             直接進入多車對比表
             <ArrowRight className="w-3.5 h-3.5" />
@@ -179,7 +179,7 @@ export default function HomePage() {
         {/* Cars Grid */}
         <div className="mt-8">
           {filteredCars.length === 0 ? (
-            <div className="text-center py-16 bg-slate-900/50 rounded-2xl border border-slate-800">
+            <div className="text-center py-16 bg-[#0e1424]/80 backdrop-blur-xl rounded-2xl border border-white/[0.08]">
               <p className="text-slate-300 text-sm font-semibold mb-2">
                 查無符合目前篩選條件的七人座車型。
               </p>
@@ -191,7 +191,7 @@ export default function HomePage() {
                   setFilters(initialFilters);
                   setSelectedScenario(null);
                 }}
-                className="px-4 py-2 rounded-lg bg-amber-500 text-slate-950 text-xs font-bold"
+                className="px-4 py-2 rounded-xl bg-cyan-500 text-slate-950 text-xs font-bold shadow-md shadow-cyan-500/20"
               >
                 重設所有條件
               </button>
@@ -210,10 +210,10 @@ export default function HomePage() {
       <ComparisonMatrixPreview />
 
       {/* 5. Analytical Buying Guides Section */}
-      <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-b border-slate-800">
+      <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-b border-white/[0.08]">
         <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between mb-8 gap-4">
           <div>
-            <span className="text-xs font-bold text-amber-400 uppercase tracking-widest block mb-2">
+            <span className="text-xs font-bold text-cyan-400 uppercase tracking-widest block mb-2">
               深度評測專題
             </span>
             <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
@@ -225,7 +225,7 @@ export default function HomePage() {
           </div>
           <Link
             href="/guides"
-            className="text-xs font-bold text-amber-400 hover:text-amber-300 flex items-center gap-1"
+            className="text-xs font-bold text-cyan-400 hover:text-cyan-300 flex items-center gap-1"
           >
             查看全部指南文章
             <ArrowRight className="w-3.5 h-3.5" />
@@ -240,10 +240,10 @@ export default function HomePage() {
       </section>
 
       {/* 6. AI Overviews Optimized FAQ Section */}
-      <section className="py-16 bg-slate-900 border-b border-slate-800">
+      <section className="py-16 border-b border-white/[0.08]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 text-xs font-bold border border-amber-500/20 mb-3">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-300 text-xs font-semibold border border-cyan-500/25 shadow-sm shadow-cyan-500/10 mb-3">
               <HelpCircle className="w-3.5 h-3.5" />
               <span>AI Overviews 結構化知識精要</span>
             </div>
@@ -262,16 +262,16 @@ export default function HomePage() {
               return (
                 <div
                   key={faq.id}
-                  className="rounded-2xl border border-slate-800 bg-slate-950 overflow-hidden transition-all shadow-md"
+                  className="rounded-2xl border border-white/[0.08] bg-[#0e1424]/80 backdrop-blur-xl overflow-hidden transition-all shadow-xl"
                 >
                   <button
                     onClick={() => setOpenFaqId(isOpen ? null : faq.id)}
-                    className="w-full flex items-center justify-between p-5 text-left font-bold text-sm sm:text-base text-white hover:text-amber-400 transition-colors"
+                    className="w-full flex items-center justify-between p-5 text-left font-bold text-sm sm:text-base text-white hover:text-cyan-300 transition-colors"
                   >
                     <span>{faq.question}</span>
                     <ChevronDown
                       className={`w-4 h-4 text-slate-400 flex-shrink-0 ml-4 transition-transform duration-200 ${
-                        isOpen ? 'rotate-180 text-amber-400' : ''
+                        isOpen ? 'rotate-180 text-cyan-400' : ''
                       }`}
                     />
                   </button>
@@ -279,8 +279,8 @@ export default function HomePage() {
                   {isOpen && (
                     <div className="px-5 pb-5 pt-1 text-xs sm:text-sm border-t border-slate-850 space-y-3">
                       {/* AI Snippet Direct Answer Box */}
-                      <div className="p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-200 leading-relaxed">
-                        <strong className="font-bold text-amber-400 block mb-1">
+                      <div className="p-3.5 rounded-xl bg-cyan-500/10 border border-cyan-500/25 text-cyan-200 leading-relaxed">
+                        <strong className="font-bold text-cyan-400 block mb-1">
                           ⚡ AI 核心精華摘要：
                         </strong>
                         {faq.shortAnswer}
@@ -293,7 +293,7 @@ export default function HomePage() {
                       <ul className="space-y-1.5 pt-2 text-xs text-slate-400">
                         {faq.keyPoints.map((kp, idx) => (
                           <li key={idx} className="flex items-center gap-2">
-                            <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
+                            <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
                             <span>{kp}</span>
                           </li>
                         ))}
@@ -308,7 +308,7 @@ export default function HomePage() {
           <div className="mt-8 text-center">
             <Link
               href="/faq"
-              className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-400 hover:text-amber-300"
+              className="inline-flex items-center gap-1.5 text-xs font-bold text-cyan-400 hover:text-cyan-300"
             >
               進入完整 FAQ 知識庫（含停車限高與稅金試算）
               <ArrowRight className="w-3.5 h-3.5" />

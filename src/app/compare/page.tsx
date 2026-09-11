@@ -19,9 +19,9 @@ export default function ComparePage() {
       </Suspense>
 
       {/* Second Section: Multi-car comparison table (多車橫向評比表) */}
-      <div className="pt-8 border-t border-slate-800 space-y-6">
+      <div className="pt-8 border-t border-white/[0.08] space-y-6">
         <div className="flex items-center gap-2 text-xs font-bold text-slate-400">
-          <Layers className="w-4 h-4 text-amber-400" />
+          <Layers className="w-4 h-4 text-cyan-400" />
           <span>多車綜合對比模式</span>
         </div>
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2">

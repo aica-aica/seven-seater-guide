@@ -16,43 +16,43 @@ export default function HeroSection({ onSelectScenario, selectedScenario }: Hero
   ];
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950 text-slate-100 py-16 sm:py-24 border-b border-slate-800">
+    <section className="relative overflow-hidden py-16 sm:py-24 border-b border-white/[0.08]">
       {/* Background ambient lighting */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-64 bg-amber-500/10 blur-[120px] pointer-events-none rounded-full" />
-      <div className="absolute top-1/3 right-10 w-96 h-96 bg-sky-500/5 blur-[100px] pointer-events-none rounded-full" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-72 bg-cyan-500/10 blur-[130px] pointer-events-none rounded-full" />
+      <div className="absolute top-1/3 right-10 w-96 h-96 bg-indigo-500/10 blur-[120px] pointer-events-none rounded-full" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Authority Badge */}
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-semibold mb-6 animate-in fade-in zoom-in duration-500">
-          <Sparkles className="w-3.5 h-3.5" />
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/25 text-cyan-300 text-xs font-semibold mb-6 animate-in fade-in zoom-in duration-500 shadow-sm shadow-cyan-500/10">
+          <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
           <span>2024-2025 台灣七人座車款客觀規格與實測數據庫</span>
         </div>
 
         {/* Main Headline */}
-        <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white max-w-4xl mx-auto leading-[1.15]">
+        <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white max-w-4xl mx-auto leading-[1.15]">
           告別應急第三排！
-          <span className="block mt-2 bg-clip-text text-transparent bg-gradient-to-r from-amber-400 via-amber-200 to-amber-500">
+          <span className="block mt-2 bg-clip-text text-transparent bg-gradient-to-r from-white via-cyan-100 to-sky-300">
             找到真正裝得下全家人的七人座
           </span>
         </h1>
 
         {/* Subtitle */}
         <p className="mt-6 text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
-          不看廠商包裝型錄，只看<strong>真實腿部空間</strong>、<strong>雙側滑門動線</strong>、<strong>ISOFIX 數量</strong>與<strong>七人滿載行李箱容積</strong>。為台灣家庭打造的獨立客觀選購指南。
+          不看廠商包裝型錄，只看<strong className="text-cyan-300 font-bold">真實腿部空間</strong>、<strong className="text-cyan-300 font-bold">雙側滑門動線</strong>、<strong className="text-cyan-300 font-bold">ISOFIX 數量</strong>與<strong className="text-cyan-300 font-bold">七人滿載行李箱容積</strong>。為台灣家庭打造的獨立客觀選購指南。
         </p>
 
         {/* Hero Quick CTA */}
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
           <a
             href="#split-compare"
-            className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-black text-sm shadow-lg shadow-amber-500/20 transition-all hover:scale-105"
+            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-bold text-sm shadow-lg shadow-cyan-500/20 transition-all hover:scale-105 hover:shadow-cyan-500/35"
           >
             <Sparkles className="w-4 h-4" />
             <span>立即體驗：左右分欄上下滑動對決器</span>
           </a>
           <Link
             href="/compare"
-            className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-slate-800 hover:bg-slate-750 text-slate-200 hover:text-white font-bold text-sm border border-slate-700 transition-all"
+            className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl bg-slate-800/70 hover:bg-slate-800 text-slate-200 hover:text-white font-semibold text-sm border border-slate-700/80 backdrop-blur-md transition-all"
           >
             <span>多車規格對比庫</span>
           </Link>
@@ -70,10 +70,10 @@ export default function HeroSection({ onSelectScenario, selectedScenario }: Hero
                 <button
                   key={sc.id}
                   onClick={() => onSelectScenario(sc.id)}
-                  className={`flex flex-col items-center justify-center p-3 rounded-xl border text-xs font-semibold transition-all ${
+                  className={`flex flex-col items-center justify-center p-3.5 rounded-xl border text-xs font-semibold transition-all backdrop-blur-md ${
                     active
-                      ? 'bg-amber-500/20 border-amber-400 text-amber-300 shadow-md shadow-amber-500/10 scale-105'
-                      : 'bg-slate-800/60 border-slate-700/80 text-slate-300 hover:bg-slate-800 hover:text-white hover:border-slate-600'
+                      ? 'bg-gradient-to-b from-cyan-500/20 to-slate-900 border-cyan-400 text-cyan-200 shadow-md shadow-cyan-500/20 scale-105 ring-1 ring-cyan-400/50'
+                      : 'bg-slate-900/60 border-slate-800 text-slate-300 hover:bg-slate-850 hover:text-white hover:border-slate-700'
                   }`}
                 >
                   <span className="text-sm mb-1">{sc.label}</span>
@@ -85,17 +85,17 @@ export default function HeroSection({ onSelectScenario, selectedScenario }: Hero
         </div>
 
         {/* Highlights Pill Row */}
-        <div className="mt-12 flex flex-wrap items-center justify-center gap-6 sm:gap-10 text-xs text-slate-400 border-t border-slate-800/80 pt-8 max-w-4xl mx-auto">
+        <div className="mt-12 flex flex-wrap items-center justify-center gap-6 sm:gap-10 text-xs text-slate-400 border-t border-white/[0.08] pt-8 max-w-4xl mx-auto">
           <div className="flex items-center gap-2">
-            <Users className="w-4 h-4 text-amber-400" />
+            <Users className="w-4 h-4 text-cyan-400" />
             <span>2+2+3 走道 vs 2+3+2 連體座位深度解析</span>
           </div>
           <div className="flex items-center gap-2">
-            <Layers className="w-4 h-4 text-amber-400" />
+            <Layers className="w-4 h-4 text-cyan-400" />
             <span>滿載 7 人後行李箱實測容量與 28 吋箱數</span>
           </div>
           <div className="flex items-center gap-2">
-            <Shield className="w-4 h-4 text-amber-400" />
+            <Shield className="w-4 h-4 text-cyan-400" />
             <span>完整 Schema.org 結構化數據與 AI Snippet 支援</span>
           </div>
         </div>

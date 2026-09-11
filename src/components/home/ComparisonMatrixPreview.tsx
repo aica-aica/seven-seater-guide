@@ -6,15 +6,15 @@ import { Check, X, ArrowUpRight } from 'lucide-react';
 export default function ComparisonMatrixPreview() {
   // Select 5 key representative cars for quick matrix
   const matrixCars = CARS_DATA.filter((c) =>
-    ['toyota-sienna', 'kia-carnival', 'hyundai-custin', 'volkswagen-caddy-maxi', 'skoda-kodiaq'].includes(c.id)
+    ['volkswagen-id-buzz', 'toyota-sienna', 'kia-carnival', 'hyundai-custin', 'volkswagen-caddy-maxi', 'skoda-kodiaq'].includes(c.id)
   );
 
   return (
-    <section className="py-16 bg-slate-950 text-slate-100 border-b border-slate-800">
+    <section className="py-16 border-b border-white/[0.08] text-slate-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between mb-8 gap-4">
           <div>
-            <span className="text-xs font-bold text-amber-400 uppercase tracking-widest block mb-2">
+            <span className="text-xs font-bold text-cyan-400 uppercase tracking-widest block mb-2">
               快速規格透視
             </span>
             <h2 className="text-2xl sm:text-3xl font-black tracking-tight text-white">
@@ -26,7 +26,7 @@ export default function ComparisonMatrixPreview() {
           </div>
           <Link
             href="/compare"
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-amber-400 border border-slate-700 text-xs font-bold transition-all"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white/[0.05] hover:bg-gradient-to-r hover:from-cyan-500 hover:to-blue-600 hover:text-white text-cyan-300 border border-white/[0.08] text-xs font-bold transition-all"
           >
             開啟完整自選比較器
             <ArrowUpRight className="w-4 h-4" />
@@ -34,19 +34,19 @@ export default function ComparisonMatrixPreview() {
         </div>
 
         {/* HTML Semantic Table for GEO / AI Overviews */}
-        <div className="overflow-x-auto rounded-2xl border border-slate-800 bg-slate-900 shadow-2xl">
+        <div className="overflow-x-auto rounded-2xl border border-white/[0.08] bg-[#0e1424]/80 backdrop-blur-xl shadow-2xl">
           <table className="w-full text-left border-collapse text-xs">
             <caption className="sr-only">台灣主流七人座車款核心空間與配備比較表</caption>
             <thead>
-              <tr className="bg-slate-850 border-b border-slate-800 text-slate-300">
-                <th scope="col" className="p-4 font-bold sticky left-0 bg-slate-900 z-10 w-44 min-w-40 border-r border-slate-800">
+              <tr className="bg-slate-900/60 border-b border-slate-800 text-slate-300">
+                <th scope="col" className="p-4 font-bold sticky left-0 bg-[#0e1424] z-10 w-44 min-w-40 border-r border-slate-800">
                   車型與級距
                 </th>
                 {matrixCars.map((car) => (
                   <th key={car.id} scope="col" className="p-4 font-bold text-center min-w-44 border-r border-slate-800/60 last:border-r-0">
-                    <Link href={`/cars/${car.slug}`} className="hover:text-amber-400 transition-colors">
+                    <Link href={`/cars/${car.slug}`} className="hover:text-cyan-400 transition-colors">
                       <span className="text-sm font-black text-white block">{car.brand} {car.model}</span>
-                      <span className="text-[10px] text-amber-400/90 font-medium">{car.categoryName}</span>
+                      <span className="text-[10px] text-cyan-400/90 font-medium">{car.categoryName}</span>
                     </Link>
                   </th>
                 ))}
@@ -55,19 +55,19 @@ export default function ComparisonMatrixPreview() {
             <tbody className="divide-y divide-slate-800/60 text-slate-300">
               {/* Price Range */}
               <tr>
-                <th scope="row" className="p-4 font-semibold sticky left-0 bg-slate-900 z-10 text-slate-200 border-r border-slate-800">
+                <th scope="row" className="p-4 font-semibold sticky left-0 bg-[#0e1424] z-10 text-slate-200 border-r border-slate-800">
                   新車價格區間
                 </th>
                 {matrixCars.map((car) => (
-                  <td key={car.id} className="p-4 text-center font-bold text-amber-400 border-r border-slate-800/60 last:border-r-0">
+                  <td key={car.id} className="p-4 text-center font-bold text-cyan-400 border-r border-slate-800/60 last:border-r-0">
                     {(car.priceRangeTwd[0] / 10000).toFixed(0)} ~ {(car.priceRangeTwd[1] / 10000).toFixed(0)} 萬
                   </td>
                 ))}
               </tr>
 
               {/* Seating Layout */}
-              <tr className="bg-slate-900/40">
-                <th scope="row" className="p-4 font-semibold sticky left-0 bg-slate-900 z-10 text-slate-200 border-r border-slate-800">
+              <tr className="bg-[#0e1424]/40">
+                <th scope="row" className="p-4 font-semibold sticky left-0 bg-[#0e1424] z-10 text-slate-200 border-r border-slate-800">
                   座椅佈局與走道
                 </th>
                 {matrixCars.map((car) => (
@@ -84,7 +84,7 @@ export default function ComparisonMatrixPreview() {
 
               {/* Third Row Usability */}
               <tr>
-                <th scope="row" className="p-4 font-semibold sticky left-0 bg-slate-900 z-10 text-slate-200 border-r border-slate-800">
+                <th scope="row" className="p-4 font-semibold sticky left-0 bg-[#0e1424] z-10 text-slate-200 border-r border-slate-800">
                   第三排成人舒適度
                 </th>
                 {matrixCars.map((car) => (
@@ -95,7 +95,7 @@ export default function ComparisonMatrixPreview() {
                       </span>
                     )}
                     {car.seating.thirdRowUsability === 'adult-short-haul' && (
-                      <span className="inline-block px-2 py-1 rounded bg-amber-950/70 text-amber-400 border border-amber-800/60 font-semibold text-[11px]">
+                      <span className="inline-block px-2 py-1 rounded bg-amber-950/70 text-cyan-400 border border-amber-800/60 font-semibold text-[11px]">
                         成人中短途 (頭部稍緊湊)
                       </span>
                     )}
@@ -109,8 +109,8 @@ export default function ComparisonMatrixPreview() {
               </tr>
 
               {/* Door Mechanism */}
-              <tr className="bg-slate-900/40">
-                <th scope="row" className="p-4 font-semibold sticky left-0 bg-slate-900 z-10 text-slate-200 border-r border-slate-800">
+              <tr className="bg-[#0e1424]/40">
+                <th scope="row" className="p-4 font-semibold sticky left-0 bg-[#0e1424] z-10 text-slate-200 border-r border-slate-800">
                   車門開啟方式
                 </th>
                 {matrixCars.map((car) => (
@@ -128,7 +128,7 @@ export default function ComparisonMatrixPreview() {
 
               {/* Luggage Volume 7 Seats */}
               <tr>
-                <th scope="row" className="p-4 font-semibold sticky left-0 bg-slate-900 z-10 text-slate-200 border-r border-slate-800">
+                <th scope="row" className="p-4 font-semibold sticky left-0 bg-[#0e1424] z-10 text-slate-200 border-r border-slate-800">
                   七座滿載行李箱
                 </th>
                 {matrixCars.map((car) => (
@@ -140,8 +140,8 @@ export default function ComparisonMatrixPreview() {
               </tr>
 
               {/* ISOFIX Points */}
-              <tr className="bg-slate-900/40">
-                <th scope="row" className="p-4 font-semibold sticky left-0 bg-slate-900 z-10 text-slate-200 border-r border-slate-800">
+              <tr className="bg-[#0e1424]/40">
+                <th scope="row" className="p-4 font-semibold sticky left-0 bg-[#0e1424] z-10 text-slate-200 border-r border-slate-800">
                   ISOFIX 汽座卡扣
                 </th>
                 {matrixCars.map((car) => (
@@ -153,7 +153,7 @@ export default function ComparisonMatrixPreview() {
 
               {/* Annual Taiwan Tax */}
               <tr>
-                <th scope="row" className="p-4 font-semibold sticky left-0 bg-slate-900 z-10 text-slate-200 border-r border-slate-800">
+                <th scope="row" className="p-4 font-semibold sticky left-0 bg-[#0e1424] z-10 text-slate-200 border-r border-slate-800">
                   每年台灣稅金 (牌+燃)
                 </th>
                 {matrixCars.map((car) => (
@@ -164,8 +164,8 @@ export default function ComparisonMatrixPreview() {
               </tr>
 
               {/* Quick Link Action */}
-              <tr className="bg-slate-850">
-                <th scope="row" className="p-4 font-semibold sticky left-0 bg-slate-900 z-10 text-slate-300 border-r border-slate-800">
+              <tr className="bg-slate-900/60">
+                <th scope="row" className="p-4 font-semibold sticky left-0 bg-[#0e1424] z-10 text-slate-300 border-r border-slate-800">
                   完整深入解析
                 </th>
                 {matrixCars.map((car) => (

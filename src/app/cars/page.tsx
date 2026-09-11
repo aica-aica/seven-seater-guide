@@ -79,9 +79,9 @@ export default function CarsCatalogPage() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-800">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-white/[0.08]">
         <div>
-          <div className="flex items-center gap-2 text-xs font-bold text-amber-400 mb-1">
+          <div className="flex items-center gap-2 text-xs font-bold text-cyan-400 mb-1">
             <CarIcon className="w-4 h-4" />
             <span>全台車款資料庫</span>
           </div>
@@ -96,7 +96,7 @@ export default function CarsCatalogPage() {
         {comparedCarIds.length > 0 && (
           <Link
             href="/compare"
-            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-bold shadow-md transition-all self-start sm:self-auto"
+            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white text-xs font-bold shadow-md shadow-cyan-500/20 transition-all self-start sm:self-auto"
           >
             <Scale className="w-4 h-4" />
             <span>前往對比 ({comparedCarIds.length} 款)</span>
@@ -115,11 +115,11 @@ export default function CarsCatalogPage() {
       {/* Car Cards Grid */}
       <div>
         {filteredCars.length === 0 ? (
-          <div className="text-center py-16 bg-slate-900 rounded-2xl border border-slate-800">
+          <div className="text-center py-16 bg-[#0e1424]/80 backdrop-blur-xl rounded-2xl border border-white/[0.08]">
             <p className="text-slate-300 text-sm font-semibold mb-2">未找到符合條件的七人座車型。</p>
             <button
               onClick={() => setFilters(initialFilters)}
-              className="px-4 py-2 rounded-lg bg-amber-500 text-slate-950 text-xs font-bold"
+              className="px-4 py-2 rounded-xl bg-cyan-500 text-slate-950 text-xs font-bold shadow-md shadow-cyan-500/20"
             >
               重設所有條件
             </button>

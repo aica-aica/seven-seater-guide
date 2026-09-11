@@ -37,11 +37,11 @@ export default function TopPicks() {
   ];
 
   return (
-    <section className="py-16 bg-slate-900 border-b border-slate-800 text-slate-100">
+    <section className="py-16 border-b border-white/[0.08] text-slate-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 text-xs font-bold border border-amber-500/20 mb-3">
-            <Trophy className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-300 text-xs font-semibold border border-cyan-500/25 mb-3 shadow-sm shadow-cyan-500/10">
+            <Trophy className="w-3.5 h-3.5 text-cyan-400" />
             <span>編輯部實測推薦</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
@@ -60,18 +60,18 @@ export default function TopPicks() {
             return (
               <div
                 key={pick.carId}
-                className="bg-slate-950 border border-slate-800 rounded-2xl p-5 flex flex-col justify-between hover:border-slate-700 transition-all hover:-translate-y-1 shadow-lg"
+                className="bg-[#0e1424]/80 backdrop-blur-xl border border-white/[0.08] rounded-2xl p-5 flex flex-col justify-between hover:border-cyan-500/30 transition-all hover:-translate-y-1 shadow-xl hover:shadow-[0_10px_30px_rgba(0,0,0,0.3)] group"
               >
                 <div>
                   <div className="inline-block px-3 py-1 rounded-lg text-xs font-bold text-white bg-gradient-to-r mb-4 shadow-sm">
                     {pick.badge}
                   </div>
 
-                  <div className="h-36 rounded-xl overflow-hidden mb-4 bg-slate-900">
+                  <div className="h-36 rounded-xl overflow-hidden mb-4 bg-slate-900/60 border border-slate-800/80">
                     <img
                       src={getCarImageUrl(car.heroImage)}
                       alt={car.model}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       loading="lazy"
                     />
                   </div>
@@ -79,7 +79,7 @@ export default function TopPicks() {
                   <h3 className="text-lg font-bold text-white mb-1">
                     {car.brand} {car.model}
                   </h3>
-                  <p className="text-xs text-amber-400 font-bold mb-3">
+                  <p className="text-xs text-cyan-400 font-bold font-mono mb-3">
                     {(car.priceRangeTwd[0] / 10000).toFixed(0)} ~ {(car.priceRangeTwd[1] / 10000).toFixed(0)} 萬元
                   </p>
 
@@ -91,13 +91,13 @@ export default function TopPicks() {
                   </div>
                 </div>
 
-                <div className="pt-4 border-t border-slate-800/80">
+                <div className="pt-4 border-t border-white/[0.06]">
                   <span className="text-[11px] text-slate-400 block mb-3 leading-tight">
                     <strong className="text-slate-300">適合對象：</strong> {pick.targetAudience}
                   </span>
                   <Link
                     href={`/cars/${car.slug}`}
-                    className="w-full py-2 px-3 rounded-lg bg-slate-800 hover:bg-slate-700 text-amber-400 text-xs font-bold flex items-center justify-center gap-1.5 transition-colors"
+                    className="w-full py-2 px-3 rounded-xl bg-white/[0.05] hover:bg-gradient-to-r hover:from-cyan-500 hover:to-blue-600 hover:text-white text-cyan-300 border border-white/[0.08] text-xs font-bold flex items-center justify-center gap-1.5 transition-all shadow-sm"
                   >
                     查看完整實測
                     <ArrowRight className="w-3.5 h-3.5" />

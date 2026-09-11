@@ -54,19 +54,19 @@ export default async function CarDetailPage({ params }: CarDetailPageProps) {
   const canonicalUrl = `https://7seater-guide.tw/cars/${car.slug}`;
 
   return (
-    <div className="bg-slate-950 text-slate-100 min-h-screen pb-16">
+    <div className="text-slate-100 min-h-screen pb-16">
       {/* JSON-LD Schema.org Structured Data (Car + Product + FAQPage + BreadcrumbList) */}
       <JsonLdCar car={car} canonicalUrl={canonicalUrl} />
 
       {/* Breadcrumb Bar */}
-      <div className="bg-slate-900 border-b border-slate-800/80">
+      <div className="bg-[#0e1424]/60 backdrop-blur-md border-b border-white/[0.08]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
           <nav aria-label="麵包屑導覽" className="flex items-center gap-1.5 text-xs text-slate-400">
-            <Link href="/" className="hover:text-amber-400 transition-colors">
+            <Link href="/" className="hover:text-cyan-400 transition-colors">
               首頁
             </Link>
             <ChevronRight className="w-3 h-3 text-slate-600" />
-            <Link href="/cars" className="hover:text-amber-400 transition-colors">
+            <Link href="/cars" className="hover:text-cyan-400 transition-colors">
               車型庫
             </Link>
             <ChevronRight className="w-3 h-3 text-slate-600" />
@@ -78,7 +78,7 @@ export default async function CarDetailPage({ params }: CarDetailPageProps) {
       </div>
 
       {/* Hero Header Banner */}
-      <div className="relative bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950 border-b border-slate-800 py-10 sm:py-16">
+      <div className="relative border-b border-white/[0.08] py-10 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             {/* Left: Info & Badges */}
@@ -93,7 +93,7 @@ export default async function CarDetailPage({ params }: CarDetailPageProps) {
                 >
                   {car.coreCategory === 'true-7-mpv' ? '🛡️ 正7人座 MPV' : '⚡ 5+2 SUV'}
                 </span>
-                <span className="px-3 py-1 rounded-md text-xs font-bold bg-amber-500/10 text-amber-400 border border-amber-500/30">
+                <span className="px-3 py-1 rounded-md text-xs font-bold bg-cyan-500/10 text-cyan-300 border border-cyan-500/30">
                   {car.categoryName}
                 </span>
                 <span className="px-3 py-1 rounded-md text-xs font-semibold bg-slate-800 text-slate-300 border border-slate-700">
@@ -120,7 +120,7 @@ export default async function CarDetailPage({ params }: CarDetailPageProps) {
                 <span className="text-xs text-slate-400 uppercase font-bold tracking-wider">
                   新車建議售價：
                 </span>
-                <span className="text-3xl sm:text-4xl font-black text-amber-400 font-mono">
+                <span className="text-3xl sm:text-4xl font-black text-cyan-300 font-mono">
                   {minPriceWan} ~ {maxPriceWan}{' '}
                   <span className="text-sm font-bold text-slate-300 font-sans">萬元 TWD</span>
                 </span>
@@ -130,14 +130,14 @@ export default async function CarDetailPage({ params }: CarDetailPageProps) {
               <div className="pt-4 flex flex-wrap gap-3">
                 <Link
                   href={`/compare?car1=${car.id}`}
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-bold shadow-md transition-all"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white text-xs font-bold shadow-md shadow-cyan-500/20 transition-all"
                 >
                   <Scale className="w-4 h-4" />
                   與其他七人座車款橫向比對
                 </Link>
                 <Link
                   href="/cars"
-                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-750 text-slate-200 text-xs font-semibold border border-slate-700 transition-all"
+                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/[0.05] hover:bg-white/[0.09] text-slate-200 text-xs font-semibold border border-white/[0.08] transition-all"
                 >
                   <ArrowLeft className="w-4 h-4" />
                   返回所有車型

@@ -33,14 +33,14 @@ export default function FAQHubPage() {
       : FAQS_DATA.filter((f) => f.category === selectedCategory);
 
   return (
-    <div className="bg-slate-950 text-slate-100 min-h-screen py-10">
+    <div className="text-slate-100 min-h-screen py-10">
       {/* Schema.org FAQPage for Google & AI Overviews */}
       <JsonLdFaq faqs={filteredFaqs} canonicalUrl="https://7seater-guide.tw/faq" />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         {/* Header */}
-        <div className="text-center space-y-3 pb-6 border-b border-slate-800">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 text-xs font-bold border border-amber-500/30">
+        <div className="text-center space-y-3 pb-6 border-b border-white/[0.08]">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-300 text-xs font-semibold border border-cyan-500/25 shadow-sm shadow-cyan-500/10">
             <HelpCircle className="w-3.5 h-3.5" />
             <span>AI Overviews 結構化知識精華</span>
           </div>
@@ -62,8 +62,8 @@ export default function FAQHubPage() {
                 onClick={() => setSelectedCategory(cat.id)}
                 className={`px-3.5 py-1.5 rounded-full text-xs font-semibold border transition-all ${
                   active
-                    ? 'bg-amber-500 text-slate-950 border-amber-500 shadow-sm'
-                    : 'bg-slate-900 border-slate-800 text-slate-300 hover:border-slate-700'
+                    ? 'bg-cyan-500 text-slate-950 border-cyan-500 shadow-sm font-bold'
+                    : 'bg-white/[0.05] border-white/[0.08] text-slate-300 hover:border-slate-700 hover:text-white'
                 }`}
               >
                 {cat.label}
@@ -79,29 +79,29 @@ export default function FAQHubPage() {
             return (
               <article
                 key={faq.id}
-                className="rounded-2xl border border-slate-800 bg-slate-900 overflow-hidden shadow-lg transition-all"
+                className="rounded-2xl border border-white/[0.08] bg-[#0e1424]/80 backdrop-blur-xl overflow-hidden shadow-xl transition-all"
               >
                 <button
                   type="button"
                   onClick={() => toggleOpen(faq.id)}
-                  className="w-full flex items-center justify-between p-5 text-left font-bold text-sm sm:text-base text-white hover:text-amber-400 transition-colors"
+                  className="w-full flex items-center justify-between p-5 text-left font-bold text-sm sm:text-base text-white hover:text-cyan-400 transition-colors"
                 >
                   <div className="flex items-center gap-2.5">
-                    <span className="text-amber-400 font-mono text-sm">Q:</span>
+                    <span className="text-cyan-400 font-mono text-sm">Q:</span>
                     <span>{faq.question}</span>
                   </div>
                   <ChevronDown
                     className={`w-4 h-4 text-slate-400 flex-shrink-0 ml-4 transition-transform duration-200 ${
-                      isOpen ? 'rotate-180 text-amber-400' : ''
+                      isOpen ? 'rotate-180 text-cyan-400' : ''
                     }`}
                   />
                 </button>
 
                 {isOpen && (
-                  <div className="px-5 pb-6 pt-1 text-xs sm:text-sm border-t border-slate-800/80 space-y-4">
+                  <div className="px-5 pb-6 pt-1 text-xs sm:text-sm border-t border-white/[0.06] space-y-4">
                     {/* Google AI Overviews Target Snippet Box */}
-                    <div className="p-4 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-200 leading-relaxed">
-                      <div className="flex items-center gap-1.5 font-bold text-amber-400 text-xs mb-1">
+                    <div className="p-4 rounded-xl bg-cyan-500/10 border border-cyan-500/25 text-cyan-200 leading-relaxed">
+                      <div className="flex items-center gap-1.5 font-bold text-cyan-400 text-xs mb-1">
                         <Sparkles className="w-3.5 h-3.5" />
                         <span>AI 精選重點摘要（Direct Answer Snippet）：</span>
                       </div>
@@ -116,14 +116,14 @@ export default function FAQHubPage() {
                     </div>
 
                     {/* Bullet Points */}
-                    <div className="pt-2 border-t border-slate-800/60">
+                    <div className="pt-2 border-t border-white/[0.06]">
                       <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-2">
                         關鍵數據要點：
                       </span>
                       <ul className="space-y-1.5 text-xs text-slate-300">
                         {faq.keyPoints.map((point, idx) => (
                           <li key={idx} className="flex items-start gap-2">
-                            <span className="w-1.5 h-1.5 rounded-full bg-amber-400 mt-1.5 flex-shrink-0" />
+                            <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 mt-1.5 flex-shrink-0" />
                             <span>{point}</span>
                           </li>
                         ))}
@@ -138,7 +138,7 @@ export default function FAQHubPage() {
                           <Link
                             key={slug}
                             href={`/cars/${slug}`}
-                            className="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-750 text-amber-400 border border-slate-700 font-medium transition-colors"
+                            className="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-750 text-cyan-400 border border-slate-700 font-medium transition-colors"
                           >
                             <CarIcon className="w-3 h-3" />
                             <span>{slug}</span>

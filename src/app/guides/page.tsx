@@ -13,8 +13,8 @@ export const metadata: Metadata = {
 export default function GuidesIndexPage() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8">
-      <div className="pb-6 border-b border-slate-800">
-        <div className="flex items-center gap-2 text-xs font-bold text-amber-400 mb-1">
+      <div className="pb-6 border-b border-white/[0.08]">
+        <div className="flex items-center gap-2 text-xs font-bold text-cyan-400 mb-1">
           <BookOpen className="w-4 h-4" />
           <span>深度分析專欄</span>
         </div>

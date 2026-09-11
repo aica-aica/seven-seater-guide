@@ -44,7 +44,7 @@ export default function CompareSelector({ initialCarIds = ['toyota-sienna', 'kia
   return (
     <div className="space-y-6">
       {/* Control Bar */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-4 rounded-2xl bg-slate-900 border border-slate-800">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-4 rounded-2xl bg-[#0e1424] border border-slate-800">
         <div className="flex items-center gap-3">
           <Link
             href="/cars"
@@ -55,7 +55,7 @@ export default function CompareSelector({ initialCarIds = ['toyota-sienna', 'kia
           </Link>
           <div>
             <h2 className="text-base font-bold text-white">
-              已選取 <span className="text-amber-400 font-mono">{selectedCars.length}</span> 款車型對比
+              已選取 <span className="text-cyan-400 font-mono font-bold">{selectedCars.length}</span> 款車型對比
             </h2>
             <p className="text-xs text-slate-400">最多可同時納入 4 款車型橫向檢視</p>
           </div>
@@ -67,7 +67,7 @@ export default function CompareSelector({ initialCarIds = ['toyota-sienna', 'kia
               type="checkbox"
               checked={highlightDiff}
               onChange={(e) => setHighlightDiff(e.target.checked)}
-              className="rounded border-slate-700 text-amber-500 focus:ring-amber-500 bg-slate-950"
+              className="rounded border-slate-700 text-cyan-500 focus:ring-cyan-500 bg-slate-950"
             />
             <span>標註規格顯著差異</span>
           </label>
@@ -75,7 +75,7 @@ export default function CompareSelector({ initialCarIds = ['toyota-sienna', 'kia
           {selectedIds.length < 4 && (
             <button
               onClick={() => setShowAddModal(true)}
-              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-bold transition-all shadow-sm"
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white text-xs font-bold transition-all shadow-md shadow-cyan-500/20"
             >
               <Plus className="w-4 h-4" />
               新增比對車型
@@ -85,12 +85,12 @@ export default function CompareSelector({ initialCarIds = ['toyota-sienna', 'kia
       </div>
 
       {/* Comparison Matrix Table */}
-      <div className="overflow-x-auto rounded-2xl border border-slate-800 bg-slate-900 shadow-2xl">
+      <div className="overflow-x-auto rounded-2xl border border-white/[0.08] bg-[#0e1424]/80 backdrop-blur-xl shadow-2xl">
         <table className="w-full text-left border-collapse text-xs">
           <caption className="sr-only">選定七人座車輛詳細規格橫向對比表</caption>
           <thead>
-            <tr className="bg-slate-850 border-b border-slate-800">
-              <th scope="col" className="p-4 font-bold sticky left-0 bg-slate-900 z-10 w-44 min-w-40 border-r border-slate-800 text-slate-400">
+            <tr className="bg-slate-900/60 border-b border-slate-800">
+              <th scope="col" className="p-4 font-bold sticky left-0 bg-[#0e1424] z-10 w-44 min-w-40 border-r border-slate-800 text-slate-400">
                 評比維度
               </th>
               {selectedCars.map((car) => (
@@ -106,27 +106,27 @@ export default function CompareSelector({ initialCarIds = ['toyota-sienna', 'kia
                     <img src={getCarImageUrl(car.heroImage)} alt={car.model} className="w-full h-full object-cover" />
                   </div>
                   <span className="text-base font-black text-white block">{car.brand} {car.model}</span>
-                  <span className="text-[11px] text-amber-400 font-semibold">{car.categoryName}</span>
+                  <span className="text-[11px] text-cyan-300 font-semibold">{car.categoryName}</span>
                 </th>
               ))}
             </tr>
           </thead>
           <tbody className="divide-y divide-slate-800/60 text-slate-300">
             {/* Price */}
-            <tr className={highlightDiff ? 'bg-amber-500/5' : ''}>
-              <th scope="row" className="p-4 font-semibold sticky left-0 bg-slate-900 z-10 text-slate-200 border-r border-slate-800">
+            <tr className={highlightDiff ? 'bg-cyan-500/5' : ''}>
+              <th scope="row" className="p-4 font-semibold sticky left-0 bg-[#0e1424] z-10 text-slate-200 border-r border-slate-800">
                 售價區間 (萬元)
               </th>
               {selectedCars.map((car) => (
-                <td key={car.id} className="p-4 text-center font-bold text-amber-400 text-sm border-r border-slate-800/60 last:border-r-0">
+                <td key={car.id} className="p-4 text-center font-bold text-cyan-300 text-sm border-r border-slate-800/60 last:border-r-0">
                   {(car.priceRangeTwd[0] / 10000).toFixed(0)} ~ {(car.priceRangeTwd[1] / 10000).toFixed(0)} 萬
                 </td>
               ))}
             </tr>
 
             {/* Layout */}
-            <tr className={highlightDiff ? 'bg-amber-500/5' : 'bg-slate-900/40'}>
-              <th scope="row" className="p-4 font-semibold sticky left-0 bg-slate-900 z-10 text-slate-200 border-r border-slate-800">
+            <tr className={highlightDiff ? 'bg-cyan-500/5' : 'bg-[#0e1424]/40'}>
+              <th scope="row" className="p-4 font-semibold sticky left-0 bg-[#0e1424] z-10 text-slate-200 border-r border-slate-800">
                 座椅佈局
               </th>
               {selectedCars.map((car) => (
@@ -139,13 +139,13 @@ export default function CompareSelector({ initialCarIds = ['toyota-sienna', 'kia
 
             {/* Aisle width */}
             <tr>
-              <th scope="row" className="p-4 font-semibold sticky left-0 bg-slate-900 z-10 text-slate-200 border-r border-slate-800">
+              <th scope="row" className="p-4 font-semibold sticky left-0 bg-[#0e1424] z-10 text-slate-200 border-r border-slate-800">
                 第二排中央走道寬度
               </th>
               {selectedCars.map((car) => (
                 <td key={car.id} className="p-4 text-center border-r border-slate-800/60 last:border-r-0">
                   {car.seating.secondRowWalkThroughWidthMm > 0 ? (
-                    <span className="font-mono font-bold text-amber-400 text-sm">
+                    <span className="font-mono font-bold text-cyan-300 text-sm">
                       {car.seating.secondRowWalkThroughWidthMm} mm
                     </span>
                   ) : (
@@ -156,8 +156,8 @@ export default function CompareSelector({ initialCarIds = ['toyota-sienna', 'kia
             </tr>
 
             {/* Door type */}
-            <tr className={highlightDiff ? 'bg-amber-500/5' : 'bg-slate-900/40'}>
-              <th scope="row" className="p-4 font-semibold sticky left-0 bg-slate-900 z-10 text-slate-200 border-r border-slate-800">
+            <tr className={highlightDiff ? 'bg-cyan-500/5' : 'bg-[#0e1424]/40'}>
+              <th scope="row" className="p-4 font-semibold sticky left-0 bg-[#0e1424] z-10 text-slate-200 border-r border-slate-800">
                 車門機構
               </th>
               {selectedCars.map((car) => (
@@ -175,7 +175,7 @@ export default function CompareSelector({ initialCarIds = ['toyota-sienna', 'kia
 
             {/* Dimensions L x W x H */}
             <tr>
-              <th scope="row" className="p-4 font-semibold sticky left-0 bg-slate-900 z-10 text-slate-200 border-r border-slate-800">
+              <th scope="row" className="p-4 font-semibold sticky left-0 bg-[#0e1424] z-10 text-slate-200 border-r border-slate-800">
                 車身尺碼 (長x寬x高)
               </th>
               {selectedCars.map((car) => (
@@ -187,20 +187,20 @@ export default function CompareSelector({ initialCarIds = ['toyota-sienna', 'kia
             </tr>
 
             {/* Step in height */}
-            <tr className={highlightDiff ? 'bg-amber-500/5' : 'bg-slate-900/40'}>
-              <th scope="row" className="p-4 font-semibold sticky left-0 bg-slate-900 z-10 text-slate-200 border-r border-slate-800">
+            <tr className={highlightDiff ? 'bg-cyan-500/5' : 'bg-[#0e1424]/40'}>
+              <th scope="row" className="p-4 font-semibold sticky left-0 bg-[#0e1424] z-10 text-slate-200 border-r border-slate-800">
                 長輩登車踏板離地高
               </th>
               {selectedCars.map((car) => (
                 <td key={car.id} className="p-4 text-center border-r border-slate-800/60 last:border-r-0 font-mono">
-                  <span className="font-bold text-amber-400">{car.dimensions.stepInHeightMm} mm</span>
+                  <span className="font-bold text-cyan-300">{car.dimensions.stepInHeightMm} mm</span>
                 </td>
               ))}
             </tr>
 
             {/* 7 seat Luggage */}
             <tr>
-              <th scope="row" className="p-4 font-semibold sticky left-0 bg-slate-900 z-10 text-slate-200 border-r border-slate-800">
+              <th scope="row" className="p-4 font-semibold sticky left-0 bg-[#0e1424] z-10 text-slate-200 border-r border-slate-800">
                 7座滿載行李箱
               </th>
               {selectedCars.map((car) => (
@@ -214,12 +214,12 @@ export default function CompareSelector({ initialCarIds = ['toyota-sienna', 'kia
             </tr>
 
             {/* ISOFIX points */}
-            <tr className={highlightDiff ? 'bg-amber-500/5' : 'bg-slate-900/40'}>
-              <th scope="row" className="p-4 font-semibold sticky left-0 bg-slate-900 z-10 text-slate-200 border-r border-slate-800">
+            <tr className={highlightDiff ? 'bg-cyan-500/5' : 'bg-[#0e1424]/40'}>
+              <th scope="row" className="p-4 font-semibold sticky left-0 bg-[#0e1424] z-10 text-slate-200 border-r border-slate-800">
                 ISOFIX 汽座組數
               </th>
               {selectedCars.map((car) => (
-                <td key={car.id} className="p-4 text-center font-bold text-amber-400 border-r border-slate-800/60 last:border-r-0">
+                <td key={car.id} className="p-4 text-center font-bold text-cyan-300 border-r border-slate-800/60 last:border-r-0">
                   {car.safety.isofixPoints} 組 ({car.safety.isofixLocations.join('、')})
                 </td>
               ))}
@@ -227,7 +227,7 @@ export default function CompareSelector({ initialCarIds = ['toyota-sienna', 'kia
 
             {/* Powertrain & MPG */}
             <tr>
-              <th scope="row" className="p-4 font-semibold sticky left-0 bg-slate-900 z-10 text-slate-200 border-r border-slate-800">
+              <th scope="row" className="p-4 font-semibold sticky left-0 bg-[#0e1424] z-10 text-slate-200 border-r border-slate-800">
                 動力 / 平均油耗
               </th>
               {selectedCars.map((car) => (
@@ -239,8 +239,8 @@ export default function CompareSelector({ initialCarIds = ['toyota-sienna', 'kia
             </tr>
 
             {/* Taiwan Annual Tax */}
-            <tr className={highlightDiff ? 'bg-amber-500/5' : 'bg-slate-900/40'}>
-              <th scope="row" className="p-4 font-semibold sticky left-0 bg-slate-900 z-10 text-slate-200 border-r border-slate-800">
+            <tr className={highlightDiff ? 'bg-cyan-500/5' : 'bg-[#0e1424]/40'}>
+              <th scope="row" className="p-4 font-semibold sticky left-0 bg-[#0e1424] z-10 text-slate-200 border-r border-slate-800">
                 每年台灣稅金
               </th>
               {selectedCars.map((car) => (
@@ -256,7 +256,7 @@ export default function CompareSelector({ initialCarIds = ['toyota-sienna', 'kia
       {/* Add Car Modal */}
       {showAddModal && (
         <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-slate-900 border border-slate-800 rounded-2xl max-w-lg w-full p-6 space-y-4 shadow-2xl">
+          <div className="bg-[#0e1424] border border-slate-800 rounded-2xl max-w-lg w-full p-6 space-y-4 shadow-2xl">
             <div className="flex items-center justify-between pb-3 border-b border-slate-800">
               <h3 className="text-base font-bold text-white">選擇要加入比對的七人座車型</h3>
               <button onClick={() => setShowAddModal(false)} className="text-slate-400 hover:text-white">
@@ -278,10 +278,10 @@ export default function CompareSelector({ initialCarIds = ['toyota-sienna', 'kia
                       <img src={getCarImageUrl(car.heroImage)} alt={car.model} className="w-12 h-10 rounded-lg object-cover" />
                       <div>
                         <span className="text-sm font-bold text-white block">{car.brand} {car.model}</span>
-                        <span className="text-[11px] text-amber-400 font-semibold">{car.categoryName}</span>
+                        <span className="text-[11px] text-cyan-300 font-semibold">{car.categoryName}</span>
                       </div>
                     </div>
-                    <span className="text-xs font-bold text-amber-400">+ 加入</span>
+                    <span className="text-xs font-bold text-cyan-300">+ 加入</span>
                   </button>
                 ))
               )}
