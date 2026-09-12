@@ -48,10 +48,10 @@ const PRESET_DUELS = [
     rightId: 'kia-sorento',
   },
   {
-    name: '德系歐風雙雄同場對比',
-    desc: '全平整無段滑軌旗艦 vs 德系 MQB 靈活駕控長軸',
-    leftId: 'volkswagen-multivan',
-    rightId: 'volkswagen-tiguan-allspace',
+    name: '德系純電 vs 燃油旗艦對決',
+    desc: 'MEB 純電潮玩正7座 vs 全平整無段滑軌商務旗艦',
+    leftId: 'volkswagen-id-buzz',
+    rightId: 'volkswagen-multivan',
   },
   {
     name: '頂級奢華旗艦巔峰對戰',

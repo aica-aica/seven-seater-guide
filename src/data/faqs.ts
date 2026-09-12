@@ -39,7 +39,7 @@ export const FAQS_DATA: FAQItem[] = [
     categoryName: '汽座與安全防護',
     question: '第二排安裝兩張 ISOFIX 兒童安全座椅後，第三排乘客還能進出嗎？',
     shortAnswer: '在 2+2+3 車型上完全不受影響，乘客可直接走中央通道進出第三排；但在 2+3+2 車型上，兩張汽座會鎖死第二排椅背前傾機構，導致第三排無法正常進出，必須每次拆裝汽座或由後尾門爬入。',
-    detailedAnswer: '這是新手七人座買家最常遭遇的痛點！多數 ISOFIX 兒童安全座椅（特別是具備底座支撐腳的 0-4 歲旋轉型汽座）安裝在第二排後，第二排座椅將被牢牢固定，無法往前滑動或傾倒椅背。如果購買的是 2+3+2 傳統連體座椅車款，第三排乘客將被徹底「封死」在車後。唯有具備「中央走道」的 2+2+3 車型（如 Custin, Sienna, Carnival, Odyssey），或者具備多組 ISOFIX 且第三排自帶 ISOFIX 的車款（如 Caddy Maxi 可裝在第二排右 + 第三排右），才能根本解決雙汽座動線死角。',
+    detailedAnswer: '這是新手七人座買家最常遭遇的痛點！多數 ISOFIX 兒童安全座椅（特別是具備底座支撐腳的 0-4 歲旋轉型汽座）安裝在第二排後，第二排座椅將被牢牢固定，無法往前滑動或傾倒椅背。如果購買的是 2+3+2 傳統連體座椅車款，第三排乘客將被徹底「封死」在車後。唯有具備「中央走道」的 2+2+3 車型（如 Custin, Sienna, Carnival, ID. Buzz），或者具備多組 ISOFIX 且第三排自帶 ISOFIX 的車款（如 Caddy Maxi 可裝在第二排右 + 第三排右），才能根本解決雙汽座動線死角。',
     keyPoints: [
       '雙寶家庭強烈建議優先挑選 2+2+3 中央走道車型',
       'Volkswagen Caddy Maxi 全車高達 5 組 ISOFIX，可將汽座分散安裝於不同排',
@@ -54,7 +54,7 @@ export const FAQS_DATA: FAQItem[] = [
     categoryName: '汽座與安全防護',
     question: '哪一台七人座車款擁有最多組 ISOFIX 兒童安全座椅卡扣？',
     shortAnswer: 'Volkswagen Caddy Maxi 擁有同級最多的 5 組 ISOFIX（副駕駛座 1 組、第二排左中右 3 組、第三排 2 組），是台灣市售車中唯一第二排可同時並排安裝三張 ISOFIX 兒童汽座的家庭神車。',
-    detailedAnswer: '多數主流七人座 MPV（如 Sienna、Carnival、Multivan、Lexus LM）標配 4 組 ISOFIX（第二排 2 組 + 第三排 2 組）；Hyundai Custin 則配備 3 組 ISOFIX（第二排 2 組 + 第三排右側 1 組）；Honda Odyssey 與大部分 5+2 SUV 則僅在第二排配備 2 組 ISOFIX。若家中有三個學齡前幼童需同時乘載，VW Caddy Maxi 是極罕見能完全以 ISOFIX 規格固定三張以上汽座的解答。',
+    detailedAnswer: '多數主流七人座 MPV（如 Sienna、Carnival、Multivan、Lexus LM）標配 4 組 ISOFIX（第二排 2 組 + 第三排 2 組）；Hyundai Custin 則配備 3 組 ISOFIX（第二排 2 組 + 第三排右側 1 組）；而大部分 5+2 SUV 則僅在第二排配備 2 組 ISOFIX。若家中有三個學齡前幼童需同時乘載，VW Caddy Maxi 是極罕見能完全以 ISOFIX 規格固定三張以上汽座的解答。',
     keyPoints: [
       'VW Caddy Maxi：5 組 ISOFIX（同級之最，第二排可並排三張）',
       'Toyota Sienna / Kia Carnival / VW Multivan：4 組 ISOFIX',
@@ -71,14 +71,14 @@ export const FAQS_DATA: FAQItem[] = [
     category: 'parking-and-dimensions',
     categoryName: '停車與車身長寬高',
     question: '車高 1.8m 或 1.9m 的地下停車場，哪些七人座車款能停？哪些會卡住？',
-    shortAnswer: 'Sienna（1.77m）、Carnival（1.78m）、Custin（1.73m）、Odyssey（1.71m）皆可順暢進出 1.8m 停車場；但 VW Caddy Maxi（1.83m）、VW Multivan（1.90m）、Lexus LM（1.95m）嚴禁進入限高 1.8m/1.85m 停車場，容易撞擊排風管或消防灑水頭。',
+    shortAnswer: 'Sienna（1.77m）、Carnival（1.78m）、Custin（1.73m）、Sorento（1.70m）皆可順暢進出 1.8m 停車場；但 VW Caddy Maxi（1.83m）、VW Multivan（1.90m）、Lexus LM（1.95m）嚴禁進入限高 1.8m/1.85m 停車場，容易撞擊排風管或消防灑水頭。',
     detailedAnswer: '台灣許多老舊大樓、百貨公司或公有地下停車場限高標示為 1.80m 或 1.85m。購車時切勿只看車身規格表，還必須算入車頂天線或行李架厚度。VW Multivan 車高達 1907mm，Lexus LM 車高更達 1955mm，在台北市區尋找停車位需特別鎖定限高 2.0m 以上或室外平面停車場。另外，Sienna 與 Carnival 車寬逼近 2 米（1995mm），進出標準 2.2m 機械車位時兩側輪胎極易刮擦邊框。',
     keyPoints: [
-      '安全進出 1.8m 限高：Odyssey (1.71m)、Custin (1.73m)、Sienna (1.77m)、Carnival (1.78m)',
+      '安全進出 1.8m 限高：Sorento (1.70m)、Custin (1.73m)、Sienna (1.77m)、Carnival (1.78m)',
       '需注意 1.9m 限高門檻：Caddy Maxi (1.83m)',
       '嚴禁進入 1.9m 以下停車場：Multivan (1.90m)、Lexus LM (1.95m)',
     ],
-    relatedCarSlugs: ['toyota-sienna', 'honda-odyssey', 'volkswagen-multivan', 'lexus-lm'],
+    relatedCarSlugs: ['toyota-sienna', 'hyundai-custin', 'volkswagen-multivan', 'lexus-lm'],
     lastUpdated: '2024-04-03',
   },
 
@@ -104,7 +104,7 @@ export const FAQS_DATA: FAQItem[] = [
     categoryName: '購車預算與養車稅金',
     question: '預算 150 萬新台幣以內，台灣有哪些推薦的正七人座側滑門 MPV？',
     shortAnswer: '150 萬以內唯一具備「雙側電動滑門」與「正七人座獨立豪華座椅」的車款是 Hyundai Custin（129.9~146.9萬）；若重視極致露營裝載空間與 5 組 ISOFIX，Volkswagen Caddy Maxi（145.8~153.8萬）則是兼具超低油耗的絕佳歐系首選。',
-    detailedAnswer: '在 Honda Odyssey 停產、Toyota Previa 與 Luxgen M7 相繼退役後，台灣 150 萬以內的「正七人座側滑門」新車選擇一度稀缺。目前 150 萬級距的首選是國產組裝的 Hyundai Custin，頂規 146.9 萬即標配雙側電動滑門、第二排皇家通風加熱座椅與完整 Level 2 駕駛輔助。歐系代表則是 VW Caddy Maxi，雖側滑門為手動開啟，但擁有挑高車室與完全可拆除的第三排座椅，柴油平均油耗超過 20km/L。',
+    detailedAnswer: '在過去幾款日系熱門中型滑門休旅相繼停產退役後，台灣 150 萬以內的「正七人座側滑門」新車選擇一度稀缺。目前 150 萬級距的首選是國產組裝的 Hyundai Custin，頂規 146.9 萬即標配雙側電動滑門、第二排皇家通風加熱座椅與完整 Level 2 駕駛輔助。歐系代表則是 VW Caddy Maxi，雖側滑門為手動開啟，但擁有挑高車室與完全可拆除的第三排座椅，柴油平均油耗超過 20km/L。',
     keyPoints: [
       'Hyundai Custin GLT-B (146.9萬)：雙側電動滑門、皇家獨立腿靠座椅、1.5T低稅金',
       'VW Caddy Maxi Life (153.8萬)：歐系底盤剛性、5組ISOFIX、20.2km/L極致柴油省油',

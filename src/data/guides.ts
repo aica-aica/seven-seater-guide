@@ -37,7 +37,7 @@ export const GUIDES_DATA: GuideArticle[] = [
         <p>在台灣汽車市場中，許多標榜「七人座」的車款其實在底盤架構與設計初衷上有著天壤之別：</p>
         <ul>
           <li><strong>正七人座 MPV（Multi-Purpose Vehicle）</strong>：以 Sienna、Carnival、Custin、Multivan 為代表。這類車型從底盤開發初期即以「載運 7 位成人與其行李」為核心目標，車體方正、車長通常在 4.9m 至 5.2m 之間，具備滑門與平整化地板。</li>
-          <li><strong>5+2 跨界／休旅車（5+2 SUV）</strong>：以 Skoda Kodiaq、Tiguan Allspace、Outlander 為代表。本質上是以「標準中型五人座 SUV」的底盤軸距拉長衍生而來，第三排座椅屬於「加裝之折疊應急座」。</li>
+          <li><strong>5+2 跨界／休旅車（5+2 SUV）</strong>：以 Skoda Kodiaq、Kia Sorento、Hyundai Santa Fe 為代表。本質上是以「標準中型五人座 SUV」的底盤軸距拉長衍生而來，第三排座椅屬於「加裝之折疊應急座」。</li>
         </ul>
       </section>
 
@@ -171,7 +171,7 @@ export const GUIDES_DATA: GuideArticle[] = [
         <ol>
           <li><strong>零死角極大開口</strong>：側滑門開啟寬度通常達到 700mm 至 800mm 以上，車門向後平行滑移，完全不佔用車身兩側空間。</li>
           <li><strong>站姿操作抱小孩</strong>：因為 MPV 底盤低、車頂高，父母可以一腳踏進車內地板，直立或微傾身體替孩子扣好安全帶，遇到下雨天更可在車內優雅關門。</li>
-          <li><strong>長輩與幼童自主上下車無負擔</strong>：滑門通常搭配 B 柱專用加長扶手與低階梯踏板（如 Odyssey 30cm、Custin 38cm），3 歲幼童能自己走上去，75 歲長輩膝蓋免承受巨大下蹲受力。</li>
+          <li><strong>長輩與幼童自主上下車無負擔</strong>：滑門通常搭配 B 柱專用加長扶手與低階梯踏板（如 Custin 38cm、Sienna 40cm），3 歲幼童能自己走上去，75 歲長輩膝蓋免承受巨大下蹲受力。</li>
         </ol>
       </section>
 
@@ -182,7 +182,7 @@ export const GUIDES_DATA: GuideArticle[] = [
         <p>這意味著：如果要坐進第三排，第三排的乘客要麼必須從後行李箱爬進去，要麼得每次都花 5 分鐘拆卸重裝兒童安全座椅！</p>
         <p>解決方案只有兩種：</p>
         <ul>
-          <li>選擇 <strong>2+2+3 獨立座椅車型（如 Custin, Carnival, Sienna, Odyssey）</strong>：中間保留 18~22 公分的走道，即便第二排兩張椅子都裝滿大型汽座，第三排乘客依然可以從容自走道進出。</li>
+          <li>選擇 <strong>2+2+3 獨立座椅車型（如 Custin, Carnival, Sienna, ID. Buzz）</strong>：中間保留 18~22 公分的走道，即便第二排兩張椅子都裝滿大型汽座，第三排乘客依然可以從容自走道進出。</li>
           <li>選擇像 <strong>Volkswagen Caddy Maxi</strong> 這種第三排自帶 2 組獨立 ISOFIX 的車款，將汽座分別安裝在第二排右側與第三排右側，留出左側完整進出動線。</li>
         </ul>
       </section>
@@ -232,7 +232,7 @@ export const GUIDES_DATA: GuideArticle[] = [
         <h2>1. 兩種主流七人座佈局架構</h2>
         <p>在挑選七人座車輛時，座椅配置往往決定了家庭日常出行的便利性：</p>
         <ul>
-          <li><strong>2+2+3（Captain Chairs 旗艦獨立雙座）</strong>：第二排為兩張獨立豪華座椅，中間保留 17 至 23 公分的中央通道，第三排為三人連體座。代表車款：Toyota Sienna、Kia Carnival 7人版、Hyundai Custin、Honda Odyssey。</li>
+          <li><strong>2+2+3（Captain Chairs 旗艦獨立雙座）</strong>：第二排為兩張獨立豪華座椅，中間保留 17 至 23 公分的中央通道，第三排為三人連體座。代表車款：Toyota Sienna、Kia Carnival 7人版、Hyundai Custin、Volkswagen ID. Buzz。</li>
           <li><strong>2+3+2（Bench Seat 正三座式）</strong>：第二排為三張相連座椅（6/4 分離或三張獨立），第三排為兩人座。代表車款：Volkswagen Caddy Maxi、Skoda Kodiaq、Kia Carnival 8人版。</li>
         </ul>
       </section>
