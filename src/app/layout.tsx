@@ -76,14 +76,14 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="zh-Hant-TW" className="dark h-full bg-[#0b101d] text-slate-100 antialiased">
+    <html lang="zh-Hant-TW" className="h-full bg-[#f0f5fb] text-slate-900 antialiased">
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
         />
       </head>
-      <body className="min-h-full flex flex-col bg-[#0b101d] text-slate-100 font-sans selection:bg-cyan-500 selection:text-slate-950">
+      <body className="min-h-full flex flex-col bg-[#f0f5fb] text-slate-900 font-sans selection:bg-cyan-500 selection:text-white">
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />

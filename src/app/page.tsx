@@ -62,7 +62,7 @@ export default function HomePage() {
         priceRange: [100, 150],
       });
     } else if (scenarioId === 'camping-cargo') {
-      // Big luggage
+      // High luggage capacity mode
       setFilters({
         ...initialFilters,
         sortBy: 'luggage-desc',
@@ -70,23 +70,20 @@ export default function HomePage() {
     }
   };
 
-  // Filter & Sort Logic
+  // Filtered and sorted cars list
   const filteredCars = useMemo(() => {
     return CARS_DATA.filter((car) => {
-      // Search
+      // Search query (Brand or Model)
       if (filters.searchQuery.trim()) {
         const query = filters.searchQuery.toLowerCase();
-        const match =
-          car.brand.toLowerCase().includes(query) ||
-          car.model.toLowerCase().includes(query) ||
-          car.categoryName.toLowerCase().includes(query) ||
-          car.tagline.toLowerCase().includes(query);
-        if (!match) return false;
+        const brandMatches = car.brand.toLowerCase().includes(query);
+        const modelMatches = car.model.toLowerCase().includes(query);
+        if (!brandMatches && !modelMatches) return false;
       }
 
-      // Price Range (price in Wan)
-      const minWan = car.priceRangeTwd[0] / 10000;
-      if (minWan > filters.priceRange[1]) return false;
+      // Price Range (in Wan TWD)
+      const carMinWan = car.priceRangeTwd[0] / 10000;
+      if (carMinWan > filters.priceRange[1]) return false;
 
       // Seating Layout
       if (filters.seatingLayouts.length > 0) {
@@ -133,7 +130,7 @@ export default function HomePage() {
       />
 
       {/* 2. Core Interactive Split-Screen Duel Section (左右分欄上下滑動對決) */}
-      <section className="py-12 border-y border-white/[0.08] relative overflow-hidden" id="split-compare">
+      <section className="py-12 border-y border-slate-200/80 relative overflow-hidden" id="split-compare">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <SplitScreenDuel />
         </div>
@@ -142,23 +139,23 @@ export default function HomePage() {
       {/* 3. Curated Top Picks */}
       <TopPicks />
 
-      {/* 3. Interactive Vehicle Finder & Grid */}
+      {/* 4. Interactive Vehicle Finder & Grid */}
       <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" id="car-finder">
         <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between mb-8 gap-4">
           <div>
-            <span className="text-xs font-bold text-cyan-400 uppercase tracking-widest block mb-2">
+            <span className="text-xs font-bold text-cyan-700 uppercase tracking-widest block mb-2">
               智慧規格選車器
             </span>
-            <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
+            <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
               台灣現行七人座車款規格資料庫
             </h2>
-            <p className="text-xs sm:text-sm text-slate-400 mt-1">
+            <p className="text-xs sm:text-sm text-slate-500 mt-1">
               依預算、滑門型式、座椅格局與動力自由組合篩選。
             </p>
           </div>
           <Link
             href="/compare"
-            className="text-xs font-bold text-cyan-400 hover:text-cyan-300 flex items-center gap-1"
+            className="text-xs font-bold text-cyan-700 hover:text-cyan-600 flex items-center gap-1"
           >
             直接進入多車對比表
             <ArrowRight className="w-3.5 h-3.5" />
@@ -179,8 +176,8 @@ export default function HomePage() {
         {/* Cars Grid */}
         <div className="mt-8">
           {filteredCars.length === 0 ? (
-            <div className="text-center py-16 bg-[#0e1424]/80 backdrop-blur-xl rounded-2xl border border-white/[0.08]">
-              <p className="text-slate-300 text-sm font-semibold mb-2">
+            <div className="text-center py-16 bg-white/90 backdrop-blur-xl rounded-2xl border border-slate-200/90 shadow-sm">
+              <p className="text-slate-800 text-sm font-semibold mb-2">
                 查無符合目前篩選條件的七人座車型。
               </p>
               <p className="text-xs text-slate-500 mb-4">
@@ -191,7 +188,7 @@ export default function HomePage() {
                   setFilters(initialFilters);
                   setSelectedScenario(null);
                 }}
-                className="px-4 py-2 rounded-xl bg-cyan-500 text-slate-950 text-xs font-bold shadow-md shadow-cyan-500/20"
+                className="px-4 py-2 rounded-xl bg-cyan-600 text-white text-xs font-bold shadow-md shadow-cyan-600/20"
               >
                 重設所有條件
               </button>
@@ -206,26 +203,26 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 4. Comparison Matrix Table Section */}
+      {/* 5. Comparison Matrix Table Section */}
       <ComparisonMatrixPreview />
 
-      {/* 5. Analytical Buying Guides Section */}
-      <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-b border-white/[0.08]">
+      {/* 6. Analytical Buying Guides Section */}
+      <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-b border-slate-200/80">
         <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between mb-8 gap-4">
           <div>
-            <span className="text-xs font-bold text-cyan-400 uppercase tracking-widest block mb-2">
+            <span className="text-xs font-bold text-cyan-700 uppercase tracking-widest block mb-2">
               深度評測專題
             </span>
-            <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
+            <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
               買車前必看的 4 大關鍵分析
             </h2>
-            <p className="text-xs sm:text-sm text-slate-400 mt-1">
+            <p className="text-xs sm:text-sm text-slate-500 mt-1">
               由資深車輛工程技師與母嬰安全顧問執筆，破解展間銷售員不會告訴你的空間真相。
             </p>
           </div>
           <Link
             href="/guides"
-            className="text-xs font-bold text-cyan-400 hover:text-cyan-300 flex items-center gap-1"
+            className="text-xs font-bold text-cyan-700 hover:text-cyan-600 flex items-center gap-1"
           >
             查看全部指南文章
             <ArrowRight className="w-3.5 h-3.5" />
@@ -239,18 +236,18 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 6. AI Overviews Optimized FAQ Section */}
-      <section className="py-16 border-b border-white/[0.08]">
+      {/* 7. AI Overviews Optimized FAQ Section */}
+      <section className="py-16 border-b border-slate-200/80">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-300 text-xs font-semibold border border-cyan-500/25 shadow-sm shadow-cyan-500/10 mb-3">
-              <HelpCircle className="w-3.5 h-3.5" />
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sky-50 text-sky-700 text-xs font-semibold border border-sky-200/90 shadow-sm mb-3">
+              <HelpCircle className="w-3.5 h-3.5 text-cyan-600" />
               <span>AI Overviews 結構化知識精要</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
+            <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
               七人座購車常見疑問與權威解答
             </h2>
-            <p className="text-xs sm:text-sm text-slate-400 mt-2">
+            <p className="text-xs sm:text-sm text-slate-500 mt-2">
               高密度重點摘要，專為 Google AI 搜尋摘要與精選片段索引設計。
             </p>
           </div>
@@ -262,38 +259,38 @@ export default function HomePage() {
               return (
                 <div
                   key={faq.id}
-                  className="rounded-2xl border border-white/[0.08] bg-[#0e1424]/80 backdrop-blur-xl overflow-hidden transition-all shadow-xl"
+                  className="rounded-2xl border border-slate-200/90 bg-white/95 backdrop-blur-xl overflow-hidden transition-all shadow-sm"
                 >
                   <button
                     onClick={() => setOpenFaqId(isOpen ? null : faq.id)}
-                    className="w-full flex items-center justify-between p-5 text-left font-bold text-sm sm:text-base text-white hover:text-cyan-300 transition-colors"
+                    className="w-full flex items-center justify-between p-5 text-left font-bold text-sm sm:text-base text-slate-900 hover:text-cyan-700 transition-colors"
                   >
                     <span>{faq.question}</span>
                     <ChevronDown
                       className={`w-4 h-4 text-slate-400 flex-shrink-0 ml-4 transition-transform duration-200 ${
-                        isOpen ? 'rotate-180 text-cyan-400' : ''
+                        isOpen ? 'rotate-180 text-cyan-600' : ''
                       }`}
                     />
                   </button>
 
                   {isOpen && (
-                    <div className="px-5 pb-5 pt-1 text-xs sm:text-sm border-t border-slate-850 space-y-3">
+                    <div className="px-5 pb-5 pt-1 text-xs sm:text-sm border-t border-slate-100 space-y-3">
                       {/* AI Snippet Direct Answer Box */}
-                      <div className="p-3.5 rounded-xl bg-cyan-500/10 border border-cyan-500/25 text-cyan-200 leading-relaxed">
-                        <strong className="font-bold text-cyan-400 block mb-1">
+                      <div className="p-3.5 rounded-xl bg-sky-50 border border-sky-200 text-sky-900 leading-relaxed">
+                        <strong className="font-bold text-sky-900 block mb-1">
                           ⚡ AI 核心精華摘要：
                         </strong>
                         {faq.shortAnswer}
                       </div>
 
-                      <p className="text-slate-300 leading-relaxed">
+                      <p className="text-slate-600 leading-relaxed">
                         {faq.detailedAnswer}
                       </p>
 
-                      <ul className="space-y-1.5 pt-2 text-xs text-slate-400">
+                      <ul className="space-y-1.5 pt-2 text-xs text-slate-500">
                         {faq.keyPoints.map((kp, idx) => (
                           <li key={idx} className="flex items-center gap-2">
-                            <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
+                            <span className="w-1.5 h-1.5 rounded-full bg-cyan-600" />
                             <span>{kp}</span>
                           </li>
                         ))}
@@ -308,7 +305,7 @@ export default function HomePage() {
           <div className="mt-8 text-center">
             <Link
               href="/faq"
-              className="inline-flex items-center gap-1.5 text-xs font-bold text-cyan-400 hover:text-cyan-300"
+              className="inline-flex items-center gap-1.5 text-xs font-bold text-cyan-700 hover:text-cyan-600"
             >
               進入完整 FAQ 知識庫（含停車限高與稅金試算）
               <ArrowRight className="w-3.5 h-3.5" />

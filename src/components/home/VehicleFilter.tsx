@@ -58,27 +58,27 @@ export default function VehicleFilter({
   };
 
   return (
-    <div className="bg-[#0e1424]/80 backdrop-blur-xl border border-white/[0.08] rounded-2xl p-5 sm:p-6 shadow-xl text-slate-200">
+    <div className="bg-white/90 backdrop-blur-xl border border-slate-200/90 rounded-2xl p-5 sm:p-6 shadow-[0_4px_20px_rgba(15,23,42,0.05)] text-slate-800">
       {/* Search Header */}
-      <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 pb-5 border-b border-slate-800">
+      <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 pb-5 border-b border-slate-200/90">
         <div className="relative flex-1">
           <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
           <input
             type="text"
-            placeholder="搜尋品牌、車型名稱（如 Sienna, Carnival, Kodiaq, Sorento...）"
+            placeholder="搜尋品牌、車型名稱（如 Sienna, Carnival, Kodiaq, Sorento, Alphard, EV9...）"
             value={filters.searchQuery}
             onChange={(e) => onChange({ ...filters, searchQuery: e.target.value })}
-            className="w-full pl-10 pr-4 py-2.5 bg-slate-900/60 border border-slate-700/60 rounded-xl text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition-all"
+            className="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-200/90 rounded-xl text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 focus:bg-white transition-all shadow-inner"
           />
         </div>
 
         <div className="flex items-center justify-between sm:justify-end gap-3">
-          <span className="text-xs text-slate-400 font-medium">
-            符合條件：<strong className="text-cyan-400 text-sm font-mono">{totalResults}</strong> 款車型
+          <span className="text-xs text-slate-500 font-medium">
+            符合條件：<strong className="text-cyan-700 text-sm font-mono">{totalResults}</strong> 款車型
           </span>
           <button
             onClick={onReset}
-            className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg bg-white/[0.05] hover:bg-white/[0.09] text-xs font-semibold text-slate-300 hover:text-white border border-white/[0.08] transition-colors"
+            className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg bg-slate-100 hover:bg-slate-200/80 text-xs font-semibold text-slate-700 hover:text-slate-900 border border-slate-200/90 transition-colors"
           >
             <RotateCcw className="w-3.5 h-3.5" />
             重設篩選
@@ -87,9 +87,9 @@ export default function VehicleFilter({
       </div>
 
       {/* Core Category Switcher: 全部 / 正7人座 MPV / 5+2 SUV */}
-      <div className="py-4 border-b border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+      <div className="py-4 border-b border-slate-200/90 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div className="flex items-center gap-2">
-          <span className="text-xs font-bold text-slate-300 uppercase tracking-wider">車型核心陣營：</span>
+          <span className="text-xs font-bold text-slate-800 uppercase tracking-wider">車型核心陣營：</span>
           <span className="text-[11px] text-slate-500">（全站嚴格依空間與門型劃分）</span>
         </div>
         <div className="flex flex-wrap gap-2">
@@ -98,8 +98,8 @@ export default function VehicleFilter({
             onClick={() => setCoreCategory('all')}
             className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all border ${
               !filters.coreCategory || filters.coreCategory === 'all'
-                ? 'bg-slate-800 text-white border-slate-600 shadow-sm'
-                : 'bg-slate-900/40 border-slate-800 text-slate-400 hover:text-slate-200'
+                ? 'bg-slate-800 text-white border-slate-800 shadow-sm'
+                : 'bg-slate-50 border-slate-200/90 text-slate-600 hover:text-slate-900 hover:bg-slate-100'
             }`}
           >
             全部車型 ({CARS_DATA.length})
@@ -109,11 +109,11 @@ export default function VehicleFilter({
             onClick={() => setCoreCategory('true-7-mpv')}
             className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all border flex items-center gap-1.5 ${
               filters.coreCategory === 'true-7-mpv'
-                ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/50 shadow-sm ring-1 ring-emerald-500/30'
-                : 'bg-slate-900/40 border-slate-800 text-slate-400 hover:text-emerald-400'
+                ? 'bg-emerald-50 text-emerald-800 border-emerald-400 shadow-sm ring-1 ring-emerald-300'
+                : 'bg-slate-50 border-slate-200/90 text-slate-600 hover:text-emerald-700 hover:bg-emerald-50/50'
             }`}
           >
-            <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
+            <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
             <span>🛡️ 正7人座 MPV ({CARS_DATA.filter(c => c.coreCategory === "true-7-mpv").length})</span>
           </button>
           <button
@@ -121,11 +121,11 @@ export default function VehicleFilter({
             onClick={() => setCoreCategory('5-plus-2-suv')}
             className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all border flex items-center gap-1.5 ${
               filters.coreCategory === '5-plus-2-suv'
-                ? 'bg-sky-500/20 text-sky-300 border-sky-500/50 shadow-sm ring-1 ring-sky-500/30'
-                : 'bg-slate-900/40 border-slate-800 text-slate-400 hover:text-cyan-400'
+                ? 'bg-sky-50 text-sky-800 border-sky-400 shadow-sm ring-1 ring-sky-300'
+                : 'bg-slate-50 border-slate-200/90 text-slate-600 hover:text-sky-700 hover:bg-sky-50/50'
             }`}
           >
-            <Zap className="w-3.5 h-3.5 text-sky-400" />
+            <Zap className="w-3.5 h-3.5 text-sky-600" />
             <span>⚡ 5+2 SUV ({CARS_DATA.filter(c => c.coreCategory === "5-plus-2-suv").length})</span>
           </button>
         </div>
@@ -135,7 +135,7 @@ export default function VehicleFilter({
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6 pt-5">
         {/* Budget Filter */}
         <div>
-          <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2.5">
+          <label className="block text-xs font-bold text-slate-800 uppercase tracking-wider mb-2.5">
             預算上限（萬元 TWD）
           </label>
           <div className="flex flex-wrap gap-1.5">
@@ -154,8 +154,8 @@ export default function VehicleFilter({
                   onClick={() => handleBudgetChange(b.value)}
                   className={`px-3 py-1.5 rounded-lg text-xs font-semibold border transition-all ${
                     active
-                      ? 'bg-cyan-500 text-slate-950 border-cyan-500 shadow-sm font-bold'
-                      : 'bg-slate-900/40 border-slate-800/80 text-slate-300 hover:border-slate-700 hover:bg-slate-850/60'
+                      ? 'bg-cyan-600 text-white border-cyan-600 shadow-sm font-bold'
+                      : 'bg-slate-50 border-slate-200/90 text-slate-700 hover:border-cyan-400 hover:bg-white shadow-sm'
                   }`}
                 >
                   {b.label}
@@ -167,7 +167,7 @@ export default function VehicleFilter({
 
         {/* Seating Layout Filter */}
         <div>
-          <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2.5">
+          <label className="block text-xs font-bold text-slate-800 uppercase tracking-wider mb-2.5">
             座椅配置佈局
           </label>
           <div className="flex flex-col gap-1.5">
@@ -183,15 +183,15 @@ export default function VehicleFilter({
                   onClick={() => toggleLayout(layout.id)}
                   className={`flex items-center justify-between px-3 py-2 rounded-lg text-xs font-medium border text-left transition-all ${
                     checked
-                      ? 'bg-cyan-500/15 border-cyan-400/60 text-cyan-200 shadow-sm'
-                      : 'bg-slate-900/40 border-slate-800/80 text-slate-300 hover:border-slate-700 hover:bg-slate-850/60'
+                      ? 'bg-sky-50 border-sky-400 text-sky-900 shadow-sm'
+                      : 'bg-slate-50 border-slate-200/90 text-slate-700 hover:border-cyan-400 hover:bg-white shadow-sm'
                   }`}
                 >
                   <div>
-                    <span className="font-semibold block">{layout.label}</span>
-                    <span className="text-[10px] text-slate-400">{layout.sub}</span>
+                    <span className="font-bold block">{layout.label}</span>
+                    <span className="text-[10px] text-slate-500">{layout.sub}</span>
                   </div>
-                  {checked && <Check className="w-3.5 h-3.5 text-cyan-400" />}
+                  {checked && <Check className="w-3.5 h-3.5 text-sky-600" />}
                 </button>
               );
             })}
@@ -200,7 +200,7 @@ export default function VehicleFilter({
 
         {/* Door Type Filter */}
         <div>
-          <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2.5">
+          <label className="block text-xs font-bold text-slate-800 uppercase tracking-wider mb-2.5">
             車門開門機構
           </label>
           <div className="flex flex-col gap-1.5">
@@ -217,15 +217,15 @@ export default function VehicleFilter({
                   onClick={() => toggleDoorType(door.id)}
                   className={`flex items-center justify-between px-3 py-2 rounded-lg text-xs font-medium border text-left transition-all ${
                     checked
-                      ? 'bg-cyan-500/15 border-cyan-400/60 text-cyan-200 shadow-sm'
-                      : 'bg-slate-900/40 border-slate-800/80 text-slate-300 hover:border-slate-700 hover:bg-slate-850/60'
+                      ? 'bg-sky-50 border-sky-400 text-sky-900 shadow-sm'
+                      : 'bg-slate-50 border-slate-200/90 text-slate-700 hover:border-cyan-400 hover:bg-white shadow-sm'
                   }`}
                 >
                   <div>
-                    <span className="font-semibold block">{door.label}</span>
-                    <span className="text-[10px] text-slate-400">{door.sub}</span>
+                    <span className="font-bold block">{door.label}</span>
+                    <span className="text-[10px] text-slate-500">{door.sub}</span>
                   </div>
-                  {checked && <Check className="w-3.5 h-3.5 text-cyan-400" />}
+                  {checked && <Check className="w-3.5 h-3.5 text-sky-600" />}
                 </button>
               );
             })}
@@ -234,12 +234,13 @@ export default function VehicleFilter({
 
         {/* Powertrain Filter */}
         <div>
-          <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2.5">
+          <label className="block text-xs font-bold text-slate-800 uppercase tracking-wider mb-2.5">
             動力系統型式
           </label>
           <div className="flex flex-wrap gap-1.5">
             {[
               { id: 'hybrid' as EngineType, label: '油電 Hybrid' },
+              { id: 'electric' as EngineType, label: '純電 EV' },
               { id: 'diesel' as EngineType, label: '柴油渦輪' },
               { id: 'gasoline' as EngineType, label: '汽油渦輪/NA' },
             ].map((engine) => {
@@ -251,8 +252,8 @@ export default function VehicleFilter({
                   onClick={() => toggleEngine(engine.id)}
                   className={`px-3 py-1.5 rounded-lg text-xs font-medium border transition-all ${
                     checked
-                      ? 'bg-amber-500 text-slate-950 border-amber-500 font-bold'
-                      : 'bg-slate-900/40 border-slate-800/80 text-slate-300 hover:border-slate-700 hover:bg-slate-850/60'
+                      ? 'bg-cyan-600 text-white border-cyan-600 font-bold shadow-sm'
+                      : 'bg-slate-50 border-slate-200/90 text-slate-700 hover:border-cyan-400 hover:bg-white shadow-sm'
                   }`}
                 >
                   {engine.label}
@@ -260,8 +261,8 @@ export default function VehicleFilter({
               );
             })}
           </div>
-          <div className="mt-4 pt-3 border-t border-slate-800/80">
-            <label className="block text-[11px] font-semibold text-slate-400 mb-1.5">
+          <div className="mt-4 pt-3 border-t border-slate-200/80">
+            <label className="block text-[11px] font-bold text-slate-600 mb-1.5">
               排序方式
             </label>
             <select
@@ -269,7 +270,7 @@ export default function VehicleFilter({
               onChange={(e) =>
                 onChange({ ...filters, sortBy: e.target.value as FilterOptions['sortBy'] })
               }
-              className="w-full bg-slate-950 border border-slate-700 text-slate-200 text-xs rounded-lg px-2.5 py-1.5 focus:outline-none focus:ring-1 focus:ring-amber-500"
+              className="w-full bg-slate-50 border border-slate-200/90 text-slate-800 text-xs rounded-lg px-2.5 py-1.5 focus:outline-none focus:ring-1 focus:ring-cyan-500 shadow-sm"
             >
               <option value="price-asc">價格：由低至高</option>
               <option value="price-desc">價格：由高至低</option>

@@ -68,44 +68,44 @@ export const GUIDES_DATA: GuideArticle[] = [
       <section id="comparison-table">
         <h2>5. 正 MPV vs 5+2 SUV 核心指標對照表</h2>
         <div class="overflow-x-auto my-6">
-          <table class="w-full text-left border-collapse border border-slate-700">
+          <table class="w-full text-left border-collapse border border-slate-200">
             <thead>
-              <tr class="bg-slate-800 text-amber-400">
-                <th scope="col" class="p-3 border border-slate-700">評比項目</th>
-                <th scope="col" class="p-3 border border-slate-700">正七人座 MPV (如 Carnival / Sienna)</th>
-                <th scope="col" class="p-3 border border-slate-700">5+2 跨界 SUV (如 Kodiaq)</th>
+              <tr class="bg-[#f0f5fb] text-cyan-800">
+                <th scope="col" class="p-3 border border-slate-200">評比項目</th>
+                <th scope="col" class="p-3 border border-slate-200">正七人座 MPV (如 Carnival / Sienna)</th>
+                <th scope="col" class="p-3 border border-slate-200">5+2 跨界 SUV (如 Kodiaq)</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <th scope="row" class="p-3 border border-slate-700 font-semibold">第三排乘坐適應性</th>
-                <td class="p-3 border border-slate-700 text-emerald-400">175cm 以上成人長途 2 小時無壓力</td>
-                <td class="p-3 border border-slate-700 text-rose-400">建議僅供 160cm 以下或兒童短途</td>
+                <th scope="row" class="p-3 border border-slate-200 font-semibold text-slate-800">第三排乘坐適應性</th>
+                <td class="p-3 border border-slate-200 text-emerald-700 font-semibold">175cm 以上成人長途 2 小時無壓力</td>
+                <td class="p-3 border border-slate-200 text-rose-700 font-semibold">建議僅供 160cm 以下或兒童短途</td>
               </tr>
-              <tr class="bg-slate-900/50">
-                <th scope="row" class="p-3 border border-slate-700 font-semibold">第二排走道動線</th>
-                <td class="p-3 border border-slate-700 text-emerald-400">多為 2+2+3，中央有 18~22cm 專用走道</td>
-                <td class="p-3 border border-slate-700 text-rose-400">無走道，進出需手動前翻第二排</td>
-              </tr>
-              <tr>
-                <th scope="row" class="p-3 border border-slate-700 font-semibold">後方追撞潰縮緩衝</th>
-                <td class="p-3 border border-slate-700 text-emerald-400">優良 (後方緩衝縱深 60~80cm)</td>
-                <td class="p-3 border border-slate-700 text-amber-400">緊繃 (後方緩衝縱深僅 20~30cm)</td>
-              </tr>
-              <tr class="bg-slate-900/50">
-                <th scope="row" class="p-3 border border-slate-700 font-semibold">滿載行李箱容量</th>
-                <td class="p-3 border border-slate-700 text-emerald-400">450L ~ 1,100L (可放多個28吋箱)</td>
-                <td class="p-3 border border-slate-700 text-rose-400">200L ~ 340L (僅能放登機箱/背包)</td>
+              <tr class="bg-[#f8fafc]">
+                <th scope="row" class="p-3 border border-slate-200 font-semibold text-slate-800">第二排走道動線</th>
+                <td class="p-3 border border-slate-200 text-emerald-700 font-semibold">多為 2+2+3，中央有 18~22cm 專用走道</td>
+                <td class="p-3 border border-slate-200 text-rose-700 font-semibold">無走道，進出需手動前翻第二排</td>
               </tr>
               <tr>
-                <th scope="row" class="p-3 border border-slate-700 font-semibold">車門開啟機構</th>
-                <td class="p-3 border border-slate-700 text-emerald-400">雙側電動滑門（狹窄停車超好開）</td>
-                <td class="p-3 border border-slate-700 text-amber-400">傳統外推門（開門易受兩側車輛限制）</td>
+                <th scope="row" class="p-3 border border-slate-200 font-semibold text-slate-800">後方追撞潰縮緩衝</th>
+                <td class="p-3 border border-slate-200 text-emerald-700 font-semibold">優良 (後方緩衝縱深 60~80cm)</td>
+                <td class="p-3 border border-slate-200 text-amber-800 font-semibold">緊繃 (後方緩衝縱深僅 20~30cm)</td>
               </tr>
-              <tr class="bg-slate-900/50">
-                <th scope="row" class="p-3 border border-slate-700 font-semibold">市區停車與非鋪裝路面</th>
-                <td class="p-3 border border-slate-700 text-amber-400">車身長寬大，部分停車位有限制</td>
-                <td class="p-3 border border-slate-700 text-emerald-400">車長多在 4.8m 內，離地高適應爛路</td>
+              <tr class="bg-[#f8fafc]">
+                <th scope="row" class="p-3 border border-slate-200 font-semibold text-slate-800">滿載行李箱容量</th>
+                <td class="p-3 border border-slate-200 text-emerald-700 font-semibold">450L ~ 1,100L (可放多個28吋箱)</td>
+                <td class="p-3 border border-slate-200 text-rose-700 font-semibold">200L ~ 340L (僅能放登機箱/背包)</td>
+              </tr>
+              <tr>
+                <th scope="row" class="p-3 border border-slate-200 font-semibold text-slate-800">車門開啟機構</th>
+                <td class="p-3 border border-slate-200 text-emerald-700 font-semibold">雙側電動滑門（狹窄停車超好開）</td>
+                <td class="p-3 border border-slate-200 text-amber-800 font-semibold">傳統外推門（開門易受兩側車輛限制）</td>
+              </tr>
+              <tr class="bg-[#f8fafc]">
+                <th scope="row" class="p-3 border border-slate-200 font-semibold text-slate-800">市區停車與非鋪裝路面</th>
+                <td class="p-3 border border-slate-200 text-amber-800 font-semibold">車身長寬大，部分停車位有限制</td>
+                <td class="p-3 border border-slate-200 text-emerald-700 font-semibold">車長多在 4.8m 內，離地高適應爛路</td>
               </tr>
             </tbody>
           </table>

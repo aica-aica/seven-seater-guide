@@ -22,21 +22,21 @@ export default function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-[#0e1424]/80 backdrop-blur-xl border-b border-white/[0.08] text-slate-100 transition-all">
+    <header className="sticky top-0 z-50 w-full bg-white/85 backdrop-blur-xl border-b border-slate-200/90 text-slate-800 shadow-[0_2px_15px_rgba(15,23,42,0.04)] transition-all">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Brand Logo */}
         <Link href="/" className="flex items-center gap-2.5 group">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center text-white font-black shadow-md shadow-cyan-500/25 group-hover:scale-105 transition-transform">
+          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center text-white font-black shadow-md shadow-cyan-500/20 group-hover:scale-105 transition-transform">
             <span className="text-xl">7</span>
           </div>
           <div className="flex flex-col">
-            <span className="font-bold text-lg leading-tight tracking-tight text-white flex items-center gap-1.5">
+            <span className="font-bold text-lg leading-tight tracking-tight text-slate-900 flex items-center gap-1.5">
               七人座選車指南
-              <span className="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/30">
+              <span className="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-sky-50 text-sky-700 border border-sky-200/80">
                 權威評測
               </span>
             </span>
-            <span className="text-[11px] text-slate-400 font-medium tracking-wide">
+            <span className="text-[11px] text-slate-500 font-medium tracking-wide">
               台灣 7-Seater MPV & SUV 專業資料庫
             </span>
           </div>
@@ -53,11 +53,11 @@ export default function Navbar() {
                 href={link.href}
                 className={`flex items-center gap-2 px-3.5 py-2 rounded-lg text-sm font-medium transition-all ${
                   active
-                    ? 'bg-white/[0.08] text-cyan-400 font-semibold shadow-inner border border-white/[0.06]'
-                    : 'text-slate-300 hover:text-white hover:bg-white/[0.04]'
+                    ? 'bg-sky-50 text-sky-700 font-bold shadow-sm border border-sky-200/80'
+                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/70'
                 }`}
               >
-                <Icon className={`w-4 h-4 ${active ? 'text-cyan-400' : 'text-slate-400'}`} />
+                <Icon className={`w-4 h-4 ${active ? 'text-sky-600' : 'text-slate-400'}`} />
                 {link.label}
               </Link>
             );
@@ -68,7 +68,7 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-3">
           <Link
             href="/compare"
-            className="inline-flex items-center gap-1.5 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white px-4 py-2 rounded-lg text-xs font-bold shadow-md shadow-cyan-500/20 transition-all hover:shadow-cyan-500/35 hover:scale-[1.02]"
+            className="inline-flex items-center gap-1.5 bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white px-4 py-2 rounded-lg text-xs font-bold shadow-md shadow-cyan-600/20 transition-all hover:shadow-cyan-600/35 hover:scale-[1.02]"
           >
             <Compass className="w-3.5 h-3.5" />
             快速找車
@@ -80,7 +80,7 @@ export default function Navbar() {
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 rounded-lg text-slate-400 hover:text-white hover:bg-white/[0.06] focus:outline-none focus:ring-2 focus:ring-cyan-500"
+            className="p-2 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-cyan-500"
             aria-label={mobileMenuOpen ? '關閉主選單' : '開啟主選單'}
             aria-expanded={mobileMenuOpen}
           >
@@ -91,7 +91,7 @@ export default function Navbar() {
 
       {/* Mobile Navigation Dropdown */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-b border-white/[0.08] bg-[#0e1424]/95 backdrop-blur-xl px-4 pt-2 pb-5 space-y-1 animate-in slide-in-from-top-2 duration-200">
+        <div className="md:hidden border-b border-slate-200/90 bg-white/95 backdrop-blur-xl px-4 pt-2 pb-5 space-y-1 animate-in slide-in-from-top-2 duration-200 shadow-xl">
           {navLinks.map((link) => {
             const Icon = link.icon;
             const active = isActive(link.href);
@@ -102,11 +102,11 @@ export default function Navbar() {
                 onClick={() => setMobileMenuOpen(false)}
                 className={`flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-sm font-medium transition-all ${
                   active
-                    ? 'bg-cyan-500/15 text-cyan-300 font-bold border border-cyan-500/30'
-                    : 'text-slate-300 hover:text-white hover:bg-white/[0.04]'
+                    ? 'bg-sky-50 text-sky-700 font-bold border border-sky-200/80'
+                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/70'
                 }`}
               >
-                <Icon className={`w-4 h-4 ${active ? 'text-cyan-400' : 'text-slate-400'}`} />
+                <Icon className={`w-4 h-4 ${active ? 'text-sky-600' : 'text-slate-400'}`} />
                 {link.label}
               </Link>
             );
@@ -115,7 +115,7 @@ export default function Navbar() {
             <Link
               href="/compare"
               onClick={() => setMobileMenuOpen(false)}
-              className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white py-2.5 rounded-lg text-xs font-bold shadow-md shadow-cyan-500/25"
+              className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-cyan-600 to-blue-600 text-white py-2.5 rounded-lg text-xs font-bold shadow-md shadow-cyan-600/25"
             >
               <Compass className="w-4 h-4" />
               進入多車規格對比表
