@@ -119,20 +119,22 @@ export default function CompareSelector({ initialCarIds = ['toyota-sienna', 'kia
                     </div>
                     <div className="relative h-18 sm:h-20 w-full flex items-end justify-center">
                       {/* Ground line */}
-                      <div className="absolute bottom-0 inset-x-0 h-0.5 bg-cyan-500/40" />
+                      <div className="absolute bottom-0 inset-x-0 h-1 bg-gradient-to-r from-cyan-500 to-slate-400" />
                       <div
                         className="relative flex items-end justify-center transition-all duration-300"
                         style={{
                           height: `${(car.dimensions.heightMm / 2050) * 100}%`,
-                          width: `${(car.dimensions.lengthMm / 5300) * 100}%`,
-                          maxWidth: '96%',
+                          width: 'auto',
+                          maxWidth: '92%',
                         }}
                       >
                         <img
                           src={getCarImageUrl(car.heroImage)}
                           alt={car.model}
-                          className="w-full h-full object-contain object-bottom filter drop-shadow-[0_2px_8px_rgba(6,182,212,0.15)]"
+                          className="h-full w-auto max-w-full object-contain object-bottom filter drop-shadow-[0_4px_10px_rgba(6,182,212,0.18)]"
                         />
+                        {/* Tire Contact Shadow */}
+                        <div className="absolute -bottom-0.5 inset-x-1.5 h-1.5 bg-slate-950/25 blur-xs rounded-full -z-10" />
                       </div>
                     </div>
                   </div>

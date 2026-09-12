@@ -52,22 +52,29 @@ export default function CarSpecTable({ car }: CarSpecTableProps) {
           </div>
 
           {/* Ground Baseline */}
-          <div className="absolute bottom-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-cyan-500 to-transparent z-10" />
+          <div className="absolute bottom-0 inset-x-0 h-1.5 bg-gradient-to-r from-cyan-600 via-cyan-500 to-slate-400 z-10 shadow-xs" />
+          <div className="absolute bottom-1.5 left-3 z-10 pointer-events-none">
+            <span className="text-[9px] font-mono font-bold text-cyan-900 bg-white/95 px-2 py-0.2 rounded border border-cyan-300 shadow-2xs">
+              地面基準 0 mm
+            </span>
+          </div>
 
           {/* Scaled Car */}
           <div
             className="relative z-0 transition-all duration-300 flex items-end justify-center"
             style={{
               height: `${(car.dimensions.heightMm / 2050) * 100}%`,
-              width: `${(car.dimensions.lengthMm / 5300) * 100}%`,
-              maxWidth: '94%',
+              width: 'auto',
+              maxWidth: '92%',
             }}
           >
             <img
               src={getCarImageUrl(car.heroImage)}
               alt={car.model}
-              className="w-full h-full object-contain object-bottom filter drop-shadow-[0_8px_16px_rgba(15,23,42,0.12)]"
+              className="h-full w-auto max-w-full object-contain object-bottom filter drop-shadow-[0_8px_20px_rgba(6,182,212,0.22)]"
             />
+            {/* Tire Contact Shadow */}
+            <div className="absolute -bottom-0.5 inset-x-2 h-2 bg-slate-950/30 blur-xs rounded-full -z-10" />
           </div>
         </div>
       </div>

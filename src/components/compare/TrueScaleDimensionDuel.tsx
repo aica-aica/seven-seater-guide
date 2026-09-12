@@ -153,157 +153,182 @@ export default function TrueScaleDimensionDuel({
         </div>
       )}
 
-      {/* ======================= VIEW CANVAS 1: SIDE-BY-SIDE ======================= */}
+      {/* ======================= VIEW CANVAS 1: SIDE-BY-SIDE (UNIFIED CONTINUOUS STAGE) ======================= */}
       {viewMode === 'side-by-side' && (
-        <div className="space-y-3">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {/* Left Car Scale Box */}
-            <div className="relative rounded-2xl bg-gradient-to-b from-sky-50/40 to-white border border-cyan-200/90 p-4 pt-6 flex flex-col justify-between overflow-hidden shadow-sm">
-              {/* Top Tag & Identity */}
-              <div className="flex items-start justify-between z-10">
+        <div className="space-y-4">
+          <div className="rounded-2xl bg-gradient-to-b from-[#eef6fc] via-[#f8fafc] to-[#edf4fb] border border-slate-200/90 shadow-md overflow-hidden p-4 sm:p-6 space-y-4">
+            {/* Top Identity & Comparison Headers */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 border-b border-slate-200/80 pb-3">
+              {/* Left Car Identity */}
+              <div className="flex items-start justify-between">
                 <div>
-                  <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-sky-50 border border-sky-200 text-sky-800 text-[11px] font-bold shadow-sm">
-                    <span>左車 (A)</span>
+                  <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-cyan-50 border border-cyan-200 text-cyan-800 text-[11px] font-bold shadow-xs">
+                    <span className="w-2 h-2 rounded-full bg-cyan-500" />
+                    <span>左側座駕 (A)</span>
                     <span>•</span>
                     <span>{leftCar.coreCategoryLabel}</span>
                   </div>
-                  <h4 className="text-base font-black text-slate-900 mt-1">
+                  <h4 className="text-base sm:text-lg font-black text-slate-900 mt-1">
                     {leftCar.brand} {leftCar.model}
                   </h4>
                 </div>
                 <div className="text-right font-mono text-xs text-slate-600 space-y-0.5">
                   <div>長 <span className="font-bold text-slate-900">{leftCar.dimensions.lengthMm}</span> mm</div>
                   <div>高 <span className="font-bold text-cyan-700">{leftCar.dimensions.heightMm}</span> mm</div>
-                  <div className="text-[11px] text-slate-500">軸距 {leftCar.dimensions.wheelbaseMm} mm</div>
+                  <div className="text-[11px] text-slate-500">門檻 {leftCar.dimensions.stepInHeightMm} mm</div>
                 </div>
               </div>
 
-              {/* Scaled Vehicle Display Canvas */}
-              <div className="relative h-48 sm:h-56 mt-4 flex items-end justify-center w-full">
-                {/* Height Benchmark lines */}
-                <div
-                  className="absolute w-full border-t border-dashed border-amber-500/60 z-10 flex items-center justify-between text-[10px] text-amber-700 pr-1 pointer-events-none"
-                  style={{ bottom: `${limit1800Pct}%` }}
-                >
-                  <span className="bg-white/95 px-1 rounded border border-amber-200 shadow-xs">1.80m 地下室警戒線</span>
-                </div>
-                <div
-                  className="absolute w-full border-t border-dashed border-rose-500/60 z-10 flex items-center justify-between text-[10px] text-rose-700 pr-1 pointer-events-none"
-                  style={{ bottom: `${limit1850Pct}%` }}
-                >
-                  <span className="bg-white/95 px-1 rounded border border-rose-200 shadow-xs">1.85m 大樓限高線</span>
-                </div>
-
-                {/* Ground Line */}
-                <div className="absolute bottom-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-cyan-500/60 to-transparent z-10" />
-
-                {/* Vehicle Image Scaled According to Length & Height */}
-                <div
-                  className="relative z-0 transition-all duration-500 flex items-end justify-center"
-                  style={{
-                    height: `${leftHeightPct}%`,
-                    width: `${leftLengthPct}%`,
-                    maxWidth: '96%',
-                  }}
-                >
-                  <img
-                    src={getCarImageUrl(leftCar.heroImage)}
-                    alt={leftCar.model}
-                    className="w-full h-full object-contain object-bottom drop-shadow-[0_4px_12px_rgba(6,182,212,0.15)]"
-                  />
-                  {/* Step-in height indicator */}
-                  <div className="absolute -bottom-1 left-4 flex items-center gap-1 text-[10px] text-cyan-800 bg-white/95 px-1.5 py-0.5 rounded border border-cyan-200 shadow-xs font-mono font-semibold">
-                    <span>門檻 {leftCar.dimensions.stepInHeightMm}mm</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Bottom Quick Badge */}
-              <div className="mt-3 pt-2 border-t border-slate-200/80 flex items-center justify-between text-[11px]">
-                <span className="text-slate-500">台灣地下停車場適應性：</span>
-                {leftCar.dimensions.heightMm > 1850 ? (
-                  <span className="font-bold text-rose-600 flex items-center gap-1">
-                    <AlertTriangle className="w-3.5 h-3.5" /> 嚴禁進入 1.85m 地下室
-                  </span>
-                ) : (
-                  <span className="font-bold text-emerald-700 flex items-center gap-1">
-                    <CheckCircle2 className="w-3.5 h-3.5" /> 可順暢進出 1.8m 地下室
-                  </span>
-                )}
-              </div>
-            </div>
-
-            {/* Right Car Scale Box */}
-            <div className="relative rounded-2xl bg-gradient-to-b from-purple-50/40 to-white border border-violet-200/90 p-4 pt-6 flex flex-col justify-between overflow-hidden shadow-sm">
-              {/* Top Tag & Identity */}
-              <div className="flex items-start justify-between z-10">
+              {/* Right Car Identity */}
+              <div className="flex items-start justify-between md:border-l md:border-slate-200/80 md:pl-4">
                 <div>
-                  <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-purple-50 border border-purple-200 text-purple-800 text-[11px] font-bold shadow-sm">
-                    <span>右車 (B)</span>
+                  <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-violet-50 border border-violet-200 text-violet-800 text-[11px] font-bold shadow-xs">
+                    <span className="w-2 h-2 rounded-full bg-violet-500" />
+                    <span>右側座駕 (B)</span>
                     <span>•</span>
                     <span>{rightCar.coreCategoryLabel}</span>
                   </div>
-                  <h4 className="text-base font-black text-slate-900 mt-1">
+                  <h4 className="text-base sm:text-lg font-black text-slate-900 mt-1">
                     {rightCar.brand} {rightCar.model}
                   </h4>
                 </div>
                 <div className="text-right font-mono text-xs text-slate-600 space-y-0.5">
                   <div>長 <span className="font-bold text-slate-900">{rightCar.dimensions.lengthMm}</span> mm</div>
                   <div>高 <span className="font-bold text-violet-700">{rightCar.dimensions.heightMm}</span> mm</div>
-                  <div className="text-[11px] text-slate-500">軸距 {rightCar.dimensions.wheelbaseMm} mm</div>
+                  <div className="text-[11px] text-slate-500">門檻 {rightCar.dimensions.stepInHeightMm} mm</div>
+                </div>
+              </div>
+            </div>
+
+            {/* UNIFIED CONTINUOUS STAGE - Single Ground Plane Across Both Cars */}
+            <div className="relative h-60 sm:h-72 md:h-80 w-full flex items-end justify-between overflow-hidden rounded-xl bg-gradient-to-b from-[#e3f0fa]/40 via-white to-slate-50 border border-cyan-200/60 shadow-inner">
+              {/* Continuous Height Limit Lines (Unbroken from far-left to far-right across both cars) */}
+              <div
+                className="absolute w-full border-t-2 border-dashed border-amber-500/70 z-20 flex items-center justify-between text-[10px] text-amber-800 px-3 pointer-events-none"
+                style={{ bottom: `${limit1800Pct}%` }}
+              >
+                <span className="bg-white/95 border border-amber-300 shadow-xs px-2 py-0.5 rounded font-bold">
+                  ⚠️ 1.80m 地下室警戒線
+                </span>
+                <span className="hidden sm:inline bg-white/95 border border-amber-300 shadow-xs px-2 py-0.5 rounded font-mono font-bold">
+                  1,800 mm
+                </span>
+              </div>
+
+              <div
+                className="absolute w-full border-t-2 border-dashed border-rose-500/70 z-20 flex items-center justify-between text-[10px] text-rose-800 px-3 pointer-events-none"
+                style={{ bottom: `${limit1850Pct}%` }}
+              >
+                <span className="bg-white/95 border border-rose-300 shadow-xs px-2 py-0.5 rounded font-bold">
+                  ⛔ 1.85m 大樓標準限高線
+                </span>
+                <span className="hidden sm:inline bg-white/95 border border-rose-300 shadow-xs px-2 py-0.5 rounded font-mono font-bold">
+                  1,850 mm
+                </span>
+              </div>
+
+              {/* Center Arena Divider (Dashed vertical line + VS badge) */}
+              <div className="absolute inset-y-0 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center justify-center pointer-events-none">
+                <div className="h-full border-r border-dashed border-slate-300/80" />
+                <div className="absolute top-1/2 -translate-y-1/2 px-2.5 py-1 rounded-full bg-white/95 border border-slate-300 shadow-md font-black text-[11px] text-slate-700 tracking-wider">
+                  VS
                 </div>
               </div>
 
-              {/* Scaled Vehicle Display Canvas */}
-              <div className="relative h-48 sm:h-56 mt-4 flex items-end justify-center w-full">
-                {/* Height Benchmark lines */}
-                <div
-                  className="absolute w-full border-t border-dashed border-amber-500/60 z-10 flex items-center justify-between text-[10px] text-amber-700 pr-1 pointer-events-none"
-                  style={{ bottom: `${limit1800Pct}%` }}
-                >
-                  <span className="bg-white/95 px-1 rounded border border-amber-200 shadow-xs">1.80m 地下室警戒線</span>
-                </div>
-                <div
-                  className="absolute w-full border-t border-dashed border-rose-500/60 z-10 flex items-center justify-between text-[10px] text-rose-700 pr-1 pointer-events-none"
-                  style={{ bottom: `${limit1850Pct}%` }}
-                >
-                  <span className="bg-white/95 px-1 rounded border border-rose-200 shadow-xs">1.85m 大樓限高線</span>
-                </div>
+              {/* CONTINUOUS SOLID GROUND PLANE (Shared by both vehicles) */}
+              <div className="absolute bottom-0 inset-x-0 h-1.5 bg-gradient-to-r from-cyan-600 via-slate-600 to-violet-600 z-20 shadow-sm pointer-events-none" />
+              <div className="absolute bottom-2 left-1/2 -translate-x-1/2 z-20 pointer-events-none">
+                <span className="text-[10px] font-mono font-bold text-slate-800 bg-white/95 px-2.5 py-0.5 rounded-full border border-slate-300 shadow-xs">
+                  📐 左右兩車 1:1 同地面基準線 (Ground Datum 0 mm)
+                </span>
+              </div>
 
-                {/* Ground Line */}
-                <div className="absolute bottom-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-violet-500/60 to-transparent z-10" />
-
-                {/* Vehicle Image Scaled According to Length & Height */}
+              {/* LEFT CAR LANE */}
+              <div className="relative z-10 w-1/2 h-full flex items-end justify-center px-2 sm:px-4">
                 <div
-                  className="relative z-0 transition-all duration-500 flex items-end justify-center"
+                  className="relative flex items-end justify-center transition-all duration-500"
+                  style={{
+                    height: `${leftHeightPct}%`,
+                    width: 'auto',
+                    maxWidth: '92%',
+                  }}
+                >
+                  <img
+                    src={getCarImageUrl(leftCar.heroImage)}
+                    alt={leftCar.model}
+                    className="h-full w-auto max-w-full object-contain object-bottom drop-shadow-[0_8px_20px_rgba(6,182,212,0.22)]"
+                  />
+                  {/* Tire Contact Shadow */}
+                  <div className="absolute -bottom-0.5 inset-x-2 h-2 bg-slate-950/30 blur-xs rounded-full -z-10" />
+                  {/* Roof Height Callout */}
+                  <div className="absolute -top-7 left-1/2 -translate-x-1/2 whitespace-nowrap text-[10px] font-mono font-bold text-cyan-950 bg-white/95 border border-cyan-300 px-2 py-0.5 rounded-md shadow-xs flex items-center gap-1">
+                    <span>A頂 {leftCar.dimensions.heightMm}mm</span>
+                    {leftCar.dimensions.heightMm > 1850 ? (
+                      <span className="text-rose-600 font-black">⛔超標</span>
+                    ) : (
+                      <span className="text-emerald-600 font-black">✓過限高</span>
+                    )}
+                  </div>
+                </div>
+              </div>
+
+              {/* RIGHT CAR LANE */}
+              <div className="relative z-10 w-1/2 h-full flex items-end justify-center px-2 sm:px-4">
+                <div
+                  className="relative flex items-end justify-center transition-all duration-500"
                   style={{
                     height: `${rightHeightPct}%`,
-                    width: `${rightLengthPct}%`,
-                    maxWidth: '96%',
+                    width: 'auto',
+                    maxWidth: '92%',
                   }}
                 >
                   <img
                     src={getCarImageUrl(rightCar.heroImage)}
                     alt={rightCar.model}
-                    className="w-full h-full object-contain object-bottom drop-shadow-[0_4px_12px_rgba(139,92,246,0.15)]"
+                    className="h-full w-auto max-w-full object-contain object-bottom drop-shadow-[0_8px_20px_rgba(139,92,246,0.22)]"
                   />
-                  {/* Step-in height indicator */}
-                  <div className="absolute -bottom-1 left-4 flex items-center gap-1 text-[10px] text-violet-800 bg-white/95 px-1.5 py-0.5 rounded border border-violet-200 shadow-xs font-mono font-semibold">
-                    <span>門檻 {rightCar.dimensions.stepInHeightMm}mm</span>
+                  {/* Tire Contact Shadow */}
+                  <div className="absolute -bottom-0.5 inset-x-2 h-2 bg-slate-950/30 blur-xs rounded-full -z-10" />
+                  {/* Roof Height Callout */}
+                  <div className="absolute -top-7 left-1/2 -translate-x-1/2 whitespace-nowrap text-[10px] font-mono font-bold text-violet-950 bg-white/95 border border-violet-300 px-2 py-0.5 rounded-md shadow-xs flex items-center gap-1">
+                    <span>B頂 {rightCar.dimensions.heightMm}mm</span>
+                    {rightCar.dimensions.heightMm > 1850 ? (
+                      <span className="text-rose-600 font-black">⛔超標</span>
+                    ) : (
+                      <span className="text-emerald-600 font-black">✓過限高</span>
+                    )}
                   </div>
                 </div>
               </div>
+            </div>
 
-              {/* Bottom Quick Badge */}
-              <div className="mt-3 pt-2 border-t border-slate-200/80 flex items-center justify-between text-[11px]">
-                <span className="text-slate-500">台灣地下停車場適應性：</span>
-                {rightCar.dimensions.heightMm > 1850 ? (
+            {/* Bottom Ground Summary & Underground Assessment */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-1 text-xs">
+              <div className="p-3 rounded-xl bg-sky-50/70 border border-cyan-200/80 flex items-center justify-between">
+                <span className="text-slate-700 font-medium">
+                  {leftCar.brand} {leftCar.model}
+                </span>
+                {leftCar.dimensions.heightMm > 1850 ? (
                   <span className="font-bold text-rose-600 flex items-center gap-1">
-                    <AlertTriangle className="w-3.5 h-3.5" /> 嚴禁進入 1.85m 地下室
+                    <AlertTriangle className="w-3.5 h-3.5" /> 車高 {leftCar.dimensions.heightMm}mm 嚴禁進入 1.85m 地下室
                   </span>
                 ) : (
                   <span className="font-bold text-emerald-700 flex items-center gap-1">
-                    <CheckCircle2 className="w-3.5 h-3.5" /> 可順暢進出 1.8m 地下室
+                    <CheckCircle2 className="w-3.5 h-3.5" /> 車高 {leftCar.dimensions.heightMm}mm 可進出 1.8m 地下室
+                  </span>
+                )}
+              </div>
+              <div className="p-3 rounded-xl bg-violet-50/70 border border-violet-200/80 flex items-center justify-between">
+                <span className="text-slate-700 font-medium">
+                  {rightCar.brand} {rightCar.model}
+                </span>
+                {rightCar.dimensions.heightMm > 1850 ? (
+                  <span className="font-bold text-rose-600 flex items-center gap-1">
+                    <AlertTriangle className="w-3.5 h-3.5" /> 車高 {rightCar.dimensions.heightMm}mm 嚴禁進入 1.85m 地下室
+                  </span>
+                ) : (
+                  <span className="font-bold text-emerald-700 flex items-center gap-1">
+                    <CheckCircle2 className="w-3.5 h-3.5" /> 車高 {rightCar.dimensions.heightMm}mm 可進出 1.8m 地下室
                   </span>
                 )}
               </div>
@@ -314,39 +339,57 @@ export default function TrueScaleDimensionDuel({
 
       {/* ======================= VIEW CANVAS 2: GHOST OVERLAY ======================= */}
       {viewMode === 'overlay' && (
-        <div className="relative rounded-2xl bg-gradient-to-b from-slate-50 via-white to-slate-100 border border-slate-200/90 p-4 sm:p-6 overflow-hidden shadow-sm">
+        <div className="relative rounded-2xl bg-gradient-to-b from-[#eef6fc] via-[#f8fafc] to-[#edf4fb] border border-slate-200/90 p-4 sm:p-6 overflow-hidden shadow-md space-y-4">
           {/* Overlay Stage Info */}
-          <div className="flex flex-wrap items-center justify-between gap-2 mb-3 text-xs">
+          <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200/80 pb-3 text-xs">
             <div className="flex items-center gap-3">
-              <span className="inline-flex items-center gap-1 font-bold text-cyan-700">
+              <span className="inline-flex items-center gap-1 font-bold text-cyan-800">
                 <span className="w-2.5 h-2.5 rounded-full bg-cyan-600" />
                 {leftCar.brand} {leftCar.model} (長 {leftCar.dimensions.lengthMm} / 高 {leftCar.dimensions.heightMm}mm)
               </span>
-              <span className="text-slate-400">VS</span>
-              <span className="inline-flex items-center gap-1 font-bold text-violet-700">
+              <span className="text-slate-400 font-black">VS</span>
+              <span className="inline-flex items-center gap-1 font-bold text-violet-800">
                 <span className="w-2.5 h-2.5 rounded-full bg-violet-600" />
                 {rightCar.brand} {rightCar.model} (長 {rightCar.dimensions.lengthMm} / 高 {rightCar.dimensions.heightMm}mm)
               </span>
             </div>
-            <span className="text-[11px] text-slate-500 font-mono">
+            <span className="text-[11px] text-slate-600 font-mono font-bold bg-white/90 px-2 py-0.5 rounded border border-slate-200">
               基準原點：{alignOrigin === 'front' ? '前保險桿 0mm' : '後保險桿 0mm'}
             </span>
           </div>
 
           {/* Superimposed Scaled Stage */}
-          <div className="relative h-64 sm:h-72 w-full flex items-end justify-center border-b border-cyan-500/40">
+          <div className="relative h-64 sm:h-72 md:h-80 w-full flex items-end justify-center overflow-hidden rounded-xl bg-gradient-to-b from-[#e3f0fa]/40 via-white to-slate-50 border border-cyan-200/60 shadow-inner">
             {/* Height Benchmark lines */}
             <div
-              className="absolute w-full border-t border-dashed border-amber-500/60 z-20 flex items-center justify-between text-[10px] text-amber-700 px-2 pointer-events-none"
+              className="absolute w-full border-t-2 border-dashed border-amber-500/70 z-20 flex items-center justify-between text-[10px] text-amber-800 px-3 pointer-events-none"
               style={{ bottom: `${limit1800Pct}%` }}
             >
-              <span className="bg-white/95 px-1 rounded border border-amber-200 shadow-xs">⚠️ 1.80m 地下室限高警戒線</span>
+              <span className="bg-white/95 border border-amber-300 shadow-xs px-2 py-0.5 rounded font-bold">
+                ⚠️ 1.80m 地下室限高警戒線
+              </span>
+              <span className="bg-white/95 border border-amber-300 shadow-xs px-2 py-0.5 rounded font-mono font-bold">
+                1,800 mm
+              </span>
             </div>
             <div
-              className="absolute w-full border-t border-dashed border-rose-500/60 z-20 flex items-center justify-between text-[10px] text-rose-700 px-2 pointer-events-none"
+              className="absolute w-full border-t-2 border-dashed border-rose-500/70 z-20 flex items-center justify-between text-[10px] text-rose-800 px-3 pointer-events-none"
               style={{ bottom: `${limit1850Pct}%` }}
             >
-              <span className="bg-white/95 px-1 rounded border border-rose-200 shadow-xs">⛔ 1.85m 限高線</span>
+              <span className="bg-white/95 border border-rose-300 shadow-xs px-2 py-0.5 rounded font-bold">
+                ⛔ 1.85m 大樓標準限高線
+              </span>
+              <span className="bg-white/95 border border-rose-300 shadow-xs px-2 py-0.5 rounded font-mono font-bold">
+                1,850 mm
+              </span>
+            </div>
+
+            {/* CONTINUOUS SOLID GROUND PLANE */}
+            <div className="absolute bottom-0 inset-x-0 h-1.5 bg-gradient-to-r from-cyan-600 via-slate-600 to-violet-600 z-20 shadow-sm pointer-events-none" />
+            <div className="absolute bottom-2 left-1/2 -translate-x-1/2 z-20 pointer-events-none">
+              <span className="text-[10px] font-mono font-bold text-slate-800 bg-white/95 px-2.5 py-0.5 rounded-full border border-slate-300 shadow-xs">
+                📐 1:1 重疊對齊同地面基準線 (Ground Datum 0 mm)
+              </span>
             </div>
 
             {/* Left Car Overlay Layer */}
@@ -354,9 +397,10 @@ export default function TrueScaleDimensionDuel({
               className="absolute bottom-0 transition-all duration-300 flex items-end pointer-events-none"
               style={{
                 height: `${leftHeightPct}%`,
-                width: `${leftLengthPct}%`,
-                left: alignOrigin === 'front' ? '6%' : 'auto',
-                right: alignOrigin === 'rear' ? '6%' : 'auto',
+                width: 'auto',
+                maxWidth: '88%',
+                left: alignOrigin === 'front' ? '8%' : 'auto',
+                right: alignOrigin === 'rear' ? '8%' : 'auto',
                 opacity: 1 - (overlayOpacity / 100) * 0.65,
                 zIndex: overlayOpacity < 50 ? 10 : 5,
               }}
@@ -364,8 +408,10 @@ export default function TrueScaleDimensionDuel({
               <img
                 src={getCarImageUrl(leftCar.heroImage)}
                 alt={leftCar.model}
-                className="w-full h-full object-contain object-bottom filter drop-shadow-[0_2px_12px_rgba(6,182,212,0.25)]"
+                className="h-full w-auto max-w-full object-contain object-bottom filter drop-shadow-[0_8px_20px_rgba(6,182,212,0.25)]"
               />
+              {/* Contact Shadow */}
+              <div className="absolute -bottom-0.5 inset-x-4 h-2 bg-slate-950/30 blur-xs rounded-full -z-10" />
               <div className="absolute top-0 left-2 text-[10px] font-mono font-bold text-cyan-900 bg-white/95 border border-cyan-300 px-1.5 py-0.5 rounded shadow-xs">
                 A 車頂: {leftCar.dimensions.heightMm}mm
               </div>
@@ -376,9 +422,10 @@ export default function TrueScaleDimensionDuel({
               className="absolute bottom-0 transition-all duration-300 flex items-end pointer-events-none"
               style={{
                 height: `${rightHeightPct}%`,
-                width: `${rightLengthPct}%`,
-                left: alignOrigin === 'front' ? '6%' : 'auto',
-                right: alignOrigin === 'rear' ? '6%' : 'auto',
+                width: 'auto',
+                maxWidth: '88%',
+                left: alignOrigin === 'front' ? '8%' : 'auto',
+                right: alignOrigin === 'rear' ? '8%' : 'auto',
                 opacity: 0.35 + (overlayOpacity / 100) * 0.65,
                 zIndex: overlayOpacity >= 50 ? 10 : 5,
               }}
@@ -386,8 +433,10 @@ export default function TrueScaleDimensionDuel({
               <img
                 src={getCarImageUrl(rightCar.heroImage)}
                 alt={rightCar.model}
-                className="w-full h-full object-contain object-bottom filter drop-shadow-[0_2px_12px_rgba(139,92,246,0.25)]"
+                className="h-full w-auto max-w-full object-contain object-bottom filter drop-shadow-[0_8px_20px_rgba(139,92,246,0.25)]"
               />
+              {/* Contact Shadow */}
+              <div className="absolute -bottom-0.5 inset-x-4 h-2 bg-slate-950/30 blur-xs rounded-full -z-10" />
               <div className="absolute top-0 right-2 text-[10px] font-mono font-bold text-violet-900 bg-white/95 border border-violet-300 px-1.5 py-0.5 rounded shadow-xs">
                 B 車頂: {rightCar.dimensions.heightMm}mm
               </div>
@@ -396,10 +445,10 @@ export default function TrueScaleDimensionDuel({
             {/* Length Delta Measurement Marker */}
             {lengthDiff !== 0 && (
               <div
-                className="absolute -bottom-6 z-20 font-mono text-[11px] font-bold px-2 py-0.5 rounded bg-white border border-slate-300 text-slate-800 shadow-md"
+                className="absolute bottom-6 z-20 font-mono text-[11px] font-bold px-2.5 py-1 rounded-md bg-white/95 border border-slate-300 text-slate-800 shadow-md"
                 style={{
-                  right: alignOrigin === 'front' ? '6%' : 'auto',
-                  left: alignOrigin === 'rear' ? '6%' : 'auto',
+                  right: alignOrigin === 'front' ? '8%' : 'auto',
+                  left: alignOrigin === 'rear' ? '8%' : 'auto',
                 }}
               >
                 長度差：{Math.abs(lengthDiff)} mm (
@@ -408,7 +457,7 @@ export default function TrueScaleDimensionDuel({
             )}
           </div>
 
-          <div className="mt-8 text-center text-xs text-slate-500">
+          <div className="text-center text-xs text-slate-500">
             💡 提示：滑動上方控制條可切換透視權重，觀察兩車車頭線條、後懸延伸長度與車頂曲線差異。
           </div>
         </div>

@@ -470,22 +470,29 @@ export default function SplitScreenDuel({
                     <span className="bg-white/90 px-1 rounded shadow-xs">1.85m 限高</span>
                   </div>
                   {/* Ground Baseline */}
-                  <div className="absolute bottom-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-cyan-500/60 to-transparent z-10" />
+                  <div className="absolute bottom-0 inset-x-0 h-1.5 bg-gradient-to-r from-cyan-600 to-slate-500 z-10 shadow-xs" />
+                  <div className="absolute bottom-1.5 left-2 z-10 pointer-events-none">
+                    <span className="text-[9px] font-mono font-bold text-cyan-900 bg-white/95 px-1.5 py-0.2 rounded border border-cyan-300 shadow-2xs">
+                      地面 0mm
+                    </span>
+                  </div>
 
                   {/* Proportional Car Image */}
                   <div
                     className="relative z-0 transition-all duration-500 flex items-end justify-center"
                     style={{
                       height: `${(leftCar.dimensions.heightMm / 2050) * 100}%`,
-                      width: `${(leftCar.dimensions.lengthMm / 5300) * 100}%`,
-                      maxWidth: '96%',
+                      width: 'auto',
+                      maxWidth: '92%',
                     }}
                   >
                     <img
                       src={getCarImageUrl(leftCar.heroImage)}
                       alt={leftCar.model}
-                      className="w-full h-full object-contain object-bottom drop-shadow-[0_4px_16px_rgba(6,182,212,0.15)] group-hover:scale-105 transition-transform duration-300"
+                      className="h-full w-auto max-w-full object-contain object-bottom drop-shadow-[0_8px_20px_rgba(6,182,212,0.22)] group-hover:scale-105 transition-transform duration-300"
                     />
+                    {/* Tire Contact Shadow */}
+                    <div className="absolute -bottom-0.5 inset-x-2 h-2 bg-slate-950/30 blur-xs rounded-full -z-10" />
                   </div>
                 </div>
 
@@ -834,22 +841,29 @@ export default function SplitScreenDuel({
                     <span className="bg-white/90 px-1 rounded shadow-xs">1.85m 限高</span>
                   </div>
                   {/* Ground Baseline */}
-                  <div className="absolute bottom-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-violet-500/60 to-transparent z-10" />
+                  <div className="absolute bottom-0 inset-x-0 h-1.5 bg-gradient-to-r from-slate-500 to-violet-600 z-10 shadow-xs" />
+                  <div className="absolute bottom-1.5 right-2 z-10 pointer-events-none">
+                    <span className="text-[9px] font-mono font-bold text-violet-900 bg-white/95 px-1.5 py-0.2 rounded border border-violet-300 shadow-2xs">
+                      地面 0mm
+                    </span>
+                  </div>
 
                   {/* Proportional Car Image */}
                   <div
                     className="relative z-0 transition-all duration-500 flex items-end justify-center"
                     style={{
                       height: `${(rightCar.dimensions.heightMm / 2050) * 100}%`,
-                      width: `${(rightCar.dimensions.lengthMm / 5300) * 100}%`,
-                      maxWidth: '96%',
+                      width: 'auto',
+                      maxWidth: '92%',
                     }}
                   >
                     <img
                       src={getCarImageUrl(rightCar.heroImage)}
                       alt={rightCar.model}
-                      className="w-full h-full object-contain object-bottom drop-shadow-[0_4px_16px_rgba(139,92,246,0.15)] group-hover:scale-105 transition-transform duration-300"
+                      className="h-full w-auto max-w-full object-contain object-bottom drop-shadow-[0_8px_20px_rgba(139,92,246,0.22)] group-hover:scale-105 transition-transform duration-300"
                     />
+                    {/* Tire Contact Shadow */}
+                    <div className="absolute -bottom-0.5 inset-x-2 h-2 bg-slate-950/30 blur-xs rounded-full -z-10" />
                   </div>
                 </div>
 
