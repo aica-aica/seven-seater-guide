@@ -2,6 +2,8 @@ import React, { Suspense } from 'react';
 import { Metadata } from 'next';
 import CompareSelector from '@/components/compare/CompareSelector';
 import SplitScreenDuel from '@/components/compare/SplitScreenDuel';
+import DuelSkeleton from '@/components/compare/DuelSkeleton';
+import MatrixSkeleton from '@/components/compare/MatrixSkeleton';
 import { Scale, Layers } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -14,7 +16,7 @@ export default function ComparePage() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12">
       {/* Top Section: Split-Screen Duel (左右雙欄上下滑動對決) */}
-      <Suspense fallback={<div className="p-8 text-center text-slate-400">載入規格對決器中...</div>}>
+      <Suspense fallback={<DuelSkeleton />}>
         <SplitScreenDuel showTitle={true} />
       </Suspense>
 
@@ -35,7 +37,7 @@ export default function ComparePage() {
           </div>
         </div>
 
-        <Suspense fallback={<div className="p-8 text-center text-slate-400">載入規格表格中...</div>}>
+        <Suspense fallback={<MatrixSkeleton />}>
           <CompareSelector />
         </Suspense>
       </div>

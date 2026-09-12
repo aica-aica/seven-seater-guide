@@ -58,9 +58,15 @@ const PRESET_DUELS = [
   },
   {
     name: '頂級奢華旗艦巔峰對戰',
-    desc: '層峰總裁移動行宮 vs 日系縱置直六後驅大七座',
-    leftId: 'lexus-lm',
-    rightId: 'mazda-cx-90',
+    desc: '日系霸主旗艦 MPV vs 層峰總裁移動行宮',
+    leftId: 'toyota-alphard',
+    rightId: 'lexus-lm',
+  },
+  {
+    name: '純電雙雄跨界大七座對抗',
+    desc: '800V 科技純電大7座 vs MEB 潮玩純電七座廂車',
+    leftId: 'kia-ev9',
+    rightId: 'volkswagen-id-buzz',
   },
 ];
 
