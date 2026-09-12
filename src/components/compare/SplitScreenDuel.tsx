@@ -18,7 +18,10 @@ import {
   Sparkles,
   Layers,
   Award,
+  Ruler,
+  Maximize2,
 } from 'lucide-react';
+import TrueScaleDimensionDuel from './TrueScaleDimensionDuel';
 
 interface SplitScreenDuelProps {
   initialLeftId?: string;
@@ -76,6 +79,9 @@ export default function SplitScreenDuel({
 
   // Mobile active tab ('left' or 'right')
   const [mobileTab, setMobileTab] = useState<'left' | 'right'>('left');
+
+  // Scale presentation mode: 'proportional' (1:1 true physical scale) or 'fill' (traditional full-bleed)
+  const [scaleMode, setScaleMode] = useState<'proportional' | 'fill'>('proportional');
 
   // Refs for scrolling containers
   const leftReelRef = useRef<HTMLDivElement>(null);
@@ -198,6 +204,43 @@ export default function SplitScreenDuel({
               </button>
             );
           })}
+        </div>
+      </div>
+
+      {/* Scale Mode Switcher Strip */}
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-2.5 p-3 rounded-2xl bg-[#0c1220]/90 border border-white/[0.08] text-xs shadow-md">
+        <div className="flex items-center gap-2">
+          <Ruler className="w-4 h-4 text-cyan-400" />
+          <span className="font-bold text-white">車身大小呈現模式：</span>
+          <span className="text-[11px] text-slate-400">
+            {scaleMode === 'proportional'
+              ? '依原廠長寬高公釐 (mm) 數據 1:1 等比例真實展現'
+              : '滿版填滿模式'}
+          </span>
+        </div>
+        <div className="flex items-center gap-1 bg-slate-950 p-1 rounded-xl border border-slate-800 self-end sm:self-auto">
+          <button
+            onClick={() => setScaleMode('proportional')}
+            className={`px-3 py-1.5 rounded-lg font-bold transition-all flex items-center gap-1.5 ${
+              scaleMode === 'proportional'
+                ? 'bg-gradient-to-r from-cyan-500/25 to-blue-500/25 border border-cyan-400/60 text-cyan-200 shadow-sm'
+                : 'text-slate-400 hover:text-white'
+            }`}
+          >
+            <Ruler className="w-3.5 h-3.5 text-cyan-400" />
+            <span>📐 1:1 等比例真實尺寸</span>
+          </button>
+          <button
+            onClick={() => setScaleMode('fill')}
+            className={`px-3 py-1.5 rounded-lg font-bold transition-all flex items-center gap-1.5 ${
+              scaleMode === 'fill'
+                ? 'bg-slate-800 text-white'
+                : 'text-slate-400 hover:text-white'
+            }`}
+          >
+            <Maximize2 className="w-3.5 h-3.5" />
+            <span>🖼️ 滿版圖片</span>
+          </button>
         </div>
       </div>
 
@@ -381,42 +424,114 @@ export default function SplitScreenDuel({
           {/* Active Car In-Depth Specification Card */}
           <div className="rounded-2xl bg-[#0e1424]/90 border border-slate-800/80 hover:border-cyan-500/30 overflow-hidden shadow-2xl space-y-4 p-5 backdrop-blur-xl transition-colors">
             {/* Image & Identity */}
-            <div className="relative h-48 sm:h-56 rounded-xl overflow-hidden bg-slate-950 group">
-              <img
-                src={getCarImageUrl(leftCar.heroImage)}
-                alt={leftCar.model}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-black/40" />
+            {scaleMode === 'proportional' ? (
+              <div className="relative h-56 sm:h-64 rounded-xl overflow-hidden bg-gradient-to-b from-slate-900 to-slate-950 border border-cyan-500/30 flex flex-col justify-between p-3.5 group shadow-inner">
+                {/* Top Badges & Real Dimensions */}
+                <div className="flex items-center justify-between z-10">
+                  <span
+                    className={`inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-black shadow-md ${
+                      leftCar.coreCategory === 'true-7-mpv'
+                        ? 'bg-emerald-500/90 text-slate-950'
+                        : 'bg-sky-500/90 text-slate-950'
+                    }`}
+                  >
+                    {leftCar.coreCategory === 'true-7-mpv' ? (
+                      <ShieldCheck className="w-3 h-3" />
+                    ) : (
+                      <Zap className="w-3 h-3" />
+                    )}
+                    {leftCar.coreCategoryLabel}
+                  </span>
+                  <div className="text-[11px] font-mono font-bold text-cyan-300 bg-slate-950/90 border border-cyan-400/30 px-2 py-0.5 rounded-md shadow">
+                    長 {leftCar.dimensions.lengthMm} × 寬 {leftCar.dimensions.widthMm} × 高 {leftCar.dimensions.heightMm} mm
+                  </div>
+                </div>
 
-              {/* Category Badge Over Image */}
-              <div className="absolute top-3 left-3">
-                <span
-                  className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-black shadow-lg backdrop-blur-md ${
-                    leftCar.coreCategory === 'true-7-mpv'
-                      ? 'bg-emerald-500/90 text-slate-950'
-                      : 'bg-sky-500/90 text-slate-950'
-                  }`}
-                >
-                  {leftCar.coreCategory === 'true-7-mpv' ? (
-                    <ShieldCheck className="w-3.5 h-3.5" />
-                  ) : (
-                    <Zap className="w-3.5 h-3.5" />
-                  )}
-                  {leftCar.coreCategoryLabel}
-                </span>
-              </div>
+                {/* Stage with ground line & height limit benchmarks */}
+                <div className="relative h-36 sm:h-44 w-full flex items-end justify-center">
+                  {/* 1.8m guideline */}
+                  <div
+                    className="absolute w-full border-t border-dashed border-amber-500/40 z-10 flex items-center justify-end text-[9px] text-amber-400/80 pr-1 pointer-events-none"
+                    style={{ bottom: `${(1800 / 2050) * 100}%` }}
+                  >
+                    <span>1.8m 限高</span>
+                  </div>
+                  {/* 1.85m guideline */}
+                  <div
+                    className="absolute w-full border-t border-dashed border-rose-500/30 z-10 flex items-center justify-end text-[9px] text-rose-400/80 pr-1 pointer-events-none"
+                    style={{ bottom: `${(1850 / 2050) * 100}%` }}
+                  >
+                    <span>1.85m 限高</span>
+                  </div>
+                  {/* Ground Baseline */}
+                  <div className="absolute bottom-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-cyan-400/60 to-transparent z-10" />
 
-              {/* Price Tag Over Image */}
-              <div className="absolute bottom-3 right-3 px-3 py-1 rounded-lg bg-black/80 backdrop-blur border border-white/10 text-cyan-300 font-mono font-bold text-sm">
-                NT$ {priceLeftMinWan} ~ {Math.round(leftCar.priceRangeTwd[1] / 10000)} 萬
-              </div>
+                  {/* Proportional Car Image */}
+                  <div
+                    className="relative z-0 transition-all duration-500 flex items-end justify-center"
+                    style={{
+                      height: `${(leftCar.dimensions.heightMm / 2050) * 100}%`,
+                      width: `${(leftCar.dimensions.lengthMm / 5300) * 100}%`,
+                      maxWidth: '96%',
+                    }}
+                  >
+                    <img
+                      src={getCarImageUrl(leftCar.heroImage)}
+                      alt={leftCar.model}
+                      className="w-full h-full object-contain object-bottom filter drop-shadow-[0_4px_16px_rgba(6,182,212,0.2)] group-hover:scale-105 transition-transform duration-300 brightness-105"
+                    />
+                  </div>
+                </div>
 
-              <div className="absolute bottom-3 left-3 text-white">
-                <div className="text-xs text-slate-300 font-medium">{leftCar.brand}</div>
-                <h4 className="text-xl font-black">{leftCar.model}</h4>
+                {/* Bottom Identity & Price */}
+                <div className="flex items-end justify-between z-10 pt-2 border-t border-slate-800/80">
+                  <div>
+                    <div className="text-xs text-slate-400 font-medium">{leftCar.brand}</div>
+                    <h4 className="text-xl font-black text-white">{leftCar.model}</h4>
+                  </div>
+                  <div className="px-2.5 py-1 rounded-lg bg-black/80 backdrop-blur border border-white/10 text-cyan-300 font-mono font-bold text-sm">
+                    NT$ {priceLeftMinWan} ~ {Math.round(leftCar.priceRangeTwd[1] / 10000)} 萬
+                  </div>
+                </div>
               </div>
-            </div>
+            ) : (
+              <div className="relative h-48 sm:h-56 rounded-xl overflow-hidden bg-slate-950 group">
+                <img
+                  src={getCarImageUrl(leftCar.heroImage)}
+                  alt={leftCar.model}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-black/40" />
+
+                {/* Category Badge Over Image */}
+                <div className="absolute top-3 left-3">
+                  <span
+                    className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-black shadow-lg backdrop-blur-md ${
+                      leftCar.coreCategory === 'true-7-mpv'
+                        ? 'bg-emerald-500/90 text-slate-950'
+                        : 'bg-sky-500/90 text-slate-950'
+                    }`}
+                  >
+                    {leftCar.coreCategory === 'true-7-mpv' ? (
+                      <ShieldCheck className="w-3.5 h-3.5" />
+                    ) : (
+                      <Zap className="w-3.5 h-3.5" />
+                    )}
+                    {leftCar.coreCategoryLabel}
+                  </span>
+                </div>
+
+                {/* Price Tag Over Image */}
+                <div className="absolute bottom-3 right-3 px-3 py-1 rounded-lg bg-black/80 backdrop-blur border border-white/10 text-cyan-300 font-mono font-bold text-sm">
+                  NT$ {priceLeftMinWan} ~ {Math.round(leftCar.priceRangeTwd[1] / 10000)} 萬
+                </div>
+
+                <div className="absolute bottom-3 left-3 text-white">
+                  <div className="text-xs text-slate-300 font-medium">{leftCar.brand}</div>
+                  <h4 className="text-xl font-black">{leftCar.model}</h4>
+                </div>
+              </div>
+            )}
 
             {/* Tagline */}
             <p className="text-xs text-slate-300 bg-slate-950 p-3 rounded-xl border border-slate-850 leading-relaxed">
@@ -673,42 +788,114 @@ export default function SplitScreenDuel({
           {/* Active Car In-Depth Specification Card */}
           <div className="rounded-2xl bg-slate-900 border border-slate-800 overflow-hidden shadow-2xl space-y-4 p-5">
             {/* Image & Identity */}
-            <div className="relative h-48 sm:h-56 rounded-xl overflow-hidden bg-slate-950 group">
-              <img
-                src={getCarImageUrl(rightCar.heroImage)}
-                alt={rightCar.model}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-black/40" />
+            {scaleMode === 'proportional' ? (
+              <div className="relative h-56 sm:h-64 rounded-xl overflow-hidden bg-gradient-to-b from-slate-900 to-slate-950 border border-violet-500/30 flex flex-col justify-between p-3.5 group shadow-inner">
+                {/* Top Badges & Real Dimensions */}
+                <div className="flex items-center justify-between z-10">
+                  <span
+                    className={`inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-black shadow-md ${
+                      rightCar.coreCategory === 'true-7-mpv'
+                        ? 'bg-emerald-500/90 text-slate-950'
+                        : 'bg-sky-500/90 text-slate-950'
+                    }`}
+                  >
+                    {rightCar.coreCategory === 'true-7-mpv' ? (
+                      <ShieldCheck className="w-3 h-3" />
+                    ) : (
+                      <Zap className="w-3 h-3" />
+                    )}
+                    {rightCar.coreCategoryLabel}
+                  </span>
+                  <div className="text-[11px] font-mono font-bold text-violet-300 bg-slate-950/90 border border-violet-400/30 px-2 py-0.5 rounded-md shadow">
+                    長 {rightCar.dimensions.lengthMm} × 寬 {rightCar.dimensions.widthMm} × 高 {rightCar.dimensions.heightMm} mm
+                  </div>
+                </div>
 
-              {/* Category Badge Over Image */}
-              <div className="absolute top-3 left-3">
-                <span
-                  className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-black shadow-lg backdrop-blur-md ${
-                    rightCar.coreCategory === 'true-7-mpv'
-                      ? 'bg-emerald-500/90 text-slate-950'
-                      : 'bg-sky-500/90 text-slate-950'
-                  }`}
-                >
-                  {rightCar.coreCategory === 'true-7-mpv' ? (
-                    <ShieldCheck className="w-3.5 h-3.5" />
-                  ) : (
-                    <Zap className="w-3.5 h-3.5" />
-                  )}
-                  {rightCar.coreCategoryLabel}
-                </span>
-              </div>
+                {/* Stage with ground line & height limit benchmarks */}
+                <div className="relative h-36 sm:h-44 w-full flex items-end justify-center">
+                  {/* 1.8m guideline */}
+                  <div
+                    className="absolute w-full border-t border-dashed border-amber-500/40 z-10 flex items-center justify-end text-[9px] text-amber-400/80 pr-1 pointer-events-none"
+                    style={{ bottom: `${(1800 / 2050) * 100}%` }}
+                  >
+                    <span>1.8m 限高</span>
+                  </div>
+                  {/* 1.85m guideline */}
+                  <div
+                    className="absolute w-full border-t border-dashed border-rose-500/30 z-10 flex items-center justify-end text-[9px] text-rose-400/80 pr-1 pointer-events-none"
+                    style={{ bottom: `${(1850 / 2050) * 100}%` }}
+                  >
+                    <span>1.85m 限高</span>
+                  </div>
+                  {/* Ground Baseline */}
+                  <div className="absolute bottom-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-violet-400/60 to-transparent z-10" />
 
-              {/* Price Tag Over Image */}
-              <div className="absolute bottom-3 right-3 px-3 py-1 rounded-lg bg-black/80 backdrop-blur border border-white/10 text-violet-300 font-mono font-bold text-sm">
-                NT$ {priceRightMinWan} ~ {Math.round(rightCar.priceRangeTwd[1] / 10000)} 萬
-              </div>
+                  {/* Proportional Car Image */}
+                  <div
+                    className="relative z-0 transition-all duration-500 flex items-end justify-center"
+                    style={{
+                      height: `${(rightCar.dimensions.heightMm / 2050) * 100}%`,
+                      width: `${(rightCar.dimensions.lengthMm / 5300) * 100}%`,
+                      maxWidth: '96%',
+                    }}
+                  >
+                    <img
+                      src={getCarImageUrl(rightCar.heroImage)}
+                      alt={rightCar.model}
+                      className="w-full h-full object-contain object-bottom filter drop-shadow-[0_4px_16px_rgba(139,92,246,0.2)] group-hover:scale-105 transition-transform duration-300 brightness-105"
+                    />
+                  </div>
+                </div>
 
-              <div className="absolute bottom-3 left-3 text-white">
-                <div className="text-xs text-slate-300 font-medium">{rightCar.brand}</div>
-                <h4 className="text-xl font-black">{rightCar.model}</h4>
+                {/* Bottom Identity & Price */}
+                <div className="flex items-end justify-between z-10 pt-2 border-t border-slate-800/80">
+                  <div>
+                    <div className="text-xs text-slate-400 font-medium">{rightCar.brand}</div>
+                    <h4 className="text-xl font-black text-white">{rightCar.model}</h4>
+                  </div>
+                  <div className="px-2.5 py-1 rounded-lg bg-black/80 backdrop-blur border border-white/10 text-violet-300 font-mono font-bold text-sm">
+                    NT$ {priceRightMinWan} ~ {Math.round(rightCar.priceRangeTwd[1] / 10000)} 萬
+                  </div>
+                </div>
               </div>
-            </div>
+            ) : (
+              <div className="relative h-48 sm:h-56 rounded-xl overflow-hidden bg-slate-950 group">
+                <img
+                  src={getCarImageUrl(rightCar.heroImage)}
+                  alt={rightCar.model}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-black/40" />
+
+                {/* Category Badge Over Image */}
+                <div className="absolute top-3 left-3">
+                  <span
+                    className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-black shadow-lg backdrop-blur-md ${
+                      rightCar.coreCategory === 'true-7-mpv'
+                        ? 'bg-emerald-500/90 text-slate-950'
+                        : 'bg-sky-500/90 text-slate-950'
+                    }`}
+                  >
+                    {rightCar.coreCategory === 'true-7-mpv' ? (
+                      <ShieldCheck className="w-3.5 h-3.5" />
+                    ) : (
+                      <Zap className="w-3.5 h-3.5" />
+                    )}
+                    {rightCar.coreCategoryLabel}
+                  </span>
+                </div>
+
+                {/* Price Tag Over Image */}
+                <div className="absolute bottom-3 right-3 px-3 py-1 rounded-lg bg-black/80 backdrop-blur border border-white/10 text-violet-300 font-mono font-bold text-sm">
+                  NT$ {priceRightMinWan} ~ {Math.round(rightCar.priceRangeTwd[1] / 10000)} 萬
+                </div>
+
+                <div className="absolute bottom-3 left-3 text-white">
+                  <div className="text-xs text-slate-300 font-medium">{rightCar.brand}</div>
+                  <h4 className="text-xl font-black">{rightCar.model}</h4>
+                </div>
+              </div>
+            )}
 
             {/* Tagline */}
             <p className="text-xs text-slate-300 bg-slate-950 p-3 rounded-xl border border-slate-850 leading-relaxed">
@@ -833,6 +1020,9 @@ export default function SplitScreenDuel({
           </div>
         </div>
       </div>
+
+      {/* ===================== TRUE SCALE DIMENSION DUEL (1:1 車身真實比例對照) ===================== */}
+      <TrueScaleDimensionDuel leftCar={leftCar} rightCar={rightCar} />
 
       {/* Summary Verdict Callout: 正7人座 vs 5+2 SUV 核心差異指引 */}
       <div className="p-4 sm:p-5 rounded-2xl bg-[#0e1424]/85 backdrop-blur-xl border border-white/[0.08] shadow-2xl text-xs space-y-3">

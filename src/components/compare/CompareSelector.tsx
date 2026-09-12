@@ -102,8 +102,29 @@ export default function CompareSelector({ initialCarIds = ['toyota-sienna', 'kia
                   >
                     <X className="w-3.5 h-3.5" />
                   </button>
-                  <div className="h-28 rounded-lg overflow-hidden mb-3 bg-slate-950">
-                    <img src={getCarImageUrl(car.heroImage)} alt={car.model} className="w-full h-full object-cover" />
+                  <div className="h-32 rounded-xl overflow-hidden mb-3 bg-gradient-to-b from-slate-900/80 to-slate-950 border border-slate-800/80 p-2 flex flex-col justify-between relative shadow-inner">
+                    <div className="flex justify-between items-center text-[10px] text-slate-400 font-mono px-0.5 z-10">
+                      <span>長 {car.dimensions.lengthMm}</span>
+                      <span className="text-cyan-400 font-bold">高 {car.dimensions.heightMm}</span>
+                    </div>
+                    <div className="relative h-20 w-full flex items-end justify-center">
+                      {/* Ground line */}
+                      <div className="absolute bottom-0 inset-x-0 h-0.5 bg-cyan-500/30" />
+                      <div
+                        className="relative flex items-end justify-center transition-all duration-300"
+                        style={{
+                          height: `${(car.dimensions.heightMm / 2050) * 100}%`,
+                          width: `${(car.dimensions.lengthMm / 5300) * 100}%`,
+                          maxWidth: '96%',
+                        }}
+                      >
+                        <img
+                          src={getCarImageUrl(car.heroImage)}
+                          alt={car.model}
+                          className="w-full h-full object-contain object-bottom filter drop-shadow-[0_2px_8px_rgba(6,182,212,0.15)] brightness-105"
+                        />
+                      </div>
+                    </div>
                   </div>
                   <span className="text-base font-black text-white block">{car.brand} {car.model}</span>
                   <span className="text-[11px] text-cyan-300 font-semibold">{car.categoryName}</span>

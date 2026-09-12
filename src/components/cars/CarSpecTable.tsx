@@ -1,5 +1,6 @@
 import React from 'react';
 import { Car } from '@/types/car';
+import { getCarImageUrl } from '@/utils/image';
 
 interface CarSpecTableProps {
   car: Car;
@@ -15,6 +16,60 @@ export default function CarSpecTable({ car }: CarSpecTableProps) {
         <p className="text-xs text-slate-400 mt-1">
           依據原廠數據與台灣能源局核發資料，尺寸單位為公釐 (mm)。
         </p>
+      </div>
+
+      {/* 1:1 Scale Dimension Stage */}
+      <div className="p-4 sm:p-6 border-b border-white/[0.06] bg-slate-950/60">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-xs mb-3">
+          <span className="font-bold text-slate-300 flex items-center gap-1.5">
+            <span className="w-2 h-2 rounded-full bg-cyan-400" />
+            車身幾何 1:1 等比例尺透視（與 1.8m 地下室限高基準線）
+          </span>
+          <span className="font-mono text-cyan-300">
+            長 {car.dimensions.lengthMm} × 寬 {car.dimensions.widthMm} × 高 {car.dimensions.heightMm} mm
+          </span>
+        </div>
+        <div className="relative h-44 sm:h-52 rounded-xl bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800 overflow-hidden flex items-end justify-center px-4">
+          {/* 1.8m guideline */}
+          <div
+            className="absolute w-full border-t border-dashed border-amber-500/50 z-10 flex items-center justify-between text-[10px] text-amber-400/90 px-3 pointer-events-none"
+            style={{ bottom: `${(1800 / 2050) * 100}%` }}
+          >
+            <span className="bg-slate-950/80 px-1 rounded">⚠️ 1.80m 地下室限高線</span>
+            <span className="bg-slate-950/80 px-1 rounded font-mono">
+              {car.dimensions.heightMm > 1800
+                ? `超過 +${car.dimensions.heightMm - 1800}mm (需挑高車位)`
+                : `剩餘餘裕 +${1800 - car.dimensions.heightMm}mm`}
+            </span>
+          </div>
+
+          {/* 1.85m guideline */}
+          <div
+            className="absolute w-full border-t border-dashed border-rose-500/40 z-10 flex items-center justify-between text-[10px] text-rose-400/80 px-3 pointer-events-none"
+            style={{ bottom: `${(1850 / 2050) * 100}%` }}
+          >
+            <span className="bg-slate-950/80 px-1 rounded">⛔ 1.85m 大樓限高線</span>
+          </div>
+
+          {/* Ground Baseline */}
+          <div className="absolute bottom-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-cyan-400/60 to-transparent z-10" />
+
+          {/* Scaled Car */}
+          <div
+            className="relative z-0 transition-all duration-300 flex items-end justify-center"
+            style={{
+              height: `${(car.dimensions.heightMm / 2050) * 100}%`,
+              width: `${(car.dimensions.lengthMm / 5300) * 100}%`,
+              maxWidth: '94%',
+            }}
+          >
+            <img
+              src={getCarImageUrl(car.heroImage)}
+              alt={car.model}
+              className="w-full h-full object-contain object-bottom filter drop-shadow-[0_4px_16px_rgba(6,182,212,0.15)] brightness-105"
+            />
+          </div>
+        </div>
       </div>
 
       <div className="overflow-x-auto">
