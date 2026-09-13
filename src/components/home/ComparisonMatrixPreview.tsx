@@ -4,9 +4,9 @@ import { CARS_DATA } from '@/data/cars';
 import { Check, X, ArrowUpRight } from 'lucide-react';
 
 export default function ComparisonMatrixPreview() {
-  // Select key representative cars for quick matrix
+  // Select key representative cars for quick matrix (MPVs + 5+2 SUV)
   const matrixCars = CARS_DATA.filter((c) =>
-    ['volkswagen-id-buzz', 'toyota-sienna', 'kia-carnival', 'hyundai-custin', 'volkswagen-caddy-maxi', 'toyota-alphard'].includes(c.id)
+    ['toyota-sienna', 'kia-carnival', 'hyundai-custin', 'skoda-kodiaq', 'volkswagen-caddy-maxi', 'toyota-alphard', 'volkswagen-id-buzz'].includes(c.id)
   );
 
   return (
@@ -18,10 +18,10 @@ export default function ComparisonMatrixPreview() {
               快速規格透視
             </span>
             <h2 className="text-2xl sm:text-3xl font-black tracking-tight text-slate-900">
-              主流 7 人座代表車款 核心空間與規格橫向對比
+              台灣熱門七人座休旅車與 MPV 核心規格比較表
             </h2>
             <p className="text-xs sm:text-sm text-slate-500 mt-2">
-              聚焦第三排成人乘坐體驗、雙側滑門機構、滿載行李容積與台灣年度稅金。
+              橫向對比正七人座 MPV 與 5+2 SUV：聚焦第三排成人乘坐體驗、雙側滑門、滿載行李容積與台灣年度稅金。
             </p>
           </div>
           <Link

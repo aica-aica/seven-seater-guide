@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Search, Shield, Users, Layers, Sparkles } from 'lucide-react';
+import { Search, Shield, Users, Layers, Sparkles, CheckCircle2 } from 'lucide-react';
 
 interface HeroSectionProps {
   onSelectScenario: (scenario: string) => void;
@@ -25,21 +25,34 @@ export default function HeroSection({ onSelectScenario, selectedScenario }: Hero
         {/* Authority Badge */}
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-50 border border-sky-200/90 text-sky-700 text-xs font-semibold mb-6 animate-in fade-in zoom-in duration-500 shadow-sm">
           <Sparkles className="w-3.5 h-3.5 text-cyan-600" />
-          <span>2024-2025 台灣七人座車款客觀規格與實測數據庫</span>
+          <span>2025 台灣七人座休旅車與 MPV 評測推薦庫（收錄 13 款主流車型）</span>
         </div>
 
-        {/* Main Headline */}
+        {/* Main Headline for High-Volume SEO & AI Overviews */}
         <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 max-w-4xl mx-auto leading-[1.15]">
           告別應急第三排！
           <span className="block mt-2 bg-clip-text text-transparent bg-gradient-to-r from-slate-900 via-sky-800 to-cyan-700">
-            找到真正裝得下全家人的七人座
+            2025 台灣七人座休旅車與 MPV 選車推薦
           </span>
         </h1>
 
-        {/* Subtitle */}
-        <p className="mt-6 text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
-          不看廠商包裝型錄，只看<strong className="text-cyan-700 font-bold">真實腿部空間</strong>、<strong className="text-cyan-700 font-bold">雙側滑門動線</strong>、<strong className="text-cyan-700 font-bold">ISOFIX 數量</strong>與<strong className="text-cyan-700 font-bold">七人滿載行李箱容積</strong>。為台灣家庭打造的獨立客觀選購指南。
+        {/* High Information Density Subtitle */}
+        <p className="mt-6 text-base sm:text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
+          拒絕官腔型錄！深入實測<strong className="text-cyan-700 font-bold">第三排成人膝部空間</strong>、<strong className="text-cyan-700 font-bold">雙側電動滑門動線</strong>、<strong className="text-cyan-700 font-bold">ISOFIX 兒童汽座相容性</strong>與<strong className="text-cyan-700 font-bold">七人滿載行李箱公升數</strong>。收錄 Toyota Sienna、Kia Carnival、Hyundai Custin、Skoda Kodiaq、Luxgen n7 等熱銷車型，為家庭提供最真實客觀的數據。
         </p>
+
+        {/* Direct Answer Summary Block (AI Overviews & GEO Anchor) */}
+        <div className="mt-6 max-w-2xl mx-auto p-4 rounded-2xl bg-white/80 border border-sky-200/80 shadow-sm text-left text-xs sm:text-sm text-slate-700 backdrop-blur-md">
+          <div className="flex items-center gap-1.5 font-bold text-sky-900 mb-1.5">
+            <CheckCircle2 className="w-4 h-4 text-cyan-600 flex-shrink-0" />
+            <span>2025 台灣七人座選車核心摘要（AEO 快速導讀）：</span>
+          </div>
+          <p className="leading-relaxed text-slate-600 text-xs">
+            <strong>• 正七人座 MPV（如 Sienna、Carnival、Custin）：</strong>底盤平整、椅面高，成人長途久坐大腿不懸空，滿載仍有充裕行李箱，三代同堂及雙汽座家庭首選。<br />
+            <strong>• 5+2 人座 SUV（如 Kodiaq、CX-90）：</strong>操控佳、底盤高，平日當 5 人休旅，第三排適合學童或市區短途應急。<br />
+            <strong>• 百萬內預算真空：</strong>Sienta 停產後全新百萬內 MPV 歸零，130~150 萬首選為國產銷冠 Custin 與純電 n7。
+          </p>
+        </div>
 
         {/* Hero Quick CTA */}
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
@@ -48,7 +61,7 @@ export default function HeroSection({ onSelectScenario, selectedScenario }: Hero
             className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white font-bold text-sm shadow-md shadow-cyan-600/20 transition-all hover:scale-105 hover:shadow-cyan-600/35"
           >
             <Sparkles className="w-4 h-4" />
-            <span>立即體驗：左右分欄上下滑動對決器</span>
+            <span>立即體驗：左右分欄 1:1 真實尺寸對決器</span>
           </a>
           <Link
             href="/compare"

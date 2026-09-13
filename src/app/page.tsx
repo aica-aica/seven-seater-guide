@@ -314,8 +314,32 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Injected FAQ Schema.org */}
-      <JsonLdFaq faqs={FAQS_DATA.slice(0, 4)} />
+      {/* Injected FAQ Schema.org for Google & AI Overviews */}
+      <JsonLdFaq faqs={FAQS_DATA} canonicalUrl="https://7seater-guide.tw" />
+
+      {/* Injected ItemList Schema.org for AI & Knowledge Graph */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'ItemList',
+            '@id': 'https://7seater-guide.tw/#car-catalog',
+            name: '2025 台灣市售熱門七人座休旅車與 MPV 車款評測清單',
+            description: '收錄 13 款台灣市售 7 人座 MPV 與 5+2 SUV：價格、座椅佈局、第三排成人實用性評等與滿載行李箱公升數。',
+            numberOfItems: CARS_DATA.length,
+            itemListElement: CARS_DATA.map((car, index) => ({
+              '@type': 'ListItem',
+              position: index + 1,
+              name: `${car.brand} ${car.model} (${car.year}) 七人座`,
+              url: `https://7seater-guide.tw/cars/${car.slug}`,
+              image: car.heroImage.startsWith('http')
+                ? car.heroImage
+                : `https://7seater-guide.tw${car.heroImage.startsWith('/') ? car.heroImage : `/${car.heroImage}`}`,
+            })),
+          }),
+        }}
+      />
     </div>
   );
 }

@@ -33,6 +33,11 @@ export default function Footer() {
             </h3>
             <ul className="space-y-2 text-xs">
               <li>
+                <Link href="/guides/2025-taiwan-7-seater-suv-mpv-buying-recommendations" className="text-cyan-700 hover:text-cyan-800 transition-colors font-semibold">
+                  🏆 2025 台灣七人座休旅與 MPV 評選推薦
+                </Link>
+              </li>
+              <li>
                 <Link href="/guides/true-7-seater-mpv-vs-5-plus-2-suv" className="text-slate-600 hover:text-sky-600 transition-colors">
                   正 MPV vs 5+2 SUV 空間與安全
                 </Link>

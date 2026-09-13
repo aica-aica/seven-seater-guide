@@ -45,10 +45,10 @@ export default function TopPicks() {
             <span>編輯部實測推薦</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
-            2024-2025 台灣各用車場景 精選年度最佳七人座
+            2025 台灣七人座休旅車與 MPV 推薦：四大家庭情境精選
           </h2>
           <p className="text-xs sm:text-sm text-slate-500 mt-2">
-            沒有最好的車，只有最適合你家人口結構與停車條件的車。
+            依據三代同堂舒適度、雙汽座上下車動線、150 萬高 CP 值與露營裝載容量實測，為不同家庭推薦最適座駕。
           </p>
         </div>
 

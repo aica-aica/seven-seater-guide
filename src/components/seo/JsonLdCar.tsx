@@ -8,7 +8,7 @@ interface JsonLdCarProps {
 export default function JsonLdCar({ car, canonicalUrl }: JsonLdCarProps) {
   const fullImageUrl = car.heroImage.startsWith('http')
     ? car.heroImage
-    : `https://aica-aica.github.io/seven-seater-guide${car.heroImage.startsWith('/') ? car.heroImage : `/${car.heroImage}`}`;
+    : `https://7seater-guide.tw${car.heroImage.startsWith('/') ? car.heroImage : `/${car.heroImage}`}`;
 
   const graphEntities: any[] = [
     {

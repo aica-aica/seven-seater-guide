@@ -24,17 +24,37 @@ export async function generateMetadata({ params }: GuideDetailPageProps): Promis
   const guide = GUIDES_DATA.find((g) => g.slug === slug);
   if (!guide) return { title: '文章不存在' };
 
+  const canonicalUrl = `https://7seater-guide.tw/guides/${guide.slug}`;
+
   return {
-    title: `${guide.title} | 七人座選購攻略`,
+    title: `${guide.title} | 七人座選車專題`,
     description: guide.summary,
+    keywords: [
+      guide.title,
+      guide.categoryLabel,
+      '七人座選購攻略',
+      '七人座評測',
+      '正MPV vs 5+2',
+      '七人座推薦',
+    ],
+    alternates: {
+      canonical: canonicalUrl,
+    },
     openGraph: {
       title: guide.title,
       description: guide.summary,
+      url: canonicalUrl,
       images: [{ url: guide.heroImage, width: 1200, height: 630, alt: guide.title }],
       type: 'article',
       publishedTime: guide.publishedAt,
       modifiedTime: guide.updatedAt,
       authors: [guide.author.name],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: guide.title,
+      description: guide.summary,
+      images: [guide.heroImage],
     },
   };
 }

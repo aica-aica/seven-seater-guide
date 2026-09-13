@@ -30,13 +30,34 @@ export async function generateMetadata({ params }: CarDetailPageProps): Promise<
   const minWan = (car.priceRangeTwd[0] / 10000).toFixed(0);
   const maxWan = (car.priceRangeTwd[1] / 10000).toFixed(0);
 
+  const canonicalUrl = `https://7seater-guide.tw/cars/${car.slug}`;
+
   return {
     title: `${car.brand} ${car.model} 七人座評測：第三排空間、ISOFIX與行李箱實測`,
     description: `${car.brand} ${car.model} 售價 ${minWan}~${maxWan}萬。${car.tagline}。提供 7 人座滿載行李箱容積、${car.seating.layout} 座椅走道動線、${car.safety.isofixPoints} 組 ISOFIX 汽座安裝與客觀優缺點分析。`,
+    keywords: [
+      `${car.brand} ${car.model}`,
+      `${car.model} 七人座`,
+      `${car.model} 第三排空間`,
+      `${car.model} 行李箱`,
+      `${car.model} ISOFIX`,
+      `${car.model} 評價`,
+      '七人座評測',
+    ],
+    alternates: {
+      canonical: canonicalUrl,
+    },
     openGraph: {
       title: `${car.brand} ${car.model} (${car.year}) 七人座完整評測規格`,
       description: `${car.tagline}，真實行李容積 ${car.luggage.litres7SeatMode}L，第三排空間評測。`,
+      url: canonicalUrl,
       images: [{ url: getCarImageUrl(car.heroImage), width: 1200, height: 630, alt: car.model }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${car.brand} ${car.model} 七人座評測規格與空間實測`,
+      description: `${car.tagline}。七人滿載行李箱 ${car.luggage.litres7SeatMode}L。`,
+      images: [getCarImageUrl(car.heroImage)],
     },
   };
 }
