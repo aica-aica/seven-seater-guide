@@ -2,6 +2,336 @@ import { GuideArticle } from '@/types/guide';
 
 export const GUIDES_DATA: GuideArticle[] = [
   {
+    slug: '2025-taiwan-7-seater-suv-mpv-buying-recommendations',
+    title: '2025年台灣七人座休旅車與MPV推薦：家庭與商務需求的完美選擇',
+    subtitle: '9 大熱銷車款全方位評選：價格、動力、油耗、第三排實用性評等與避坑清單',
+    category: 'buying-advice',
+    categoryLabel: '年度選車推薦',
+    publishedAt: '2025-04-18',
+    updatedAt: '2025-04-20',
+    readTimeMinutes: 9,
+    author: {
+      name: '國王車訊 (King Autos) 編輯部 × 7SeaterGuide 專題小組',
+      role: '資深汽車媒體評測團隊 & 七人座空間工程研究組',
+      avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=200&q=80',
+    },
+    summary: '隨著台灣家庭結構多元化與休閒活動增加，七人座休旅車與 MPV 在 2025 年台灣車市持續受到高度矚目。本篇深度評選專題針對台灣已上市的 9 款主流七人座（Custin、n7、Carnival、Kodiaq、CX-90、GLB、Q7、Model X、Alphard）進行全方位橫向比較，涵蓋價格區間、動力類型、平均油耗、第三排成人實用性評等與推薦客群，並深入探討 Toyota Sienta 停產後的百萬內空窗期與未來新車展望。',
+    heroImage: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=1200&q=80',
+    tableOfContents: [
+      { id: 'market-overview', title: '1. 2025 台灣七人座車市現況：家庭出行與商務多功能需求', level: 2 },
+      { id: 'matrix-table', title: '2. 2025 台灣 9 款主力七人座休旅車與 MPV 核心規格比較表', level: 2 },
+      { id: 'budget-and-mid', title: '3. 預算型家庭與節能新選：Hyundai Custin vs Luxgen n7', level: 2 },
+      { id: 'family-and-camping', title: '4. 大家庭與戶外露營首選：Kia Carnival vs Skoda Kodiaq', level: 2 },
+      { id: 'luxury-and-driving', title: '5. 質感駕馭與豪華進階：Mazda CX-90 vs Mercedes-Benz GLB', level: 2 },
+      { id: 'flagship-and-ev', title: '6. 頂級商務與純電霸主：Audi Q7 vs Tesla Model X vs Toyota Alphard', level: 2 },
+      { id: 'market-outlook', title: '7. 市場趨勢前瞻：Sienta 停產後的百萬內空窗期與未來新車展望', level: 2 },
+      { id: 'citation-source', title: '8. 參考文獻與專題引述來源（國王車訊 King Autos）', level: 2 },
+    ],
+    keyTakeaways: [
+      '2024 年 MPV 銷售冠軍 Hyundai Custin 以 132.9~149.9 萬提供雙側電動滑門與 Level 2，是預算型家庭的高 CP 值首選；但七人滿載時行李廂空間偏小。',
+      '全尺寸正七人座 Kia Carnival 具備評等「優秀」的成人長途第三排空間，且座椅折疊下沉後魔術行李容積高達 2,905L，是大家庭與露營愛好者的旗艦堡壘。',
+      '歐系 5+2 銷售冠軍 Skoda Kodiaq 以 1.5 e-TEC 輕油電（16.8 km/L）、4x4 四驅與 DCC 動態底盤兼顧省油與駕駛樂趣；日系旗艦 Mazda CX-90 則以 3.3L 直六 345 匹馬力與 Nappa 真皮展現越級豪華。',
+      'Toyota Sienta 停產後造成台灣百萬以內 7 人座 MPV 的市場真空，促使預算型買家轉向 Custin、n7 或二手市場；未來 Opel Combo 與次世代大改款車型動向值得期待。',
+    ],
+    relatedCarSlugs: ['hyundai-custin', 'kia-carnival', 'skoda-kodiaq', 'mazda-cx-90', 'toyota-alphard', 'toyota-sienna'],
+    contentHtml: `
+      <section id="market-overview">
+        <h2>1. 2025 台灣七人座車市現況：家庭出行與商務多功能需求</h2>
+        <p>隨著台灣家庭結構的多元化與休閒活動需求的增加，七人座休旅車與 MPV（多功能休旅車）在 2025 年的台灣車市持續受到高度矚目。這些車款不僅滿足多人口三代同堂的出行需求，也因其靈活的空間配置與多功能性，成為商務接送、戶外露營改裝等多元用途的理想選擇。</p>
+        <p>本文針對 2025 年台灣市場已上市的七人座休旅車與 MPV 進行深入橫向分析與評比，涵蓋價格區間、動力性能、油耗數據、第三排成人實用性與推薦客群，協助消費者找到最適合自身生活情境的理想座駕。</p>
+      </section>
+
+      <section id="matrix-table">
+        <h2>2. 2025 台灣 9 款主力七人座休旅車與 MPV 核心規格比較表</h2>
+        <p>以下綜合整理台灣主流 9 款七人座車款之關鍵指標（依價格由平價至豪華排序）：</p>
+        <div class="overflow-x-auto my-6">
+          <table class="w-full text-left border-collapse border border-slate-200 text-xs sm:text-sm">
+            <thead>
+              <tr class="bg-[#f0f5fb] text-cyan-800 font-bold">
+                <th scope="col" class="p-3 border border-slate-200">車款名稱</th>
+                <th scope="col" class="p-3 border border-slate-200">價格區間 (萬元)</th>
+                <th scope="col" class="p-3 border border-slate-200">動力類型</th>
+                <th scope="col" class="p-3 border border-slate-200">平均油耗 (km/L)</th>
+                <th scope="col" class="p-3 border border-slate-200">第三排實用性</th>
+                <th scope="col" class="p-3 border border-slate-200">推薦用途客群</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-200">
+              <tr>
+                <td class="p-3 border border-slate-200 font-bold text-slate-900">
+                  <a href="/cars/hyundai-custin" class="text-cyan-700 hover:underline">Hyundai Custin</a>
+                </td>
+                <td class="p-3 border border-slate-200 font-mono font-bold">132.9 - 149.9</td>
+                <td class="p-3 border border-slate-200">1.5L 渦輪增壓 (170hp)</td>
+                <td class="p-3 border border-slate-200 font-mono">15.0</td>
+                <td class="p-3 border border-slate-200 text-amber-700 font-semibold">中等 (短途中程)</td>
+                <td class="p-3 border border-slate-200 text-slate-700">預算型家庭 / 雙側滑門需求</td>
+              </tr>
+              <tr class="bg-[#f8fafc]">
+                <td class="p-3 border border-slate-200 font-bold text-slate-900">Luxgen n7 (七人座)</td>
+                <td class="p-3 border border-slate-200 font-mono font-bold">134.9 - 149.9</td>
+                <td class="p-3 border border-slate-200">純電馬達 (230hp / 續航489-664km)</td>
+                <td class="p-3 border border-slate-200 font-mono text-emerald-700 font-bold">純電 (每km約0.7元)</td>
+                <td class="p-3 border border-slate-200 text-amber-700 font-semibold">中等 (適合成人短途)</td>
+                <td class="p-3 border border-slate-200 text-slate-700">節能短程家庭 / 國產純電</td>
+              </tr>
+              <tr>
+                <td class="p-3 border border-slate-200 font-bold text-slate-900">
+                  <a href="/cars/kia-carnival" class="text-cyan-700 hover:underline">Kia Carnival</a>
+                </td>
+                <td class="p-3 border border-slate-200 font-mono font-bold">164.9 - 205.9</td>
+                <td class="p-3 border border-slate-200">2.2L 柴油渦輪 (194hp / 45kgm)</td>
+                <td class="p-3 border border-slate-200 font-mono text-emerald-700 font-bold">14.6 (柴油省稅)</td>
+                <td class="p-3 border border-slate-200 text-emerald-700 font-bold">優秀 (全尺寸成人長途)</td>
+                <td class="p-3 border border-slate-200 text-slate-700">三代同堂大家庭 / 重度戶外露營</td>
+              </tr>
+              <tr class="bg-[#f8fafc]">
+                <td class="p-3 border border-slate-200 font-bold text-slate-900">
+                  <a href="/cars/skoda-kodiaq" class="text-cyan-700 hover:underline">Skoda Kodiaq</a>
+                </td>
+                <td class="p-3 border border-slate-200 font-mono font-bold">154.8 - 174.8</td>
+                <td class="p-3 border border-slate-200">1.5L 輕油電 / 2.0L 渦輪 4x4 (150-204hp)</td>
+                <td class="p-3 border border-slate-200 font-mono">16.8 / 12.6</td>
+                <td class="p-3 border border-slate-200 text-emerald-700 font-bold">優秀 (同級5+2最佳)</td>
+                <td class="p-3 border border-slate-200 text-slate-700">歐系家庭 / 重視底盤操控</td>
+              </tr>
+              <tr>
+                <td class="p-3 border border-slate-200 font-bold text-slate-900">
+                  <a href="/cars/mazda-cx-90" class="text-cyan-700 hover:underline">Mazda CX-90</a>
+                </td>
+                <td class="p-3 border border-slate-200 font-mono font-bold">179.9 - 203.9</td>
+                <td class="p-3 border border-slate-200">3.3L 直六渦輪增壓 (345hp)</td>
+                <td class="p-3 border border-slate-200 font-mono">12.2</td>
+                <td class="p-3 border border-slate-200 text-amber-700 font-semibold">中等 (短途舒適)</td>
+                <td class="p-3 border border-slate-200 text-slate-700">日系工藝質感家庭 / 駕馭樂趣</td>
+              </tr>
+              <tr class="bg-[#f8fafc]">
+                <td class="p-3 border border-slate-200 font-bold text-slate-900">Mercedes-Benz GLB</td>
+                <td class="p-3 border border-slate-200 font-mono font-bold">238.0 - 308.0</td>
+                <td class="p-3 border border-slate-200">1.4L / 2.0L 渦輪+48V (163-224hp)</td>
+                <td class="p-3 border border-slate-200 font-mono">11.8 - 14.4</td>
+                <td class="p-3 border border-slate-200 text-amber-700 font-semibold">中等 (建議身高165cm以下)</td>
+                <td class="p-3 border border-slate-200 text-slate-700">豪華三芒星中小型都會家庭</td>
+              </tr>
+              <tr>
+                <td class="p-3 border border-slate-200 font-bold text-slate-900">Audi Q7</td>
+                <td class="p-3 border border-slate-200 font-mono font-bold">325.0 - 560.0</td>
+                <td class="p-3 border border-slate-200">2.0L / 3.0L V6 渦輪+48V (340hp)</td>
+                <td class="p-3 border border-slate-200 font-mono">9.8 - 12.5</td>
+                <td class="p-3 border border-slate-200 text-emerald-700 font-bold">優秀 (成人中長途適應)</td>
+                <td class="p-3 border border-slate-200 text-slate-700">頂級豪華大家庭 / 全天候quattro四驅</td>
+              </tr>
+              <tr class="bg-[#f8fafc]">
+                <td class="p-3 border border-slate-200 font-bold text-slate-900">Tesla Model X (七人座)</td>
+                <td class="p-3 border border-slate-200 font-mono font-bold">339.59 (客製選配)</td>
+                <td class="p-3 border border-slate-200">雙電機全輪驅動 (670hp / 續航560km)</td>
+                <td class="p-3 border border-slate-200 font-mono text-emerald-700 font-bold">純電 (每km約0.7元)</td>
+                <td class="p-3 border border-slate-200 text-emerald-700 font-bold">優秀 (適合成人長途)</td>
+                <td class="p-3 border border-slate-200 text-slate-700">尖端純電科技 / 鷹翼門獨特魅力</td>
+              </tr>
+              <tr>
+                <td class="p-3 border border-slate-200 font-bold text-slate-900">
+                  <a href="/cars/toyota-alphard" class="text-cyan-700 hover:underline">Toyota Alphard</a>
+                </td>
+                <td class="p-3 border border-slate-200 font-mono font-bold">316.0</td>
+                <td class="p-3 border border-slate-200">2.5L Hybrid 油電 (綜效188hp)</td>
+                <td class="p-3 border border-slate-200 font-mono text-emerald-700 font-bold">15.5</td>
+                <td class="p-3 border border-slate-200 text-emerald-700 font-bold">優秀 (陸上頭等艙極致舒適)</td>
+                <td class="p-3 border border-slate-200 text-slate-700">高階企業總裁商務 / 尊榮家庭出行</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="budget-and-mid">
+        <h2>3. 預算型家庭與節能新選：Hyundai Custin vs Luxgen n7</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-4">
+          <div class="p-4 rounded-xl bg-white border border-slate-200 shadow-sm space-y-2">
+            <h3 class="text-base font-bold text-slate-900 flex items-center justify-between">
+              <span>Hyundai Custin</span>
+              <span class="text-xs text-cyan-700 font-mono font-bold">132.9 ~ 149.9 萬</span>
+            </h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              <strong>【2024 MPV 銷售冠軍】</strong> 國產化帶來壓倒性的配備性價比，標配雙側感應電動滑門與二排 VIP 皇家座椅，是百萬級距唯一具備正統 MPV 基因的家庭車款。
+            </p>
+            <ul class="text-xs text-slate-600 space-y-1">
+              <li><strong>動力油耗</strong>：1.5L 渦輪增壓 170 匹，平均油耗 15.0 km/L，稅金每年僅 11,920 元。</li>
+              <li><strong>安全配備</strong>：Hyundai SmartSense 包含 FCA 前方碰撞輔助、LKA 車道維持等完整 Level 2。</li>
+              <li><strong class="text-rose-600">避坑缺點</strong>：七人坐滿時後行李廂容積較為緊湊（僅約 262 公升）；二手市場保值率稍遜於日系競品。</li>
+              <li><strong>推薦客群</strong>：重視長輩孩童上下車便利性、追求高 CP 值的務實家庭。</li>
+            </ul>
+          </div>
+
+          <div class="p-4 rounded-xl bg-white border border-slate-200 shadow-sm space-y-2">
+            <h3 class="text-base font-bold text-slate-900 flex items-center justify-between">
+              <span>Luxgen n7 (七人座)</span>
+              <span class="text-xs text-cyan-700 font-mono font-bold">134.9 ~ 149.9 萬</span>
+            </h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              <strong>【台灣唯一國產純電七人座】</strong> 享有政府綠能補助與免牌照燃料稅優勢，起步瞬間即享有 230 匹馬力純電動力的安靜平順。
+            </p>
+            <ul class="text-xs text-slate-600 space-y-1">
+              <li><strong>續航節能</strong>：NEDC 續航約 489 ~ 664 公里，家用離峰充電每公里成本不到 1 元。</li>
+              <li><strong>空間彈性</strong>：第二排具備大幅度前後滑移功能，第三排座椅適合成人中短途接送。</li>
+              <li><strong class="text-rose-600">避坑缺點</strong>：全台快速充電與專屬保修服務網點仍在持續布建，長途遠行需事先規劃充電站。</li>
+              <li><strong>推薦客群</strong>：每日都會通勤、家中有充電樁且偏好純電寧靜駕駛的家庭。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="family-and-camping">
+        <h2>4. 大家庭與戶外露營首選：Kia Carnival vs Skoda Kodiaq</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-4">
+          <div class="p-4 rounded-xl bg-white border border-slate-200 shadow-sm space-y-2">
+            <h3 class="text-base font-bold text-slate-900 flex items-center justify-between">
+              <span>Kia Carnival</span>
+              <span class="text-xs text-cyan-700 font-mono font-bold">164.9 ~ 205.9 萬</span>
+            </h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              <strong>【正七人座露營霸主】</strong> 軸距長達 3,090mm，第三排乘坐舒適度榮獲評等「優秀」，成年人長途乘坐 2 小時毫無小板凳壓迫感。
+            </p>
+            <ul class="text-xs text-slate-600 space-y-1">
+              <li><strong>巨量載物容積</strong>：第三排座椅可完全翻摺下沉至底板，釋放高達 <strong>2,905 公升</strong> 的驚人後廂空間，大型帳篷、四張折疊椅與露營推車全數吞吐自如。</li>
+              <li><strong>強悍柴油動力</strong>：2.2L 柴油渦輪爆發 45.0 kgm 龐大扭力，滿載 7 人爬高山毫不費力，且柴油年稅金僅 14,938 元。</li>
+              <li><strong class="text-rose-600">避坑缺點</strong>：車長達 5,155mm、車寬逼近 2 米，在市區巷弄穿梭與老舊機械車格停車較具心理壓力；頂規價格已超過 200 萬元。</li>
+              <li><strong>推薦客群</strong>：熱愛戶外長途露營、家中有 3 位以上成年人的多人口家庭。</li>
+            </ul>
+          </div>
+
+          <div class="p-4 rounded-xl bg-white border border-slate-200 shadow-sm space-y-2">
+            <h3 class="text-base font-bold text-slate-900 flex items-center justify-between">
+              <span>Skoda Kodiaq</span>
+              <span class="text-xs text-cyan-700 font-mono font-bold">154.8 ~ 174.8 萬</span>
+            </h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              <strong>【歐系進口七人座 SUV 銷售冠軍】</strong> 延續福斯集團 MQB 模組化底盤優良血統，在 5+2 SUV 級距中擁有最佳的車廂空間規劃。
+            </p>
+            <ul class="text-xs text-slate-600 space-y-1">
+              <li><strong>歐系精準操控</strong>：高階款搭載 4x4 全時四輪驅動與 DCC 動態底盤控制系統，山路過彎側傾抑制極佳。</li>
+              <li><strong>高效動力選擇</strong>：1.5 TSI e-TEC 48V 輕油電具備 16.8 km/L 優秀油耗；頂規 2.0 TSI 輸出 204 匹馬力。</li>
+              <li><strong class="text-rose-600">避坑缺點</strong>：第三排受限於 SUV 懸吊幾何，建議供身高 165cm 以下成人或學童乘坐；原廠維修保養據點相對日系較少。</li>
+              <li><strong>推薦客群</strong>：重視底盤扎實沉穩感、喜歡駕駛樂趣的歐系休旅車家庭。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="luxury-and-driving">
+        <h2>5. 質感駕馭與豪華進階：Mazda CX-90 vs Mercedes-Benz GLB</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-4">
+          <div class="p-4 rounded-xl bg-white border border-slate-200 shadow-sm space-y-2">
+            <h3 class="text-base font-bold text-slate-900 flex items-center justify-between">
+              <span>Mazda CX-90</span>
+              <span class="text-xs text-cyan-700 font-mono font-bold">179.9 ~ 203.9 萬</span>
+            </h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              <strong>【日系豪華工藝新標竿】</strong> 採用全新縱置後驅大型車平台，座艙採用 Warm Granite 暖灰雙色 Nappa 真皮、天然栓木與日式懸浮結織縫線，內裝奢華質感傲視 200 萬同級對手。
+            </p>
+            <ul class="text-xs text-slate-600 space-y-1">
+              <li><strong>3.3L 直六強勁動力</strong>：e-Skyactiv G 3.3 升直列六缸渦輪增壓引擎，輸出高達 345 匹最大馬力與 51.0 kgm 巔峰扭力，大車加速毫不拖泥帶水。</li>
+              <li><strong class="text-rose-600">避坑缺點</strong>：3,283cc 排氣量使台灣每年牌照燃料稅高達 36,860 元，持有稅負成本偏重；第三排腿部空間屬中等應急級別。</li>
+              <li><strong>推薦客群</strong>：追求卓越座艙觸感、對六缸順暢運轉與駕駛質感有嚴苛要求的品味家庭。</li>
+            </ul>
+          </div>
+
+          <div class="p-4 rounded-xl bg-white border border-slate-200 shadow-sm space-y-2">
+            <h3 class="text-base font-bold text-slate-900 flex items-center justify-between">
+              <span>Mercedes-Benz GLB</span>
+              <span class="text-xs text-cyan-700 font-mono font-bold">238.0 ~ 308.0 萬</span>
+            </h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              <strong>【三芒星都會入門 5+2】</strong> 方正越野輪廓結合賓士豪華品牌光環，搭載新世代 MBUX 雙 10.25 吋高解析螢幕與智慧語音助手。
+            </p>
+            <ul class="text-xs text-slate-600 space-y-1">
+              <li><strong>都會穿梭靈活</strong>：車長僅 4,634mm，在台北市老舊巷弄會車與標準機械車格停車毫無負擔。</li>
+              <li><strong>空間機能</strong>：第二排具備 14cm 滑移功能，後座椅全倒後行李容積可擴充至 1,800 公升；4MATIC 四驅系統能適應露營泥濘路面。</li>
+              <li><strong class="text-rose-600">避坑缺點</strong>：第三排空間較為緊繃，原廠標註建議身高 168cm 以下乘客乘坐；進口豪華品牌後續保養工資與耗材花費較高。</li>
+              <li><strong>推薦客群</strong>：追求三芒星尊榮品牌形象、以平日都會接送為主的中小型家庭。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="flagship-and-ev">
+        <h2>6. 頂級商務與純電霸主：Audi Q7 vs Tesla Model X vs Toyota Alphard</h2>
+        <div class="space-y-4 my-4">
+          <div class="p-4 rounded-xl bg-white border border-slate-200 shadow-sm space-y-2">
+            <h3 class="text-base font-bold text-slate-900 flex items-center justify-between">
+              <span>Audi Q7</span>
+              <span class="text-xs text-cyan-700 font-mono font-bold">325.0 ~ 560.0 萬</span>
+            </h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              <strong>【德系全尺寸七人座旗艦】</strong> 第三排乘坐評等「優秀」，標準配備主動式氣壓懸吊與 quattro 機械式全時四驅系統。車室隔音沉著無比，虛擬座艙與後廂收折後達 2,050 公升的平整化空間，提供豪門大家庭遠行的頂級安全感。
+            </p>
+            <p class="text-xs text-slate-500"><strong>避坑提醒</strong>：300 萬以上高入手門檻，大排氣量（3.0L V6 340hp）市區油耗約 9.8~12.5 km/L，後續持有養車成本較大。</p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-white border border-slate-200 shadow-sm space-y-2">
+            <h3 class="text-base font-bold text-slate-900 flex items-center justify-between">
+              <span>Tesla Model X (七人座)</span>
+              <span class="text-xs text-cyan-700 font-mono font-bold">339.59 萬 (含選配)</span>
+            </h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              <strong>【純電性能科技天花板】</strong> 標誌性鷹翼門（Falcon Wing Doors）內建超音波感應，在緊湊車位中僅需 30cm 橫向間隙即可垂直升起，長輩與幼童能直接「直立走入」第三排；雙電機全輪驅動榨出 670 匹超跑級馬力，續航達 560 公里（WLTP），行李空間高達 2,410 公升。
+            </p>
+            <p class="text-xs text-slate-500"><strong>避坑提醒</strong>：七人座版本需額外加價客製選配，新車交車等待期普遍長達 3 至 6 個月；長途自駕旅行需高度配合超充站動線規劃。</p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-white border border-slate-200 shadow-sm space-y-2">
+            <h3 class="text-base font-bold text-slate-900 flex items-center justify-between">
+              <span>Toyota Alphard</span>
+              <span class="text-xs text-cyan-700 font-mono font-bold">316.0 萬</span>
+            </h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              <strong>【陸上頭等艙商務霸主】</strong> 2.5L Hybrid 油電系統輸出 188 匹馬力，平均油耗高達 15.5 km/L。第二排極致奢華之 Ottoman 獨立電動按摩加熱通風座椅，搭配第三排寬敞腿部空間與 TSS 3.0 主動防護，是台灣頂級商務接送與政商名流的首選標竿。
+            </p>
+            <p class="text-xs text-slate-500"><strong>避坑提醒</strong>：全台車高達 1,950mm，嚴重超過一般 1.8m/1.85m 地下停車場安全上限，需特別挑選 2.0m 平面車位；新車訂單繁多、等車期漫長。</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="market-outlook">
+        <h2>7. 市場趨勢前瞻：Sienta 停產後的百萬內空窗期與未來新車展望</h2>
+        <p><strong>【百萬內 MPV 真空危機】</strong>：過去數年，Toyota Sienta 以 70~80 萬元親民價格、超低底盤與雙側滑門，長期壟斷台灣百萬以內的家庭與計程車七人座市場。然而隨著 Sienta 在台灣正式停售，<strong>台灣新車市場目前在「100 萬元以內」已完全沒有任何全新 7 人座 MPV 可供選擇！</strong></p>
+        <p>這項轉變直接導致預算在 100~130 萬元的家庭買家面臨抉擇：</p>
+        <ul>
+          <li><strong>轉向中古二手市場</strong>：尋找車況良好的二手 Sienta、Prius α 或末代 Previa。</li>
+          <li><strong>提高預算直上國產代表</strong>：將購車預算拉高至 130~140 萬區間，選擇配備滑門與豪華第二排的 <strong>Hyundai Custin</strong>，或享政府綠能補貼的國產純電 <strong>Luxgen n7</strong>。</li>
+          <li><strong>選擇歐系高頂商旅</strong>：如配備五組 ISOFIX、長途乘坐實用的 <strong>Volkswagen Caddy Maxi</strong>（約 145~155 萬）。</li>
+        </ul>
+        <p><strong>【未來新車展望】</strong>：為了填補這塊龐大需求，市場傳出多款潛在生力軍：歐系 Stellantis 集團旗下的 <strong>Opel Combo</strong> 預計評估導入台灣，為平價七人座市場注入新血；此外，日本豐田原廠傳聞正在開發 <strong>Previa 後繼次世代純電/油電車型</strong>，而大改款美規 Sienna 亦在次世代佈局之列。未來兩年的台灣七人座市場將呈現更加多元競爭的全新局面。</p>
+      </section>
+
+      <section id="citation-source">
+        <h2>8. 參考文獻與專題引述來源（國王車訊 King Autos）</h2>
+        <div class="p-5 my-4 rounded-2xl bg-gradient-to-r from-sky-50 to-blue-50 border border-sky-200 text-xs text-slate-700 space-y-2 shadow-sm">
+          <div class="flex items-center gap-2 font-bold text-sky-900 text-sm">
+            <span>📌 專業汽車媒體資料引用來源聲明</span>
+          </div>
+          <p class="leading-relaxed">
+            本評選專題之核心市場數據、車款規格評比矩陣、優缺點避坑指標與市場動態展望，部分內容觀點引述自知名汽車專業媒體<strong>【國王車訊 King Autos】</strong>之高流量原創報導：
+          </p>
+          <div class="p-3 bg-white/90 rounded-xl border border-sky-200/80 font-mono text-xs">
+            <span class="text-slate-500 block">引用文章：</span>
+            <a
+              href="https://www.kingautos.net/355660"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-cyan-700 hover:text-cyan-800 font-bold underline flex items-center gap-1 mt-0.5"
+            >
+              <span>《2025年台灣七人座休旅車與MPV推薦：家庭與商務需求的完美選擇》（作者：天王寺，發布於 國王車訊 King Autos）</span>
+            </a>
+          </div>
+          <p class="text-[11px] text-slate-500">
+            本站結合獨家 1:1 原廠車身長度寬度高度真實幾何比對系統、台灣地下停車場限高穿透力數據（1.80m / 1.85m）與第三排人體工學大腿承托角度研究，擴充呈現全台最具公信力的七人座多維度指南。
+          </p>
+        </div>
+      </section>
+    `,
+  },
+  {
     slug: 'true-7-seater-mpv-vs-5-plus-2-suv',
     title: '正七人座 MPV vs 5+2 SUV 深度剖析：第三排腿部支撐與追撞潰縮區安全真相',
     subtitle: '買車前必看！別讓「偶爾應急」變成家人的長途受罪與安全盲點',

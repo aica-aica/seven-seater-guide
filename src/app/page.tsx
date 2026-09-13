@@ -206,7 +206,7 @@ export default function HomePage() {
       {/* 5. Comparison Matrix Table Section */}
       <ComparisonMatrixPreview />
 
-      {/* 6. Analytical Buying Guides Section */}
+      {/* 6. In-Depth Editorial Guides Section */}
       <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-b border-slate-200/80">
         <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between mb-8 gap-4">
           <div>
@@ -214,22 +214,22 @@ export default function HomePage() {
               深度評測專題
             </span>
             <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
-              買車前必看的 4 大關鍵分析
+              七人座選購攻略與年度推薦專題
             </h2>
             <p className="text-xs sm:text-sm text-slate-500 mt-1">
-              由資深車輛工程技師與母嬰安全顧問執筆，破解展間銷售員不會告訴你的空間真相。
+              結合國王車訊權威選車評鑑與資深工程師客觀數據，破解展間銷售員不會告訴你的空間真相。
             </p>
           </div>
           <Link
             href="/guides"
             className="text-xs font-bold text-cyan-700 hover:text-cyan-600 flex items-center gap-1"
           >
-            查看全部指南文章
+            查看全部指南文章 ({GUIDES_DATA.length} 篇)
             <ArrowRight className="w-3.5 h-3.5" />
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {GUIDES_DATA.map((guide) => (
             <GuideCard key={guide.slug} guide={guide} />
           ))}
@@ -254,7 +254,7 @@ export default function HomePage() {
 
           {/* Structured Accordion */}
           <div className="space-y-4">
-            {FAQS_DATA.slice(0, 4).map((faq) => {
+            {FAQS_DATA.map((faq) => {
               const isOpen = openFaqId === faq.id;
               return (
                 <div
