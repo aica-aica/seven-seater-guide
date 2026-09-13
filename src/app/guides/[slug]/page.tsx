@@ -8,6 +8,7 @@ import TableOfContents from '@/components/guides/TableOfContents';
 import JsonLdArticle from '@/components/seo/JsonLdArticle';
 import CarCard from '@/components/home/CarCard';
 import { ChevronRight, Clock, Calendar, Sparkles, ArrowLeft } from 'lucide-react';
+import { getCarImageUrl } from '@/utils/image';
 
 interface GuideDetailPageProps {
   params: Promise<{ slug: string }>;
@@ -44,7 +45,7 @@ export async function generateMetadata({ params }: GuideDetailPageProps): Promis
       title: guide.title,
       description: guide.summary,
       url: canonicalUrl,
-      images: [{ url: guide.heroImage, width: 1200, height: 630, alt: guide.title }],
+      images: [{ url: getCarImageUrl(guide.heroImage), width: 1200, height: 630, alt: guide.title }],
       type: 'article',
       publishedTime: guide.publishedAt,
       modifiedTime: guide.updatedAt,
@@ -54,7 +55,7 @@ export async function generateMetadata({ params }: GuideDetailPageProps): Promis
       card: 'summary_large_image',
       title: guide.title,
       description: guide.summary,
-      images: [guide.heroImage],
+      images: [getCarImageUrl(guide.heroImage)],
     },
   };
 }
@@ -136,6 +137,21 @@ export default async function GuideDetailPage({ params }: GuideDetailPageProps) 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
           {/* Main Body Column */}
           <article className="lg:col-span-8 space-y-8">
+            {/* Article Hero Image */}
+            <div className="relative rounded-2xl overflow-hidden aspect-video max-h-[420px] w-full border border-slate-200/90 shadow-sm bg-slate-100">
+              <img
+                src={getCarImageUrl(guide.heroImage)}
+                alt={guide.title}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between text-white text-xs drop-shadow-md">
+                <span className="font-semibold bg-black/50 backdrop-blur-md px-2.5 py-1 rounded-md border border-white/20">
+                  {guide.categoryLabel} 實車評測圖例
+                </span>
+              </div>
+            </div>
+
             {/* Key Takeaways Box (GEO Friendly) */}
             <div className="p-5 sm:p-6 rounded-2xl bg-cyan-50/80 border border-cyan-200/90 shadow-sm">
               <div className="flex items-center gap-2 mb-3">

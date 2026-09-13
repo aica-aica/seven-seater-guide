@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { GuideArticle } from '@/types/guide';
 import { Clock, BookOpen, ArrowRight } from 'lucide-react';
+import { getCarImageUrl } from '@/utils/image';
 
 interface GuideCardProps {
   guide: GuideArticle;
@@ -12,7 +13,7 @@ export default function GuideCard({ guide }: GuideCardProps) {
     <article className="bg-white/90 backdrop-blur-xl border border-slate-200/90 rounded-2xl overflow-hidden hover:border-cyan-400/60 transition-all hover:shadow-xl hover:shadow-cyan-600/5 flex flex-col group shadow-sm">
       <div className="relative h-48 sm:h-52 w-full overflow-hidden bg-slate-100">
         <img
-          src={guide.heroImage}
+          src={getCarImageUrl(guide.heroImage)}
           alt={guide.title}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
           loading="lazy"

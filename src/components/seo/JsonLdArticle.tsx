@@ -6,6 +6,10 @@ interface JsonLdArticleProps {
 }
 
 export default function JsonLdArticle({ article, canonicalUrl }: JsonLdArticleProps) {
+  const fullImageUrl = article.heroImage.startsWith('http')
+    ? article.heroImage
+    : `https://7seater-guide.tw${article.heroImage.startsWith('/') ? article.heroImage : `/${article.heroImage}`}`;
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@graph': [
@@ -18,7 +22,7 @@ export default function JsonLdArticle({ article, canonicalUrl }: JsonLdArticlePr
         },
         headline: article.title,
         description: article.summary,
-        image: [article.heroImage],
+        image: [fullImageUrl],
         datePublished: article.publishedAt,
         dateModified: article.updatedAt,
         inLanguage: 'zh-TW',

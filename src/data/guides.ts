@@ -16,7 +16,7 @@ export const GUIDES_DATA: GuideArticle[] = [
       avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=200&q=80',
     },
     summary: '隨著台灣家庭結構多元化與休閒活動增加，七人座休旅車與 MPV 在 2025 年台灣車市持續受到高度矚目。本篇深度評選專題針對台灣已上市的 9 款主流七人座（Custin、n7、Carnival、Kodiaq、CX-90、GLB、Q7、Model X、Alphard）進行全方位橫向比較，涵蓋價格區間、動力類型、平均油耗、第三排成人實用性評等與推薦客群，並深入探討 Toyota Sienta 停產後的百萬內空窗期與未來新車展望。',
-    heroImage: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/images/cars/kia-carnival.jpg',
     tableOfContents: [
       { id: 'market-overview', title: '1. 2025 台灣七人座車市現況：家庭出行與商務多功能需求', level: 2 },
       { id: 'matrix-table', title: '2. 2025 台灣 9 款主力七人座休旅車與 MPV 核心規格比較表', level: 2 },
@@ -346,7 +346,7 @@ export const GUIDES_DATA: GuideArticle[] = [
       avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80',
     },
     summary: '許多家庭在換車時常陷入「正七人座 MPV」與「5+2 休旅車」的掙扎。本文從人體工學大腿支撐、第三排進出動線、滿載行李容積，以及最重要的「高速追撞後方潰縮區安全距離」四大維度展開全客觀對比。',
-    heroImage: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/images/cars/skoda-kodiaq.jpg',
     tableOfContents: [
       { id: 'definition', title: '1. 什麼是「正七人座 MPV」與「5+2 SUV」？', level: 2 },
       { id: 'ergonomics', title: '2. 人體工學差異：為什麼 5+2 的第三排「像坐小板凳」？', level: 2 },
@@ -475,7 +475,7 @@ export const GUIDES_DATA: GuideArticle[] = [
       avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80',
     },
     summary: '在台灣典型的 2.3m~2.5m 窄小停車格中，傳統外推門往往只能開啟不到 30 度角。本文針對家中有雙寶汽座的父母，實測側滑門在開口寬度、防撞保護、長輩扶手與電動腳踢感應帶來的巨大生活便利。',
-    heroImage: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/images/cars/hyundai-custin.jpg',
     tableOfContents: [
       { id: 'parking-dilemma', title: '1. 台灣停車環境痛點：傳統外推門的「30度角地獄」', level: 2 },
       { id: 'sliding-door-advantages', title: '2. 雙側電動滑門的三大無可替代優勢', level: 2 },
@@ -544,7 +544,7 @@ export const GUIDES_DATA: GuideArticle[] = [
       avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80',
     },
     summary: '2+2+3 與 2+3+2 哪種更好？前者擁有尊榮獨立座與走道，後者五人出遊時能保有無敵行李空間。本文詳細拆解兩種佈局在不同家庭成員結構下的最佳解答。',
-    heroImage: 'https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/images/cars/toyota-sienna.jpg',
     tableOfContents: [
       { id: 'layouts-overview', title: '1. 兩種主流七人座佈局架構', level: 2 },
       { id: '223-pros-cons', title: '2. 2+2+3 獨立走道式：優勢與致命傷', level: 2 },
@@ -620,7 +620,7 @@ export const GUIDES_DATA: GuideArticle[] = [
       avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80',
     },
     summary: '七人座車重通常超過 2 噸，滿載 7 人更逼近 2.6 噸！傳統汽油自然進氣常有力不從心之感。本文針對油電（Hybrid）與柴油渦輪（Diesel）兩大主力動力進行稅金、保養與駕駛特性深度分析。',
-    heroImage: 'https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/images/cars/volkswagen-caddy-maxi.jpg',
     tableOfContents: [
       { id: 'weight-challenge', title: '1. 兩噸車重的大考驗：為什麼動力對 7 人座如此關鍵？', level: 2 },
       { id: 'hybrid-features', title: '2. 油電 Hybrid：極致市區平順與怠速吹冷氣神隊友', level: 2 },
